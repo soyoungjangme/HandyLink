@@ -1,0 +1,399 @@
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.reservation-header {
+  display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+
+.user-top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  /* text-align: center; */
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+}
+
+
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+
+}
+
+
+
+.no-reservation-message{
+  display: flex;
+  font-size: 16px;
+  text-align: center;
+  align-items: flex-end;
+  justify-content: center;
+  height: 300px;
+  background: #fff;
+  color: gray;
+}
+
+/* --------------------------------------------------- */
+
+
+.user-content-container11 {
+  background-color: white;
+  /* border-radius: 10px; */
+  padding: 20px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  border: none;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.payment-info-top {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.payment-left {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left;
+  flex: 1;
+}
+
+.payment-right {
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-align: right;
+  flex: 1;
+}
+
+.payment-right a {
+  color: #000;
+}
+
+
+.reservation-date {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.info-row .left {
+  text-align: left;
+  flex: 1;
+}
+
+.info-row .right {
+  text-align: right;
+  flex: 1;
+}
+
+
+
+.payment-amount {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.reservation-info img {
+  width: 140px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.reservation-details {
+  flex-grow: 1;
+  margin-left: 25px;
+}
+
+.reservation-details .store-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.reservation-details .menu {
+  font-size: 16px;
+  margin: 5px 0 5px 5px;
+}
+
+.reservation-details .option {
+  margin: 5px 0 5px 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 10px;
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-left {
+  color: #000;
+  background-color: rgba(44, 52, 143, 0.16);
+}
+
+.btn-right {
+  color: white;
+  background-color: #738BE3;
+}
+
+
+.payment-info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* ---------------- */
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+
+
+.user-main-content {
+  /* padding : 15px; */
+  margin-bottom: 100px;
+  /* border : 1px solid blue; */
+  background-color: #F5F5F5;
+}
+
+
+.reservation-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  border: 1px solid #e0e0e0;
+}
+
+.reservation-status {
+  font-weight: bold;
+  border: 1px solid;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.status-pending {
+  color: #b0b0b0;
+  border-color: #b0b0b0;
+}
+
+.status-confirmed {
+  color: #4CAF50; 
+  border-color: #4CAF50;
+}
+
+.status-completed {
+  color: #fd8517; 
+  border-color: #fd8517;
+}
+
+.status-canceled {
+  color: #F44336;
+  border-color: #F44336;
+}
+
+.reservation-time {
+  text-align: right;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.review-write-btn {
+  background-color: #fd8517;
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 8px 8px; 
+  font-size: 12px; 
+  cursor: pointer;
+  width: 100%;
+}
+
+.store-name-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-details {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+
+
+.reservation-info .date-time {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.reservation-info .date-time span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.reservation-info-box {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #ab650057;
+  border-radius: 20px;
+  padding: 5px 8px;
+  justify-content: space-around;
+
+}
+
+.reservation-interface {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.date-selection button,
+.action-buttons button,
+.search-box button {
+  margin-right: 5px;
+}
+
+.date-range input {
+  margin: 0 5px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-menu select {
+  width: 100%;
+}
+
+
+
+.reservation-info-box > div i {
+  color: #fd8517;
+}
+
+
+.reservation-info {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+
+.reservation-info .date {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.reservation-info .time {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.reservation-info i {
+  margin-right: 5px;
+}
+
+.search-top {
+  overflow: hidden;
+  padding: 15px 15px 10px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-top .left {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  /* justify-content: center; */
+}
+
+.search-top .right {
+  float: right;
+  font-size: 20px;
+}

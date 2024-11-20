@@ -1,0 +1,94 @@
+/* 승인상태 */
+.reserve-status-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 300px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+.main-contents {
+  font-size: 16px;
+}
+.reserve-status-container .left {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 20px;
+}
+
+.reserve-status-container .mid {
+  font-size: 16px;
+  color: #333;
+  margin-right: 20px;
+}
+.detail-reserve-box {
+  display: flex;
+  justify-content: space-between;
+}
+.reserve-status-container .right {
+  position: relative;
+}
+
+
+.reserve-status-container select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.reserve-status-container select:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+
+
+/* 테이블 */
+.reserve-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.reserve-table th,
+.reserve-table td {
+  padding: 8px 15px;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+}
+
+
+.reserve-table th {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+
+
+.reserve-table h2 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-between; 
+  margin-bottom: 20px;
+}
+
+.reserve-table {
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+

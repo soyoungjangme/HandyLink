@@ -1,0 +1,127 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@font-face {
+font-family: 'ghanachoco';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'Pretendard-Regular';
+src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+font-weight: 400;
+font-style: normal;
+}
+@font-face {
+font-family: 'TTLaundryGothicB';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+font-weight: 700;
+font-style: normal;
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+    margin: 0;
+    padding: 0;
+    background-color: #ddd;
+}
+
+.admin-body {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 50px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: space-between; /* 왼쪽 정렬 */
+    margin-bottom: 30px;
+    background-color: #fff; /* 배경색 추가 */
+    border-radius: 10px; /* 둥근 모서리 추가 */
+}
+
+.step {
+    text-align: center;
+    position: relative; /* 위치 설정 */
+    margin-right: 30px; /* 단계 간의 간격을 추가 */
+    width: 100%;
+}
+
+.icon {
+    width: 100%;
+    height: 60px;
+    /* background-color: #cccccc; */
+    background-color: rgb(56 65 74 / 20%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #727272;
+}
+
+.step.active .icon {
+/* background-color: #727272; */
+    background-color: #38414a;
+    color: white;
+}
+
+.icon p {
+    margin: 0;
+    text-align: center;
+    font-size: small;
+}
+
+.step:last-child {
+    margin-right: 0; /* 마지막 단계의 오른쪽 마진을 0으로 설정하여 공간 없애기 */
+}
+
+.step::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 30px; /* 연결선 너비 */
+    height: 2px; /* 연결선 높이 */
+    background-color: #38414a; /* 기본 연결선 색상 */
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+}
+
+.step:last-child::after {
+    display: none; /* 마지막 단계에선 연결선 숨김 */
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    font-family: 'Pretendard-Regular';
+}
+
+.buttons > button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: white;
+    font-weight: bold;
+    font-family: 'Pretendard-Regular';
+}
+
+.cancel-btn {
+/* background-color: #999; */
+    color: #999;
+    font-family: 'Pretendard-Regular';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.next-btn {
+    /* background-color: rgba(199, 4, 4, 0.685); */
+    color: #38414a;
+    /* font-family: 'ghanachoco'; */
+    font-family: 'Pretendard-Regular';
+    font-weight: bold;
+}

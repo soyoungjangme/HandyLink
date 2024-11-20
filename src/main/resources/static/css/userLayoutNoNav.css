@@ -1,0 +1,351 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+    font-family: 'ghanachoco';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+#root {
+    width: 100%;
+    height: calc(100% - 50px); /* 뒤로가기 버튼 높이만큼 뺌 */
+    overflow-y: auto;
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+    margin: 0px;
+    padding: 0px;
+}
+
+.user-main-container-no-nav {
+    padding: 0px;
+    margin: 0 auto;
+    max-width: 400px;
+    min-height: 55vh;
+    position: relative;
+    padding-top: 39px;
+}
+
+/* 최상단 좌측에 뒤로가기 버튼 */
+.top-bar {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+    z-index: 12;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.back-button i {
+    font-size: 20px;
+    color: #000;
+
+}
+
+.page-title {
+    font-size: 18px;
+}
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-top-btns > button {
+    height: 30px;
+    width: 50px;
+    font-size: 25px;
+    background-color: #fff;
+    border: none;
+}
+
+.user-content-container {
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.payment-amount {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.reservation-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.reservation-info img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.reservation-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.reservation-details h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.reservation-details p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.payment-info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.user-content-first {
+    margin-bottom: 30px;
+}
+
+.user-content-first-img > img {
+    position: relative;
+}
+
+.user-content-first-content {
+    padding: 15px;
+}
+
+.store-name {
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.store-name button {
+    height: 50px;
+    font-size: 25px;
+    background-color: #fff;
+    border: none;
+}
+
+.store-name button:active {
+    height: 50px;
+    font-size: 25px;
+    color: red;
+    background-color: #fff;
+    border: none;
+}
+
+.user-main-list-wrap {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 0px;
+}
+
+.user-main-list-container {
+    background-color: white;
+    margin: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.user-category-menu-img {
+    width: 150px;
+    height: 180px;
+    gap: 3%;
+}
+
+.user-category-name {
+    position: absolute;
+    top: 148px;
+    left: 13px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* 모바일 스크롤 스타일 */
+.user-main-list-wrap::-webkit-scrollbar {
+    height: 0px;
+}
+
+.user-main-list-wrap::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+/* 모바일 환경 */
+@media (max-width: 767px) {
+    .nav-button {
+        display: none !important;
+    }
+}
+
+.user-main-list-wrap2 {
+    overflow-x: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-main-list-wrap2::-webkit-scrollbar {
+    height: 0px;
+}
+
+.user-main-list-wrap2::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.user-main-list-wrap3 {
+    padding: 20px;
+    position: relative;
+}
+
+.sub-content-top,
+.sub-content-mid,
+.sub-content-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.sub-content-option {
+    margin-right: 10px;
+}
+
+.sub-content-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-main-list-sub-part {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.user-main-list-sub-content {
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.sub-content-img-box {
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sub-content-img-box img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 가게명 */
+.sub-content-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+/* 가게 카테고리 */
+.sub-content-category {
+    margin-top: 5px;
+}
+
+/* 영업시간 */
+.sub-content-date {
+    margin: 5px 10px 0 0;
+    font-size: 14px;
+}
+
+.bi-clock-fill {
+    margin-right: 5px;
+}
+
+/* 별점 */
+.sub-content-review {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.sub-content-review > span:nth-child(1) {
+    color: #FFD700;
+}
+
+.sub-content-review > span:nth-child(2) {
+    color: #999;
+}
+
+/* 위치 */
+.sub-content-location {
+    margin: 0 10px 5px 0;
+    font-size: 14px;
+}
+
+.bi-geo-alt-fill {
+    margin-right: 5px;
+}
+
+/* 가격 */
+.sub-content-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* 해시태그(메뉴명) */
+.sub-content-option-container {
+}
+
+.sub-content-option {
+    font-size: 16px;
+}

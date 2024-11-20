@@ -1,0 +1,118 @@
+
+.user-content-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: 2px solid #2C348F;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* 예약 정보 */
+.reservation-date {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.reservation-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.reservation-info img {
+  width: 140px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.reservation-details {
+  flex-grow: 1;
+  margin-left: 25px;
+}
+
+.reservation-details .store-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.reservation-details .menu {
+  font-size: 16px;
+  margin: 5px 0 5px 5px;
+}
+
+.reservation-details .option {
+  margin: 5px 0 5px 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 10px;
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-left {
+  color: #000;
+  background-color: rgba(44, 52, 143, 0.16);
+}
+
+.btn-right {
+  color: white;
+  background-color: #738BE3;
+}
+
+
+/* 결제 정보 */
+.payment-info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  /* 양쪽 끝에 배치 */
+  margin: 10px 0;
+  /* 각 줄 사이에 여백 추가 */
+}
+
+.info-row1 {
+  margin-left: 5px;
+}
+
+.info-row2 {
+  margin-left: 12px;
+}
+
+.left {
+  text-align: left;
+  /* 왼쪽 정렬 */
+  flex: 1;
+  /* 남은 공간 차지 */
+}
+
+.right {
+  text-align: right;
+  /* 오른쪽 정렬 */
+  flex: 1;
+  /* 남은 공간 차지 */
+}

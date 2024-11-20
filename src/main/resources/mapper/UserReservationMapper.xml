@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.HiMade.user.mapper.UserReservationMapper">
+
+    <select id="getMyReservationDetail" resultType="com.example.HiMade.user.dto.UserRD" parameterType="int">
+        SELECT
+        rf.reservation_no,
+        rf.reservation_form_key,
+        rf.middle_category_value,
+        r.user_delivery_type,
+        main_c.service_name AS main_category_name,
+        main_c.service_price AS main_price,
+        middle_c.service_name AS middle_category_name,
+        middle_c.service_price AS middle_price,
+        sub_c.service_name AS sub_category_name,
+        sub_c.service_price AS sub_price,
+        s.store_name AS store_name,
+        s.account_bank AS account_bank,
+        s.account_number AS account_number
+        FROM
+        reservation_form rf
+        LEFT JOIN
+        reservation r ON rf.reservation_no = r.reservation_no
+        LEFT JOIN
+        store s ON r.store_no = s.store_no
+        LEFT JOIN
+        category main_c ON rf.main_category_id = main_c.category_id
+        LEFT JOIN
+        category middle_c ON rf.middle_category_id = middle_c.category_id
+        LEFT JOIN
+        category sub_c ON rf.sub_category_id = sub_c.category_id
+        WHERE
+        r.reservation_no = #{id};
+    </select>
+
+    <select id="getMyReservationDetail2" resultType="com.example.HiMade.user.dto.UserRD" parameterType="int">
+        SELECT
+        *
+        FROM
+        reservation_form rf
+        LEFT JOIN
+        reservation r ON rf.reservation_no = r.reservation_no
+        LEFT JOIN
+        category c
+        ON c.category_id = rf.main_category_id
+        WHERE
+        r.reservation_no = #{id}
+    </select>
+
+
+<!-- 수정 필요함 고정 값 뿌리는 중 -->
+    <select id="getMyReserveList" resultType="com.example.HiMade.user.dto.UserRL">
+        SELECT
+        s.store_name,
+        r.reservation_no,
+        r.reservation_status,
+        r.reservation_price,
+        r.reg_time,
+        rs.reservation_slot_date,
+        rf.main_category_id,
+        c.service_name,
+        r.reservation_time,
+        (SELECT COUNT(*)
+        FROM reservation rv
+        JOIN review rw ON rv.reservation_no = rw.reservation_no
+        WHERE rv.user_id = #{userId} AND rv.reservation_no = r.reservation_no) AS review_count
+        FROM
+        reservation r
+        LEFT JOIN
+        store s ON s.store_no = r.store_no
+        LEFT JOIN
+        reservation_form rf ON r.reservation_no = rf.reservation_no
+        LEFT JOIN
+        category c ON c.category_id = rf.main_category_id
+        LEFT JOIN
+        reservation_slot rs ON rs.reservation_slot_key = r.reservation_slot_key
+        LEFT JOIN
+        users u ON u.user_id = r.user_id
+        WHERE
+        r.user_id =  #{userId}
+        GROUP BY
+        r.reservation_no, s.store_name, r.reservation_status, r.reservation_price,
+        r.reg_time, rs.reservation_slot_date, rf.main_category_id, c.service_name
+        ORDER BY r.reg_time desc
+    </select>
+
+    <select id="getDateTime" resultType="com.example.HiMade.user.dto.UserRSlotDTO">
+        select * from reservation_slot where  CAST(reservation_slot_date AS date)  = #{reservationSlotDate}
+        AND category_id = #{categoryId}
+    </select>
+
+    <select id="getDateTime2" resultType="com.example.HiMade.user.dto.UserRSlotDTO">
+        select * from reservation_slot where
+        category_id = #{categoryId}
+    </select>
+
+    <select id="getAllDateTime" resultType="com.example.HiMade.user.dto.UserRSlotDTO">
+        <![CDATA[
+    SELECT *
+    FROM reservation_slot rs
+    JOIN category c ON c.category_id = rs.category_id
+    WHERE c.category_id = #{categoryId}
+      AND rs.reservation_slot_date >= (
+          SELECT MIN(reservation_slot_date)
+          FROM reservation_slot
+          WHERE category_id = #{categoryId}
+      )
+      AND rs.reservation_slot_date < (
+          SELECT MIN(reservation_slot_date) + INTERVAL '6 months'
+          FROM reservation_slot
+          WHERE category_id = #{categoryId}
+      )
+      AND rs.reservation_slot_date >= (
+          SELECT CAST(service_start AS DATE)  -- 또는 DATE(service_start)
+    FROM category
+    WHERE category_id = #{categoryId}
+      ) -- 오늘 이후의 날짜만 포함
+    ORDER BY rs.reservation_slot_date;
+    ]]>
+    </select>
+
+
+
+    <update id="setUpdateStart" parameterType="com.example.HiMade.user.dto.UserRSlotDTO">
+        update category set service_start = #{serviceStart} WHERE category_id = #{categoryId}
+    </update>
+
+    <update id="setUpdateSlot" parameterType="com.example.HiMade.user.dto.UserUSlotDTO">
+        UPDATE reservation_slot
+        SET slot_status_count = #{slot_status_count} , limit_time = #{limitTime}
+        WHERE  category_id = #{categoryId} AND reservation_slot_date = #{reservationSlotDate}
+    </update>
+
+
+    <insert id="setReservationForm" parameterType="UserReservationDTO" useGeneratedKeys="true" keyProperty="reservationNo">
+        INSERT INTO reservation (reservation_status, reservation_time, reg_time, customer_request, reservation_price, user_id, reservation_slot_key, store_no, user_delivery_type)
+        VALUES (#{reservationStatus}, #{reservationTime}, CURRENT_TIMESTAMP, #{customerRequest}, #{reservationPrice}, #{userId}, #{reservationSlotKey}, #{storeNo}, #{userDeliveryType})
+        RETURNING reservation_no
+    </insert>
+
+    <insert id="setReservationFormDetail" parameterType="com.example.HiMade.user.dto.UserReservationFormDTO">
+        insert into reservation_form (main_category_id, middle_category_id, sub_category_id, middle_category_value, reservation_no )
+        values(#{mainCategoryId}, #{middleCategoryId}, #{subCategoryId}, #{middleCategoryValue}, #{reservationNo})
+
+    </insert>
+
+
+    <select id="getSlotTime" resultType="com.example.HiMade.user.dto.UserReservationDTO">
+        select reservation_time, count(*) AS reservation_time_status, reservation_slot_key
+        from reservation
+        where store_no = 7 AND reservation_slot_key = #{reservationSlotKey}
+        group by reservation_time,  reservation_slot_key;
+    </select>
+
+
+    <select id="getNoSlot" resultType="java.time.LocalDate">
+        select reservation_slot_date from reservation_slot where slot_count = slot_status_count AND category_id = #{id}
+    </select>
+
+    <update id="updateSlotCount1" parameterType="com.example.HiMade.user.dto.UserRSlotDTO">
+        update reservation_slot
+        set slot_count = #{slotCount}
+        where reservation_slot_date = #{reservationSlotDate} and  category_id = #{categoryId}
+    </update>
+
+    <update id="updateReservationStatus">
+        UPDATE reservation SET reservation_status = #{status} WHERE reservation_no = #{reservationNo}
+    </update>
+
+    <update id="updateSlotStatus">
+        UPDATE reservation_slot
+        SET slot_status_count = slot_status_count + 1
+        WHERE category_id = #{categoryId}
+        AND reservation_slot_date = #{reservationDate}
+        AND store_no = #{storeNo}
+    </update>
+
+
+<!--     리뷰 -->
+<!--    insert into review (review_rating, review_content, review_date, reservation_no, store_no, user_id)-->
+<!--    values (#{reviewRating}, #{reviewContent}, now(), #{reservationNo}, #{storeNo}, #{userId})-->
+    <insert id="setReview" parameterType="com.example.HiMade.user.dto.UserReviewDTO" useGeneratedKeys="true" keyProperty="reviewNo">
+        insert into review (review_rating, review_content, review_date, reservation_no)
+        values (#{reviewRating}, #{reviewContent}, now(), #{reservationNo})
+        returning review_no as reviewNo
+    </insert>
+
+    <insert id="setReviewImg" parameterType="map">
+        insert into review_img (review_img_url , review_no) values(#{reviewImgUrl}, #{reviewNo})
+    </insert>
+
+
+    <select id="getReviewList" resultType="com.example.HiMade.user.dto.UserReviewDTO">
+        select rw.review_no, rw.review_rating, rw.review_content, rw.review_date, rw.reservation_no, rn.store_no, rwi.review_img_url, u.user_name, c.service_name
+        from review rw
+        left join review_img rwi
+        on rwi.review_no = rw.review_no
+        left join reservation rn
+        on rn.reservation_no = rw.reservation_no
+        left join reservation_form rf
+        on rf.reservation_no = rn.reservation_no
+        left join category c
+        on rf.main_category_id = c.category_id
+        left join users u
+        on rn.user_id = u.user_id
+        where rn.store_no = ${id}
+        order by rw.review_no desc
+    </select>
+
+    <select id="getReviewPhotoList" resultType="com.example.HiMade.user.dto.UserReviewDTO">
+        select rw.review_no, rw.review_rating, rw.review_content, rw.review_date, rw.reservation_no, rn.store_no, rwi.review_img_url, u.user_name, c.service_name
+        from review rw
+        join review_img rwi
+        on rwi.review_no = rw.review_no
+        left join reservation rn
+        on rn.reservation_no = rw.reservation_no
+        left join reservation_form rf
+        on rf.reservation_no = rn.reservation_no
+        left join category c
+        on rf.main_category_id = c.category_id
+        left join users u
+        on rn.user_id = u.user_id
+        where rn.store_no = ${id}
+        order by rw.review_no desc
+    </select>
+
+    <resultMap id="UserReviewResultMap" type="com.example.HiMade.user.dto.UserReviewDTO">
+        <id property="reviewNo" column="review_no"/>
+        <result property="reviewRating" column="review_rating"/>
+        <result property="reviewContent" column="review_content"/>
+        <result property="reviewDate" column="review_date"/>
+        <result property="storeNo" column="store_no"/>
+        <result property="storeName" column="store_name"/>
+        <result property="userName" column="user_name"/>
+        <result property="serviceName" column="service_name"/>
+
+        <!-- review_img 테이블에서 여러 이미지 가져오기 -->
+        <collection property="userReviewImg" ofType="String">
+            <result column="review_img_url" />
+        </collection>
+
+        <collection property="storeImg" ofType="com.example.HiMade.admin.dto.StoreImgDTO">
+            <id property="storeImgNo" column="store_img_no"/>
+            <result property="storeImgLocation" column="store_img_location"/>
+            <result property="storeNo" column="store_no"/>
+        </collection>
+    </resultMap>
+
+    <select id="getReviewListByUserId" resultMap="UserReviewResultMap">
+        SELECT rw.review_no, rw.review_rating, rw.review_content, rw.review_date,
+               rn.store_no, s.store_name, rwi.review_img_url, u.user_name, u.user_id, c.service_name,
+               si.store_img_no, si.store_img_location
+        FROM review rw
+                 LEFT JOIN review_img rwi ON rwi.review_no = rw.review_no
+                 LEFT JOIN reservation rn ON rn.reservation_no = rw.reservation_no
+                 LEFT JOIN reservation_form rf ON rf.reservation_no = rn.reservation_no
+                 LEFT JOIN category c ON rf.main_category_id = c.category_id
+                 LEFT JOIN users u ON rn.user_id = u.user_id
+                 LEFT JOIN store s ON s.store_no = rn.store_no
+                 LEFT JOIN store_img si ON s.store_no = si.store_no
+        WHERE rn.user_id = #{userId}
+    </select>
+
+
+
+
+
+
+</mapper>

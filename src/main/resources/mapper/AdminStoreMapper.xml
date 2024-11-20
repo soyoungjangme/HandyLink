@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.HiMade.admin.mapper.AdminStoreMapper">
+
+
+    <insert id="uploadImage">
+        insert into store_img (store_img_location, store_no) values (#{file}, #{id})
+    </insert>
+
+<!--탈퇴-->
+    <update id="updateUnSubcribe" parameterType="Long">
+        update store
+        set store_status = '폐업'
+        where store_no = #{storeNo}
+    </update>
+
+
+    <select id="getNoticeList" resultType="com.example.HiMade.admin.dto.storeNoticeDTO">
+        select *
+        from store_notice
+        where  (status = 'Y' or status = 'D')
+        and store_no = #{storeNo}
+        order by notice_no desc
+
+    </select>
+<!-- 스토어 넘버 변경 -->
+    <insert id="setNotice" parameterType="com.example.HiMade.admin.dto.storeNoticeDTO">
+        INSERT INTO store_notice (
+        notice_regdate,
+        notice_content,
+        notice_type,
+        store_no
+        ) VALUES (
+        NOW(),
+        #{noticeContent},
+        #{noticeType},
+        #{storeNo}
+        );
+    </insert>
+
+    <update id="setNoticeModi" parameterType="com.example.HiMade.admin.dto.storeNoticeDTO">
+        update store_notice
+        set notice_content =  #{noticeContent}
+        ,notice_regdate = now()
+        ,notice_type = #{noticeType}
+        ,modi = 'Y'
+        where notice_no = #{noticeNo}
+    </update>
+
+    <update id="setNoticeStatus" parameterType="com.example.HiMade.admin.dto.storeNoticeDTO">
+        update store_notice
+        set status = #{status}
+        where notice_no = #{noticeNo}
+    </update>
+
+    <select id="getNoticeDetail" resultType="com.example.HiMade.admin.dto.storeNoticeDTO">
+        select * from store_notice where notice_no = #{id}
+    </select>
+
+    <!-- 계정관리(가입,로그인,마이페이지)  -->
+    <select id="loginCheck" resultType="com.example.HiMade.admin.dto.StoreRegistDTO">
+        select * from store
+        where store_id = #{id} and store_pw = #{pw}
+    </select>
+
+    <select id="duplicatedId" resultType="Integer">
+        select count(*) from store
+        where store_id = #{storeId}
+    </select>
+
+    <insert id="registStore" parameterType="com.example.HiMade.admin.dto.StoreRegistDTO" useGeneratedKeys="true" keyProperty="storeNo">
+        insert into store (
+            store_id,
+            store_pw,
+            store_cate,
+            store_name,
+            store_master,
+            manager_name,
+            manager_phone,
+            store_business_no,
+            store_signup,
+            store_status,
+            zipcode,
+            addr,
+            addrdetail,
+            delivery_type
+        ) values (
+            #{storeId},
+            #{storePw},
+            #{storeCate},
+            #{storeName},
+            #{storeMaster},
+            #{managerName},
+            #{managerPhone},
+            #{storeBusinessNo},
+            now(),
+            '대기',
+            #{zipcode},
+            #{addr},
+            #{addrdetail},
+            #{deliveryType}
+        )
+        returning store_no as storeNo
+    </insert>
+
+<!--  아이디/비번 찾기  -->
+    <select id="findAdminId" resultType="string">
+        select store_id
+        from store
+        where manager_name = #{managerName} and store_business_no = #{storeBusinessNo}
+    </select>
+
+    <select id="findAdminPw" resultType="int">
+        select count(*)
+        from store
+        where store_id = #{storeId} and store_business_no = #{storeBusinessNo}
+    </select>
+
+    <update id="updatePw">
+        update store
+        set store_pw = #{newPw}
+        where store_id = #{storeId} and store_business_no = #{storeBusinessNo}
+    </update>
+
+    <insert id="insertDay" parameterType="com.example.HiMade.admin.dto.DayOffDay">
+        insert into day_off_day(store_no, day_off_fix_status, day_off_day)
+        values (#{storeNo}, #{dayOffFixStatus}, #{dayOffDay});
+    </insert>
+
+    <update id="updateStoreInfo" parameterType="com.example.HiMade.admin.dto.StoreRegistDTO">
+        update store
+        set
+            store_pw = #{storePw},
+            store_cate = #{storeCate},
+            store_name = #{storeName},
+            store_master = #{storeMaster},
+            manager_name = #{managerName},
+            manager_phone = #{managerPhone},
+            zipcode = #{zipcode},
+            addr = #{addr},
+            addrdetail = #{addrdetail},
+            store_business_no = #{storeBusinessNo}
+        where store_no = #{storeNo}
+    </update>
+
+
+<!--  가게관리  -->
+    <update id="updateStore" parameterType="com.example.HiMade.admin.dto.StoreRegistDTO">
+        update store
+        set
+            store_intro = #{storeIntro},
+            store_notice = #{storeNotice},
+            store_open_time = #{storeOpenTime},
+            store_close_time = #{storeCloseTime},
+            store_parking_yn = #{storeParkingYn},
+            account_bank = #{accountBank},
+            account_number = #{accountNumber},
+            store_status = #{storeStatus}
+            delivery_type = #{deliveryType}
+        where store_no = #{storeNo}
+    </update>
+
+<!-- sns입력 -->
+    <delete id="deleteStoreSns" parameterType="com.example.HiMade.admin.dto.StoreSnsDTO">
+        delete from store_sns_link
+        where store_no = #{storeNo}
+        <if test="storeSns != null and storeSns.size() > 0">
+            and sns_link not in
+            <foreach item="snsLink" collection="storeSns" open="(" separator="," close=")">
+                 #{snsLink.snsLink}
+            </foreach>
+        </if>
+    </delete>
+
+    <select id="selectExistingSns" parameterType="Long" resultType="string">
+        select sns_link
+        from store_sns_link
+        where store_no = #{storeNo}
+    </select>
+
+    <insert id="addStoreSns" parameterType="com.example.HiMade.admin.dto.StoreSnsDTO">
+        insert into store_sns_link
+        values (#{snsLink}, #{snsName}, #{storeNo})
+    </insert>
+    <delete id="deleteImage">
+        DELETE FROM store_img WHERE store_no = #{id} AND store_img_location = #{file}
+    </delete>
+<!-- img입력 -->
+<!--&lt;!&ndash; data != DB면 (DB에서 delete & data insert) &ndash;&gt;-->
+    <delete id="deleteStoreImg" parameterType="com.example.HiMade.admin.dto.StoreImgDTO">
+        DELETE FROM store_img
+        WHERE store_no = #{storeNo}
+        <if test="storeImgList != null and storeImgList.size() > 0">
+            AND store_img_location NOT IN
+            <foreach item="img" collection="storeImgList" open="(" separator="," close=")">
+                #{img.storeImgLocation}
+            </foreach>
+        </if>
+    </delete>
+
+<!--    <select id="selectExistingStoreImg" resultType="string" parameterType="Long">-->
+<!--        SELECT store_img_location-->
+<!--        FROM store_img-->
+<!--        WHERE store_no = #{storeNo}-->
+<!--    </select>-->
+
+<!--    <insert id="addStoreImg" parameterType="com.example.HiMade.admin.dto.StoreImgDTO">-->
+<!--        insert into store_img (store_img_location, store_no)-->
+<!--        values (#{storeImgLocation}, #{storeNo})-->
+<!--    </insert>-->
+
+    <select id="getMyStore" resultMap="storeRegistResultMap">
+        SELECT
+        sa.*,
+        sns.*,
+        img.store_img_location
+        FROM store sa
+        LEFT JOIN store_sns_link sns ON sa.store_no = sns.store_no
+        LEFT JOIN store_img img ON sa.store_no = img.store_no
+        WHERE sa.store_no = #{storeNo}
+    </select>
+
+    <resultMap id="storeRegistResultMap" type="com.example.HiMade.admin.dto.StoreRegistDTO">
+        <result property="storeId" column="store_id"/>
+        <result property="storeNo" column="store_no"/>
+        <result property="storePw" column="store_pw"/>
+        <result property="storeCate" column="store_cate"/>
+        <result property="storeName" column="store_name"/>
+        <result property="storeMaster" column="store_master"/>
+        <result property="managerName" column="manager_name"/>
+        <result property="managerPhone" column="manager_phone"/>
+        <result property="zipcode" column="zipcode"/>
+        <result property="addr" column="addr"/>
+        <result property="addrdetail" column="addrdetail"/>
+        <result property="storeBusinessNo" column="store_business_no"/>
+        <result property="storeIntro" column="store_intro"/>
+        <result property="storeParkingYn" column="store_parking_yn"/>
+        <result property="storeOpenTime" column="store_open_time"/>
+        <result property="storeCloseTime" column="store_close_time"/>
+        <result property="accountBank" column="account_bank"/>
+        <result property="accountNumber" column="account_number"/>
+        <result property="storeSignup" column="store_signup"/>
+        <result property="storeStatus" column="store_status"/>
+        <result property="deliveryType" column="delivery_type"/>
+
+        <!-- SNS 매핑 -->
+        <collection property="storeSns" ofType="com.example.HiMade.admin.dto.StoreSnsDTO">
+            <result property="storeSnsNo" column="store_sns_no"/>
+            <result property="snsLink" column="sns_link"/>
+            <result property="snsName" column="sns_name"/>
+            <result property="storeNo" column="store_no"/>
+        </collection>
+
+        <!-- img 매핑 -->
+        <collection property="storeImg" ofType="com.example.HiMade.admin.dto.StoreImgDTO" javaType="java.util.List">
+            <result property="storeImgNo" column="store_img_no"/>
+            <result property="storeImgLocation" column="store_img_location"/>
+            <result property="storeNo" column="store_no"/>
+        </collection>
+    </resultMap>
+
+    <select id="getOffDay" resultType="string">
+        select day_off_day
+        from day_off_day
+        where store_no = #{storeNo} and day_off_fix_status = 'Y'
+    </select>
+
+    <select id="getOffSet" resultType="com.example.HiMade.admin.dto.DayOffSet">
+        select day_off_start, day_off_end, set_no
+        from day_off_set
+        where store_no = #{storeNo}
+    </select>
+
+    <update id="updateNoDayOff" parameterType="Long">
+        update day_off_day
+        set day_off_fix_status = 'N'
+        where store_no = #{storeNo}
+    </update>
+
+    <update id="updateDay" parameterType="com.example.HiMade.admin.dto.StoreRegistDTO">
+        <!-- 휴무가 아닌 경우 상태를 'N'으로 업데이트 -->
+        update day_off_day
+        set day_off_fix_status = 'N'
+        where store_no = #{storeNo}
+        and day_off_day NOT IN
+        <foreach item="dayOffDay" collection="dayOffDayList" open="(" separator="," close=")">
+            #{dayOffDay.dayOffDay}
+        </foreach>;
+
+        <!-- 휴무인 경우 상태를 'Y'로 업데이트 -->
+        <foreach item="dayOffDay" collection="dayOffDayList">
+            update day_off_day
+            set day_off_fix_status = 'Y'
+            where store_no = #{storeNo}
+            and day_off_day = #{dayOffDay.dayOffDay};
+        </foreach>
+    </update>
+
+    <insert id="registDayOffSet" parameterType="com.example.HiMade.admin.dto.DayOffSet">
+        insert into day_off_set(day_off_start, day_off_end, store_no)
+        values(#{dayOffStart}, #{dayOffEnd}, #{storeNo})
+    </insert>
+
+    <delete id="deleteOffSet" parameterType="Long">
+        delete from day_off_set
+        where store_no = #{storeNo} and set_no = #{setNo} and day_off_end &gt; now()
+    </delete>
+
+    <select id="getUserLikeCount" resultType="Integer">
+        select count(*)
+        from user_likes
+        where store_no = #{storeNo}
+    </select>
+
+    <select id="getReviewCount" resultType="Integer">
+        select count(*)
+        from review
+        join reservation reserve on reserve.reservation_no = review.reservation_no
+        where reserve.store_no = #{storeNo}
+    </select>
+
+    <select id="getCompleteCount" resultType="Integer">
+        select count(*)
+        from reservation reserve
+        where reservation_status = '완료' and store_no = #{storeNo}
+    </select>
+
+    <select id="getCancledCount" resultType="Integer">
+        select count(*)
+        from reservation reserve
+        where store_no = #{storeNo}
+        and reservation_status = '취소(고객)'
+    </select>
+
+    <select id="getWaitCount" resultType="Integer">
+        select count(*)
+        from reservation
+        where store_no = #{storeNo}
+        and reservation_status = '입금대기' <!--계좌이체-->
+        or reservation_status = '대기' <!--그외결제완료-->
+    </select>
+
+    <select id="getDoingCount" resultType="Integer">
+        select count(*)
+        from payment pay
+        join reservation reserve on reserve.reservation_no = pay.reservation_no
+        where reserve.store_no = #{storeNo}
+        and reserve.reservation_status = '확정'
+        and pay.payment_status='결제완료';
+    </select>
+
+    <select id="getTodayCompleteCount" resultType="Integer">
+        select count(*)
+        from reservation r
+        join reservation_slot rs on rs.reservation_slot_key = r.reservation_slot_key
+        where r.store_no = #{storeNo}
+        and r.reservation_status='완료'
+        and rs.reservation_slot_date = current_date
+    </select>
+
+    <select id="getTodayRemainCount" resultType="Integer">
+        select count(*)
+        from reservation r
+        join reservation_slot rs on rs.reservation_slot_key = r.reservation_slot_key
+        where r.store_no = #{storeNo}
+        and r.reservation_status='확정'
+        and rs.reservation_slot_date = current_date
+    </select>
+
+    <select id="getDailyReportChart" parameterType="map" resultType="map">
+        SELECT TO_CHAR(date(reservation_slot_date), 'MM-DD') AS date, COUNT(*) AS count
+        FROM reservation r
+        join reservation_slot rs on rs.reservation_slot_key = r.reservation_slot_key
+        WHERE r.store_no = #{storeNo}
+        AND EXTRACT(YEAR FROM rs.reservation_slot_date) = #{year}
+        AND EXTRACT(MONTH FROM rs.reservation_slot_date) = #{month}
+        AND (r.reservation_status='완료'
+        OR r.reservation_status='확정')
+        GROUP BY date(rs.reservation_slot_date)
+        ORDER BY date(rs.reservation_slot_date);
+    </select>
+
+    <select id="getMonthlyReportChart" parameterType="map" resultType="map">
+        SELECT TO_CHAR(date(reservation_slot_date), 'YYYY-MM') AS month, COUNT(*) AS count
+        FROM reservation r
+        join reservation_slot rs on rs.reservation_slot_key = r.reservation_slot_key
+        WHERE r.store_no = #{storeNo}
+            AND EXTRACT(YEAR FROM rs.reservation_slot_date) = #{year}
+            AND r.reservation_status='완료'
+        GROUP BY month
+        ORDER BY month;
+    </select>
+
+    <select id="getGenderCount" resultType="map">
+        select count(distinct case when users.user_gender = 'M' then users.user_id end) as male_count,
+                count(distinct case when users.user_gender = 'F' then users.user_id end) as female_count
+        from reservation reserve
+        join users on users.user_id = reserve.user_id
+        where reserve.store_no = #{storeNo};
+    </select>
+
+    <select id="getAgeDistribution" resultType="map">
+        <![CDATA[
+            WITH ranked_products AS (
+            SELECT
+                CASE
+                    WHEN DATE_PART('year', AGE(CAST(users.user_birth AS DATE))) < 20 THEN '10대'
+                    WHEN DATE_PART('year', AGE(CAST(users.user_birth AS DATE))) < 30 THEN '20대'
+                    WHEN DATE_PART('year', AGE(CAST(users.user_birth AS DATE))) < 40 THEN '30대'
+                    ELSE '40대 이상'
+                END AS age_group,
+                form.main_category_id,
+                COUNT(*) AS reservation_count,
+                ROW_NUMBER() OVER (
+                    PARTITION BY
+                        CASE
+                            WHEN DATE_PART('year', AGE(CAST(users.user_birth AS DATE))) < 20 THEN '10대'
+                            WHEN DATE_PART('year', AGE(CAST(users.user_birth AS DATE))) < 30 THEN '20대'
+                            WHEN DATE_PART('year', AGE(CAST(users.user_birth AS DATE))) < 40 THEN '30대'
+                            ELSE '40대 이상'
+                        END
+                    ORDER BY COUNT(*) DESC
+                ) AS rn
+            FROM reservation reserve
+            JOIN users ON users.user_id = reserve.user_id
+            JOIN reservation_form form ON form.reservation_no = reserve.reservation_no
+            JOIN category c ON form.main_category_id = c.category_id AND c.category_level = 1
+            WHERE reserve.store_no = #{storeNo}
+            GROUP BY age_group, form.main_category_id
+        ),
+        age_groups AS (
+            SELECT '10대' AS age_group UNION ALL
+            SELECT '20대' UNION ALL
+            SELECT '30대' UNION ALL
+            SELECT '40대 이상'
+        )
+        SELECT
+            ag.age_group,
+            c.service_name,
+            rp.main_category_id,
+            rp.reservation_count
+        FROM age_groups ag
+        LEFT JOIN ranked_products rp ON ag.age_group = rp.age_group AND rp.rn = 1
+        JOIN category c ON c.category_id = rp.main_category_id
+        ORDER BY ag.age_group;
+    ]]>
+    </select>
+
+<!-- 메인 캘린더 예약 -->
+    <select id="getReservationCounts" resultType="map">
+        select reservation_slot_date as date, (count(reservation_slot_date)|| ' 건') as title
+        from reservation_slot rs
+        join reservation r on r.reservation_slot_key = rs.reservation_slot_key
+        where r.store_no = #{storeNo}
+            and (r.reservation_status = '확정' or r.reservation_status='완료')
+        group by reservation_slot_date;
+    </select>
+
+<!-- 날짜별 예약번호 -->
+    <select id="getReservationNo" resultType="int">
+        select reservation_no
+        from reservation reserve
+        join reservation_slot rs on rs.reservation_slot_key = reserve.reservation_slot_key
+        where rs.reservation_slot_date = #{reservationSlotDate}::DATE
+            and reserve.store_no = #{storeNo}
+            and (reserve.reservation_status = '확정'
+                or reserve.reservation_status='완료')
+    </select>
+
+    <select id="getTodayCustomer" resultMap="customerReservationMap">
+        select users.user_id,
+        users.user_name,
+        users.user_phonenum,
+        rs.reservation_slot_date,
+        reserve.reservation_time,
+        reserve.customer_request,
+        reserve.reservation_no,
+        cate.parent_category_id,
+        cate.category_id,
+        cate.category_level,
+        cate.service_name,
+        rf.middle_category_value,
+        pay.payment_method,
+        pay.payment_amount
+        from reservation reserve
+        join reservation_slot rs on rs.reservation_slot_key = reserve.reservation_slot_key
+        join users on users.user_id = reserve.user_id
+        join payment pay on pay.reservation_no = reserve.reservation_no
+        left join reservation_form rf on rf.reservation_no = reserve.reservation_no
+        left join category cate on cate.category_id = rf.main_category_id
+        or cate.category_id = rf.middle_category_id
+        or cate.category_id = rf.sub_category_id
+        where reserve.reservation_no IN
+        <foreach collection="reservationNos" item="reservationNo" open="(" separator="," close=")">
+            #{reservationNo}
+        </foreach>
+        order by reserve.reservation_time
+    </select>
+
+
+    <resultMap id="customerReservationMap" type="com.example.HiMade.admin.dto.CustomerReservationDTO">
+        <result property="reservationNo" column="reservation_no"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPhoneNum" column="user_phonenum"/>
+        <result property="reservationSlotDate" column="reservation_slot_date"/>
+        <result property="reservationTime" column="reservation_time"/>
+        <result property="customerRequest" column="customer_request"/>
+        <result property="paymentMethod" column="payment_method"/>
+        <result property="paymentAmount" column="payment_amount"/>
+        <collection property="options" ofType="com.example.HiMade.admin.dto.OptionDTO">
+            <result property="parentCategoryId" column="parent_category_id"/>
+            <result property="categoryId" column="category_id"/>
+            <result property="categoryLevel" column="category_level"/>
+            <result property="serviceName" column="service_name"/>
+            <result property="middleCategoryValue" column="middle_category_value"/>
+        </collection>
+    </resultMap>
+
+    <select id="getReservationStatus" resultType="int">
+        select reservation_no
+        from reservation
+        where reservation_status = '완료'
+            and store_no = #{storeNo}
+    </select>
+
+    <update id="completeReservationStatus">
+        update reservation
+        set reservation_status = '완료'
+        where store_no = #{storeNo}
+            and reservation_no = #{reservationNo}
+    </update>
+
+</mapper>

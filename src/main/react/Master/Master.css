@@ -1,0 +1,69 @@
+h3 {
+    color: #333;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/* 가게 상태별 수 */
+.store-counts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.count-card {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.count-card h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.count-card p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* 테이블 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #1d2830;
+    color: white;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+.tables-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .table-column {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+

@@ -5,6 +5,10 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+src/main/resources/static/bundle/*.js.map
+src/main/resources/static/bundle/*.js
+
+
 ### STS ###
 .apt_generated
 .classpath
@@ -35,3 +39,14 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Node Module ###
+/node_modules
+
+*.log
+
+src/main/resources/application.properties
+
+
+.env
+

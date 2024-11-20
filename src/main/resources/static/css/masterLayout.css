@@ -1,0 +1,292 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+body {
+  font-family: 'Pretendard-Regular';
+}
+
+.app-title {
+  border : 1px solid red;
+  color : red;
+}
+
+body {
+  font-family: 'Pretendard-Regular';
+    margin: 0;
+    padding: 0;
+      height: 100%;
+      width: 100%;
+      position: relative;
+}
+
+.logo {
+  font-family: 'ghanachoco';
+  font-size: 30px;
+  color: #fff;
+      margin-left: 10px;
+}
+
+  .mainBox {
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
+    height: 100%;
+  }
+
+.sidebar {
+
+  font-weight: bold;
+  width: 240px;
+  background-color: #fff;
+  color: #ecf0f1;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+/*  padding-left: 35px;*/
+ box-shadow: 0 5px 4px rgb(191 191 191 / 25%), 0px 0px 1px 0px rgba(0, 0, 0, 0.22);
+  /* position: absolute; */
+  min-height: 100vh;
+  /* height: 100%; */
+  box-sizing: border-box;
+  z-index: 100;
+      padding-top: 32px;
+}
+
+
+.dropdown {
+  text-decoration: none;
+  color: #000;
+  display: none;
+  transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+
+.sidebar a {
+letter-spacing : 1px;
+  text-decoration: none;
+  color: #000;
+  padding: 20px 10px;
+  padding-left: 20px;
+  display: block;
+
+}
+
+.dropdown-btn > .bi-caret-down-fill {
+  font-size: 15px;
+  position: absolute;
+  top: 23px;
+  left: 160px;
+}
+
+.dropdown-btn > .bi-caret-left-fill {
+  display: none;
+  font-size: 15px;
+  position: absolute;
+  top: 20px;
+  left: 160px;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color:#000;
+  padding: 15px 10px;
+  padding-left: 30px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+.dropdown a  > .bi {
+margin-left : 5px;
+}
+
+.dropdown a {
+
+    border-bottom: 1px solid #ddd;
+        font-size: 19px;
+        font-weight: 100;
+        color: #464646;
+    }
+
+.menu-btn {
+    border-bottom: 1px solid #ddd;
+    }
+
+ .menu-btn .bi {
+  /* display: inline; */
+  margin-right: 10px;
+}
+
+
+.dropdown a:hover {
+  background-color: #c7ddea94;
+}
+
+
+.sidebar .menu-btn:hover {
+  background-color: #c7ddea94;
+}
+
+
+.dropdown-btn {
+  transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  padding:20px 10px;
+  padding-left: 20px;
+  display: block;
+  position: relative;
+  letter-spacing : 1px;
+}
+
+.dropdown-btn.active {
+  background-color: #c7ddea94; /* 드롭다운이 열릴 때 배경색 */
+}
+
+
+
+/* home 아이콘 때문에 아래부터 다 건드림 */
+.layout-nav {
+  background-color: #1d2830;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+
+.layout-container {
+  display: flex;
+  height: 100%;
+  }
+
+.layout-container-content{
+  background-color:#eceff4;
+  /* border : 1px solid red; */
+  width: 100%;
+  /* height: 100%; */
+
+}
+/* 아이콘 감싼 박스 */
+.icon-box {
+  width: 32px;
+      margin-left: 30px;
+}
+
+/* 홈 아이콘 크기 */
+.icon-box > .home-icon {
+  font-size: 32px;
+  cursor: pointer;
+}
+
+
+.layout-profile {
+  margin-top: 10px;
+  float: right;
+  width: 400px;
+
+
+}
+.layout-profile-buttons {
+    display: flex;
+    gap: 3%;
+}
+
+.layout-profile-buttons > button {
+width : 110px;
+}
+.layout-content {
+     margin: 50px 50px;
+     padding: 20px;
+  background-color: #fff;
+  /* border: 1px solid red; */
+  border-radius: 20px;
+  min-height: 100vh;
+}
+
+
+.layout-profile-box {
+  /*홍길동 님*/
+  align-items: center;
+  color : #fff;
+  margin-right: 30px;
+}
+
+.layout-profile-button{
+  /*버튼*/
+  /*padding: 10px 16px;*/
+  border: 1px solid #1d2830;
+  background-color: #575e63;
+  color: white;
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.layout-mypage-button{
+  /*마이페이지 버튼*/
+  width: 100%;
+  height: 30px;
+  background-color: #6E7C85;
+  color: #ffffff;
+}
+.layout-mypage-button:hover{
+  background-color: #2424245b;
+}
+
+
+.layout-logout-button{
+  /*로그아웃 버튼*/
+  width: 100%;
+  height: 30px;
+}
+.layout-logout-button:hover{
+  background-color: #2424245b;
+}
+
+.layout-profile-info {
+  /*홍길동 님 + 버튼 2개 감싼 박스*/
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+justify-content: flex-end;
+  width: 100%;
+}
+
+.layout-profile-img{
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  margin-right: 15px;
+}
+
+
+
+
+
+
+
+#root {
+  margin: 20px 50px;
+}

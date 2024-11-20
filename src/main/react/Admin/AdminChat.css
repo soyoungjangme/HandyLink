@@ -1,0 +1,288 @@
+/* ChatApp.css */
+.chat-container {
+    display: flex;
+    height : 75vh;
+}
+
+.chat-list {
+    width: 300px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.search-bar {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-bar input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.chat-item {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.chat-item.active {
+    background-color: #f7f7f7;
+}
+
+.chat-name {
+    font-weight: bold;
+    display: block;
+    margin-bottom: -10px;
+}
+
+.chat-date {
+    float: right;
+    color: #888;
+}
+
+.chat-preview {
+    color: #555;
+    font-size: 14px;
+    width: 160px;
+}
+
+.chat-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+.message {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.date-label {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin: 10px 0;
+}
+
+.message p {
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%;
+}
+
+.received p {
+    background-color: #e5e5ea;
+    color: #333;
+}
+
+.sent p {
+    background-color: #007aff;
+    color: #fff;
+    align-self: flex-end;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #888;
+    margin: 2px 5px;
+    /*margin-top: 5px;*/
+}
+
+.sent .message-time {
+    text-align: right;
+}
+
+.received .message-time {
+    text-align: left;
+}
+
+.message-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.message-input button {
+    padding: 10px 15px;
+    background-color: #fd8517;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 채팅 목록의 프로필 이미지 */
+.chat-profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/* 메시지 내의 프로필 이미지 */
+.message-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 채팅 목록 아이템 레이아웃 수정 */
+.chat-item {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* 채팅 정보 컨테이너 */
+.chat-info {
+    flex: 1;
+}
+
+/* 채팅방 헤더의 프로필 이미지 */
+.header-profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/* 메시지 프로필 섹션 레이아웃 */
+.message-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.sender-name {
+    margin-left: 10px;
+    font-weight: bold;
+    margin-top: -40px;
+}
+
+/* 메시지 컨테이너 스타일 수정 */
+
+.message-content {
+    max-width: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 받은 메시지(왼쪽) */
+.received {
+    align-items: flex-start;
+}
+
+/* 보낸 메시지(오른쪽) */
+.sent {
+    align-items: flex-end;
+}
+
+.received .bubble {
+    background-color: #e5e5ea;
+    color: #333;
+    margin-left: 60px; /* 프로필 이미지 공간 확보 */
+    margin-top: -30px;
+    border-top-left-radius: 0px;
+}
+
+.sent .bubble {
+    background-color: #fd8517;
+    color: #fff;
+    border-top-right-radius: 0px;
+}
+
+/* 메시지 내용 스타일 */
+.bubble {
+    max-width: 60%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    display: inline-block;
+    word-wrap: break-word;
+    margin: 5px 0;
+}
+
+.toast-message {
+    position: fixed;
+    bottom: 135px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #444;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+}
+
+.toast-message:hover {
+    opacity: 0.9;
+}
+
+.no-chat-selected {
+    margin: 30% auto;
+    font-size: 15px;
+    color: #333;
+}
+
+.new-message-dot {
+    color: red;
+    margin-left: 5px;
+    font-size: 8px;
+    border-radius: 50%;
+}
+
+.date-separator {
+    color: #333;
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+}
+

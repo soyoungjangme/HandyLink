@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>NEEZ </title>
+  <link rel="stylesheet" th:href="@{/css/userLayoutNoNav.css}"/>
+  <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f2ab75dd984a8c54de2057619973c70a&libraries=services"></script>
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+</head>
+<body>
+<div class="user-main-container-no-nav">
+  <div class="top-bar">
+    <button class="back-button" onclick="handleGoBack()">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <span class="page-title" id="pageTitle" th:text="${pageTitle}">페이지 제목</span>
+  </div>
+  <div id="root"></div>
+</div>
+
+<script>
+  // 페이지 로드 시 이전 페이지 URL 저장
+  window.onload = function() {
+    const prevPage = document.referrer;
+    if (prevPage) {
+      sessionStorage.setItem('prevPage', prevPage);
+    }
+  }
+
+  // 채팅 페이지에서 제목 업데이트
+  const updateTitle = () => {
+    const storeName = localStorage.getItem('storeName');
+    if (storeName && window.location.pathname.includes('UserChatRoom')) {
+      document.getElementById('pageTitle').textContent = storeName;
+      // 히스토리 스택에 새로운 항목을 추가하지 않고 현재 URL 대체
+      history.replaceState(null, '', location.href);
+    }
+  }
+  window.addEventListener('load', updateTitle);
+
+  // 뒤로 가기 함수
+  function handleGoBack() {
+    const prevPage = sessionStorage.getItem('prevPage');
+    const needsAuth = prevPage && (prevPage.includes('my-reservations') || prevPage.includes('my-bookmarked-stores'));
+
+    if (needsAuth) {
+      const userChoice = confirm("로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?");
+      if (userChoice) {
+        window.location.href = '/loginPage.user';
+      } else {
+        window.location.href = '/userMain.user';
+      }
+    } else {
+      window.history.back();
+    }
+  }
+
+</script>
+
+<script th:src="@{'/bundle/' + ${pageName} + '.bundle.js'}"></script>
+</body>
+</html>

@@ -2,87 +2,355 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>[[${pageName}]]</title>
+    <title>NEEZ 관리자</title>
     <link rel="stylesheet" th:href="@{/css/adminLayout.css}"/>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 그래프 -->
 </head>
 <body>
 
 <div class='mainBox'>
-
-    <div class="sidebar">
-        <div class="logo">HandyLink</div>
-        <!-- <div class="menu-btn"> <a href="./customer.do"> 메인  </a> </div> -->
-        <div class="menu-btn">  <a href="./product.do"> <i class="bi bi-house-gear-fill"></i> 가게 관리 </a></div>
-        <div class="menu-btn dropdown-btn"> <i class="bi bi-calendar-check"></i> 예약 관리 <i class="bi bi-caret-down-fill"></i> <i class="bi bi-caret-left-fill"></i> </div>
-
-        <div class="dropdown">
-            <a href="./price.do"> <i class="bi bi-gear-fill"> </i> 예약 설정</a>
-            <a href="./order.do"> <i class="bi bi-check2-circle"> </i> 예약 관리</a>
-        </div>
-
-        <div class="menu-btn"> <a href="./stat.do"> <i class="bi bi-bar-chart-line-fill"></i> 통계 관리</a></div>
-        <div class="menu-btn">  <a href="./customer.do"> <i class="bi bi-person-circle"></i> 고객 관리 </a></div>
-        <div class="menu-btn"><a href="./inquiry.do">  <i class="bi bi-chat-left-text-fill"></i> 문의 관리</a></div>
-    </div>
-
-    <!-- btn-st -->
-    <div class="layout-container">
-        <div class="layout-nav">
-
-            <div class="layout-profile">
-
-                <div class="layout-profile-info">
-                    <div class="layout-profile-box">
-                        팬케이크샵 가로수길점 
-                    </div>
-                    <div class="layout-profile-buttons">
-                        <button type="button" class="layout-profile-button layout-mypage-button" onclick="location.href='./myPage.do'">마이 페이지</button>
-                        <button type="button" class="layout-profile-button layout-logout-button" onclick="location.href='./logout'">로그아웃</button>
-                    </div>
+    <div class="layout-nav">
+        <logo class="logo" id="logo" onclick="location.href='../adminmain.admin'"> NEEZ <span> 관리자 </span> </logo>
+        <div class="layout-profile">
+            <div class="layout-profile-info">
+                <div class="layout-profile-box">
+                    <p th:text="${session.storeName}">상호명</p>
                 </div>
-
+                <div class="layout-profile-buttons">
+                    
+                    <button type="button"  id="storeMenu" class="layout-profile-button layout-mypage-button storeMenu" onclick="location.href='../adminstoreinfo.admin'">마이 페이지</button>
+                    <button type="button" class="layout-profile-button layout-logout-button" onclick="location.href='../adminlogin.login'">로그아웃</button>
+                </div>
             </div>
         </div>
-
-        <div id="root"></div>
-
-
     </div>
 
-    <script th:src="@{'/bundle/' + ${pageName} + '.bundle.js'}"></script>
+    <div class="layout-container">
+        <div class="sidebar">
+            <div class="menu-btn dropdown-btn2 storeMenu" id="storeMenu">  
+                <i class="bi bi-house-gear-fill"></i> 가게 
+                <i class="bi3 bi-caret-down-fill"></i> 
+                <i class="bi4 bi-caret-left-fill"></i> 
+            </div>
+            <div class="dropdown2 " id="storeMenu">
+                <a  href="../mystore.admin"> <i class="bi bi-gear-fill"> </i> 가게관리 </a>
+                <a href="../AdminStoreNotice.admin"> <i class="bi bi-check2-circle"> </i> 가게소식 </a>
+                <a href="../storedayoff.admin"> <i class="bi bi-check2-circle"> </i> 휴무관리 </a>
+            </div>
+            
+<!--            <div class="menu-btn dropdown-btn storeMenu" style="display: none;" id="storeMenu">-->
+<!--                <i class="bi bi-calendar-check"></i> 주문-->
+<!--                <i class="bi bi-caret-down-fill"></i>-->
+<!--                <i class="bi2 bi-caret-left-fill"></i>-->
+<!--            </div>-->
 
-    <script>
-        // // 드롭다운 버튼 클릭 시 드롭다운 토글
-        // document.querySelector('.dropdown-btn').addEventListener('click', function() {
-        //     const dropdown = document.querySelector('.dropdown');
+<!--            <div class="dropdown " id="storeMenu">-->
+<!--                <a href="../AdminReserveSetting.admin"> <i class="bi bi-gear-fill"> </i> 상품관리</a>-->
+<!--                <a href="../AdminReserveManage.admin"> <i class="bi bi-check2-circle"> </i> 주문관리</a>-->
+<!--            </div>-->
 
-        //     // 배경색 변경
-        //     this.classList.toggle('active'); // active 클래스 토글
-        // });
-        document.querySelector('.dropdown-btn').addEventListener('click', function() {
-                const dropdown = document.querySelector('.dropdown');
-                const downIcon = document.querySelector('.bi-caret-down-fill');
-                const leftIcon = document.querySelector('.bi-caret-left-fill');
-                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            <div class="menu-btn storeMenu" id="storeMenu">    <a href="../AdminReserveSetting.admin"> <i class="bi bi-gear-fill"> </i> 상품</a></div>
+            <div class="menu-btn storeMenu" id="storeMenu">  <a href="../AdminReserveManage.admin"> <i class="bi bi-check2-circle"> </i> 예약</a></div>
+            <!-- <div class="menu-btn storeMenu" id="storeMenu">    <a href="../AdminDelivery.admin"> <i class="bi bi-box-seam"></i> </i> 배송 </a></div> -->
+            <div class="menu-btn storeMenu" id="storeMenu"> <a href="./adminstorereport.admin"> <i class="bi bi-bar-chart-line-fill"></i> 통계</a></div>
+            <div class="menu-btn storeMenu" id="storeMenu">  <a href="../AdminReviewList.admin"> <i class="bi bi-person-circle"></i> 리뷰 </a></div>
+            <div class="menu-btn storeMenu" id="storeMenu"><a href="./AdminChat.admin">  <i class="bi bi-chat-left-text-fill"></i> 채팅 </a></div>
+ 
+            
+            <div class="menu-btn masterMenu"  id="masterMenu"> <a href="./master.admin"> <i class="bi bi-houses-fill"></i> 업체현황</a></div>
+            <div class="menu-btn masterMenu" id="masterMenu"> <a href="./masterApproval.admin"> <i class="bi bi-house-check-fill"></i> 승인관리</a></div>
+            <div class="menu-btn masterMenu" id="masterMenu"> <a href="./masterStore.admin"> <i class="bi bi-house-gear-fill"></i> 업체관리 </a></div>
+           
+        </div>
 
-                // 드롭다운 상태에 따라 max-height 조정
-                if (dropdown.style.maxHeight) {
-                    dropdown.style.maxHeight = null; // 숨김
-                    downIcon.style.display = 'block'; // 아래 화살표 보이기
-                    leftIcon.style.display = 'none'; // 왼쪽 화살표 숨기기
+
+
+        
+
+        <div class="layout-container-content">
+            <div class="layout-content">
+                <div id="root"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 드롭다운 버튼들
+        const dropdownButtons = document.querySelectorAll('.menu-btn.dropdown-btn, .menu-btn.dropdown-btn2');
+        const dropdowns = document.querySelectorAll('.dropdown, .dropdown2');
+    
+        // 드롭다운 상태 복원 (페이지 로드 시)
+        dropdownButtons.forEach(button => {
+            const dropdown = button.nextElementSibling; // 해당 버튼의 드롭다운 요소
+            const dropdownId = button.classList.contains('dropdown-btn2') ? 'dropdown2' : 'dropdown';
+            // 이전에 열렸던 드롭다운 상태가 있으면 복원
+            if (sessionStorage.getItem(dropdownId) === 'open') {
+                dropdown.classList.add('show');
+                button.querySelector('.bi-caret-down-fill').classList.add('hidden');
+                button.querySelector('.bi-caret-left-fill').classList.remove('hidden');
+            }
+        });
+    
+        // 드롭다운 버튼 클릭 시 드롭다운 토글
+        dropdownButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const dropdown = this.nextElementSibling; // 해당 버튼의 드롭다운 요소
+                const dropdownId = this.classList.contains('dropdown-btn2') ? 'dropdown2' : 'dropdown';
+    
+                // 다른 드롭다운이 열려 있다면 닫기
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('show'); // 다른 드롭다운 숨기기
+                        const otherButton = otherDropdown.previousElementSibling; // 다른 버튼
+                        otherButton.querySelector('.bi-caret-down-fill').classList.remove('hidden'); // 화살표 아래로 보이게
+                        otherButton.querySelector('.bi-caret-left-fill').classList.add('hidden'); // 왼쪽 화살표 숨기기
+                        // sessionStorage에서 상태 초기화
+                        sessionStorage.removeItem(otherDropdown.classList.contains('dropdown') ? 'dropdown' : 'dropdown2');
+                    }
+                });
+    
+                // 현재 드롭다운 상태 토글
+                const isOpen = dropdown.classList.toggle('show'); // show 클래스 토글 (드롭다운 표시/숨김)
+    
+                // 화살표 아이콘 상태 토글
+                this.querySelector('.bi-caret-down-fill').classList.toggle('hidden');
+                this.querySelector('.bi-caret-left-fill').classList.toggle('hidden');
+    
+                // 상태 저장 (드롭다운이 열렸으면 'open', 닫혔으면 'closed')
+                if (isOpen) {
+                    sessionStorage.setItem(dropdownId, 'open');
                 } else {
-                    dropdown.style.maxHeight = dropdown.scrollHeight + "px"; // 펼침
-                    downIcon.style.display = 'none'; // 아래 화살표 숨기기
-                    leftIcon.style.display = 'block'; // 왼쪽 화살표 보이기
+                    sessionStorage.setItem(dropdownId, 'closed');
+                }
+            });
+        });
+    
+        // 현재 페이지와 일치하는 메뉴에 활성화 스타일 추가
+        const currentPath = window.location.pathname.split('/').pop(); // 현재 URL에서 마지막 부분 (페이지 이름)
+        console.log(currentPath);
+    
+    
+        
+        const menuItems = document.querySelectorAll('.menu-btn a');
+        menuItems.forEach(item => {
+            const linkPath = item.getAttribute('href').split('/').pop();
+            if (currentPath === linkPath) {
+                item.style.backgroundColor = '#c7ddea94'; // 배경색 빨간색으로 활성화
+            }
+        });
+        const menuItems2 = document.querySelectorAll('.dropdown a');
+        menuItems2.forEach(item => {
+            const linkPath = item.getAttribute('href').split('/').pop();
+            if (currentPath === linkPath) {
+                item.style.backgroundColor = '#c7ddea94'; // 배경색 빨간색으로 활성화
+            }
+        });
+    
+        const menuItems3 = document.querySelectorAll('.dropdown2 a');
+        menuItems3.forEach(item => {
+            const linkPath = item.getAttribute('href').split('/').pop();
+            if (currentPath === linkPath) {
+                item.style.backgroundColor = '#c7ddea94'; // 배경색 빨간색으로 활성화
+            }
+        });
+    
+    
+    
+        // 다른 페이지로 이동 시 드롭다운 해제
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('show'); // 모든 드롭다운 숨기기
+                });
+                dropdownButtons.forEach(button => {
+                    button.querySelector('.bi-caret-down-fill').classList.remove('hidden'); // 모든 화살표 아래로 보이게
+                    button.querySelector('.bi-caret-left-fill').classList.add('hidden'); // 왼쪽 화살표 숨기기
+                });
+                // sessionStorage에서 모든 드롭다운 상태 초기화
+                sessionStorage.removeItem('dropdown');
+                sessionStorage.removeItem('dropdown2');
+            });
+        });
+    
+        // "adminmain.admin" 페이지로 이동할 때 드롭다운 초기화
+        if (window.location.pathname === '/adminmain.admin') {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('show'); // 모든 드롭다운 숨기기
+            });
+            dropdownButtons.forEach(button => {
+                button.querySelector('.bi-caret-down-fill').classList.remove('hidden'); // 모든 화살표 아래로 보이게
+                button.querySelector('.bi-caret-left-fill').classList.add('hidden'); // 왼쪽 화살표 숨기기
+            });
+            // sessionStorage에서 모든 드롭다운 상태 초기화
+            sessionStorage.removeItem('dropdown');
+            sessionStorage.removeItem('dropdown2');
+        }
+    
+        // 스타일: 드롭다운 보이기/숨기기 위한 클래스
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .dropdown.show, .dropdown2.show {
+                display: block;
+            }
+            .bi-caret-left-fill.hidden, .bi-caret-down-fill.hidden {
+                display: none;
+            }
+        `;
+        document.head.appendChild(style);
+    });
+    </script>
+    <script>
+        var storeName = sessionStorage.getItem("storeId");  
+        console.log("세션: " + storeName);
+    
+        // Show the correct menu based on storeName
+        if (storeName === "MASTER") {
+            // Show masterMenu, hide storeMenu
+            document.querySelectorAll(".masterMenu").forEach(function(item) {
+                item.style.display = "block";
+            });
+            document.querySelectorAll(".storeMenu").forEach(function(item) {
+                item.style.display = "none";
+            });
+        } else {
+            // Show storeMenu, hide masterMenu
+            document.querySelectorAll(".storeMenu").forEach(function(item) {
+                item.style.display = "block";
+            });
+            document.querySelectorAll(".masterMenu").forEach(function(item) {
+                item.style.display = "none";
+            });
+        }
+    
+        // Set the onclick event based on storeName value
+        document.getElementById("logo").onclick = function() {
+            if (storeName === "MASTER") {
+                location.href = '../master.admin';  // Redirect to master.admin if storeName is "MASTER"
+            } else {
+                location.href = '../adminmain.admin';  // Redirect to adminmain.admin for other storeName values
+            }
+        };
+    </script>
+    
+<script th:src="@{'/bundle/' + ${pageName} + '.bundle.js'}"></script>
+
+
+
+
+
+<!-- <script>
+    const storeStatus = '[[${session.storeStatus}]]'; // 기본값 설정 (선택 사항)
+    console.log(storeStatus); // storeStatus의 값을 콘솔에 출력
+
+    // 토글 드롭다운
+    function toggleDropdown(dropdown, downIcon, leftIcon, isActive) {
+        dropdown.style.display = isActive ? 'block' : 'none';
+        dropdown.style.maxHeight = isActive ? dropdown.scrollHeight + "px" : null;
+        downIcon.style.display = isActive ? 'none' : 'block';
+        leftIcon.style.display = isActive ? 'block' : 'none';
+    }
+
+    // 메뉴 버튼 설정
+    function setupMenuButtons() {
+        const menuButtons = document.querySelectorAll('.menu-btn, .dropdown-btn, .dropdown-btn2'); // 메뉴 버튼 선택
+
+        menuButtons.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                // 대기 중일 때 메뉴 클릭 방지
+                if (storeStatus === '대기') {
+                    event.preventDefault();
+                    alert('현재 대기 중입니다. 메뉴를 사용할 수 없습니다.');
+                    return;
                 }
 
-                // 배경색 변경
-                this.classList.toggle('active'); // active 클래스 토글
+                const isDropdownBtn = btn.classList.contains('dropdown-btn');
+                const isDropdownBtn2 = btn.classList.contains('dropdown-btn2');
+
+                // 드롭다운 버튼 클릭 시
+                if (isDropdownBtn || isDropdownBtn2) {
+                    const dropdown = document.querySelector(isDropdownBtn ? '.dropdown' : '.dropdown2');
+                    const downIcon = document.querySelector(isDropdownBtn ? '.bi-caret-down-fill' : '.bi3');
+                    const leftIcon = document.querySelector(isDropdownBtn ? '.bi-caret-left-fill' : '.bi4');
+                    const isActive = dropdown.style.display !== 'block';
+
+                    toggleDropdown(dropdown, downIcon, leftIcon, isActive);
+                    btn.classList.toggle('active', isActive); // 클릭된 버튼에 active 클래스 추가
+
+                    // 드롭다운 상태를 로컬 스토리지에 저장
+                    const dropdownType = isDropdownBtn ? 'dropdown' : 'dropdown2';
+                    localStorage.setItem(dropdownType, isActive ? 'open' : 'closed');
+                }
             });
-    </script>
+        });
 
+        // 현재 페이지와 일치하는 메뉴에 'active' 클래스 추가
+        const currentPath = window.location.pathname;
 
-</div>
+        // 메뉴 링크 선택
+        const menuLinks = document.querySelectorAll('.menu-btn a');
+        menuLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active'); // 현재 페이지와 일치하는 링크에 active 클래스 추가
+                link.style.backgroundColor = 'red'; // 현재 메뉴의 배경색을 빨간색으로 변경
+            } else {
+                link.style.backgroundColor = ''; // 다른 메뉴의 배경색을 원래 상태로
+            }
+        });
+    }
+
+    // 페이지 로딩 시 마지막 상태 복원
+    function restoreDropdownState() {
+        const dropdown = document.querySelector('.dropdown');
+        const downIcon = document.querySelector('.bi-caret-down-fill');
+        const leftIcon = document.querySelector('.bi-caret-left-fill');
+        const dropdown2 = document.querySelector('.dropdown2');
+        const downIcon2 = document.querySelector('.bi3');
+        const leftIcon2 = document.querySelector('.bi4');
+
+        // 로컬 스토리지에서 드롭다운 상태를 불러오기
+        const dropdownState = localStorage.getItem('dropdown');
+        const dropdown2State = localStorage.getItem('dropdown2');
+        
+        toggleDropdown(dropdown, downIcon, leftIcon, dropdownState === 'open');
+        toggleDropdown(dropdown2, downIcon2, leftIcon2, dropdown2State === 'open');
+
+        // 'active' 클래스 복원
+        const activeBtn = localStorage.getItem('active-btn');
+        if (activeBtn) {
+            document.querySelector(activeBtn).classList.add('active');
+        }
+    }
+
+    // 메뉴 버튼 클릭 시 'active' 클래스 로컬 스토리지에 저장
+    function storeActiveBtn(btn) {
+        localStorage.setItem('active-btn', btn.classList.contains('dropdown-btn') ? '.dropdown-btn' : '.dropdown-btn2');
+    }
+
+    window.onload = function() {
+        setupMenuButtons();
+
+        // Reset dropdowns and active menu if on adminmain.admin
+        if (window.location.pathname === '/adminmain.admin') {
+            const dropdown = document.querySelector('.dropdown');
+            const dropdown2 = document.querySelector('.dropdown2');
+            const downIcon = document.querySelector('.bi-caret-down-fill');
+            const leftIcon = document.querySelector('.bi-caret-left-fill');
+            const downIcon2 = document.querySelector('.bi3');
+            const leftIcon2 = document.querySelector('.bi4');
+
+            toggleDropdown(dropdown, downIcon, leftIcon, false);  // Collapse dropdown
+            toggleDropdown(dropdown2, downIcon2, leftIcon2, false); // Collapse dropdown2
+
+            const menuLinks = document.querySelectorAll('.menu-btn a');
+            menuLinks.forEach(link => link.classList.remove('active')); // Remove active class from all menu items
+        }
+
+        restoreDropdownState();
+    };
+</script> -->
+
 </body>
 </html>

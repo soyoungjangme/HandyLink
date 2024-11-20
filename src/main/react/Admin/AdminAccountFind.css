@@ -1,0 +1,150 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+font-family: 'Pretendard-Regular';
+src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+font-weight: 400;
+font-style: normal;
+}
+@font-face {
+font-family: 'FlightSans-Title';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/FlightSans-Title.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+
+
+body {
+    font-family: 'Pretendard-Regular';
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.parts {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.login-find-container {
+    border : 1px solid #ddd;
+    border-radius: 10px;
+    padding: 50px 30px ;
+    margin: 0 auto;
+    width: 450px;
+/*    margin-top: 7%;*/
+    text-align: center;
+    background-color: #fff;
+}
+
+
+.login-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login-box {
+/* border : 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-content: baseline;
+
+}
+
+.login-box div {
+    display: flex;
+    width: 100%;
+    gap: 5%;
+
+}
+
+
+.login-box div > div {
+    width: 20%;
+    line-height: 43px;
+}
+.login-box div > input {
+    height: 40px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 80%;
+}
+
+.find-msg {
+    text-align: right;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.login-box> button {
+    background-color: #38414a;
+    border : 0px solid #ddd;
+    border-radius: 3px;
+    width: 30%;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    margin: 30px auto;
+}
+
+
+.singup-msg > span {
+    text-decoration: underline;
+}
+
+.part1 > div {
+    color : #fff;
+    font-size: 30px;
+}
+
+.account-find-box {
+/* border : 1px solid red; */
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-find-box > button {
+    height: 50px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    border : 0px solid #ddd;
+    border-bottom: 2px solid #38414a;
+}
+
+.account-find-box > button.active {
+    background-color: #38414a;
+    color: white;
+}
+
+.logo {
+    color: #38414a;
+    font-family: 'FlightSans-Title';
+    font-size: 45px;
+}
+
+.not-found-id {
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.go-login > a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+.go-login > a:hover {
+    color: rgb(79, 109, 218);
+}

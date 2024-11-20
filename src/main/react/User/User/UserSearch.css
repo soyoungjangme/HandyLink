@@ -1,0 +1,764 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Pretendard-Regular';
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.user-top-nav {
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.logo {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(207deg, rgba(146, 169, 255, 1) 0%, rgba(53, 58, 148, 1) 100%);
+  font-family: 'ghanachoco';
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+
+.user-main-container {
+  padding: 0px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  max-width: 400px;
+  min-height: calc(100vh - 63px);
+}
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-search-content {
+  margin-bottom: 40px;
+}
+
+.user-search-content h3 {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+
+
+/* --------------------------------------------------- */
+
+
+.user-content-container {
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+
+
+.payment-amount {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.reservation-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.reservation-info img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.reservation-details {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.reservation-details h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.reservation-details p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+.payment-info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.user-content-first {
+  /* border: 1px solid red; */
+
+  margin-bottom: 30px;
+}
+
+.user-content-first-img>img {
+  position: relative;
+}
+
+.user-content-first-img-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.user-content-first-content {
+  padding: 15px;
+}
+
+.store-name {
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+}
+
+.store-name button {
+  height: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+}
+
+.store-name button:active {
+  height: 50px;
+  font-size: 25px;
+  color: red;
+  background-color: #fff;
+  border: none;
+}
+
+.store-detail-menu {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+}
+
+.store-detail-menu>button {
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.store-detail-menu>button:active {
+  background-color: #ddd;
+}
+
+/* ----------------------------------------- */
+
+
+.search-top {
+  overflow: hidden;
+  padding: 15px 15px 0px 15px;
+}
+
+.search-top .left {
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.search-top .right {
+  float: right;
+  cursor: pointer;
+}
+
+.search-top .right img {
+  width: 24px;
+  height: 24px;
+}
+
+
+.search-top .right .bi-heart-fill {
+  color: #ff4d4d;
+}
+
+/* 검색바 */
+.store-search-bar {
+  margin: 15px;
+  height: 25px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  position: relative;
+  background-color: #eee;
+}
+
+.search-btn {
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  background: #eeeeee;
+  padding: 0;
+}
+
+.search-btn .bi-search {
+  color: #777;
+}
+
+.store-search-bar img {
+  width: 20px;
+}
+
+.store-search-bar>input {
+  font-size: 14px;
+  width: 100%;
+  padding: 5px;
+  border: none;
+  outline: none;
+  background-color: #eee;
+}
+
+
+.store-search-bar>.bi {
+  font-size: 20px;
+  margin: 10px;
+}
+
+
+/* ------- */
+
+.list-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 25px 15px 10px 15px;
+  color: #000;
+}
+
+.list-header-hot {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.user-main-list-wrap {
+  display: flex;
+  overflow-x: auto;
+
+}
+
+.store-cate-list {
+  margin: 0
+}
+
+.user-main-list-container {
+  background-color: white;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.user-category-menu-img {
+  width: 120px;
+  height: 120px;
+  gap: 3%;
+  position: relative;
+  cursor: pointer;
+}
+
+.store-category-name {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.user-category-menu img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+
+.user-category-name {
+  position: absolute;
+  top: 148px;
+  left: 13px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* 모바일 스크롤 스타일 */
+.user-main-list-wrap::-webkit-scrollbar {
+  height: 0px;
+}
+
+.user-main-list-wrap::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* 모바일 환경 */
+@media (max-width: 767px) {
+
+  /* PC 버튼 숨김 */
+  .nav-button {
+    display: none !important;
+  }
+}
+
+/* PC 환경 */
+@media (min-width: 768px) {
+
+  /* 스크롤바 감추기 */
+  .user-main-list-wrap {
+    overflow-x: hidden;
+  }
+
+  /* PC 환경에서 좌우 버튼 추가 */
+  .nav-button {
+    position: absolute;
+    /* 부모 요소 내에서 고정 */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .nav-button.left {
+    left: 0px;
+    /* 부모 요소의 왼쪽에 고정 */
+  }
+
+  .nav-button.right {
+    right: 0px;
+    /* 부모 요소의 오른쪽에 고정 */
+  }
+}
+
+
+
+
+.user-main-list-menu button {
+  font-weight: bold;
+  width: 70px;
+  height: 50px;
+  border: none;
+  background-color: #fff;
+  margin-right: 20px;
+  transition: border-bottom 0.1s ease, color 0.1s ease;
+}
+
+.user-main-list-menu button.active {
+  border-bottom: 5px solid #738BE3;
+  color: #738BE3;
+}
+
+.user-main-list-menu {
+  height: 50px;
+  display: inline-flex;
+  margin-left: 20px;
+}
+
+/* 모바일에서는 스크롤바 표시 */
+.user-main-list-wrap2 {
+  overflow-x: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-main-list-wrap2::-webkit-scrollbar {
+  height: 0px;
+}
+
+.user-main-list-wrap2::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* PC 환경에서 버튼 추가, 스크롤바 숨김 */
+@media (min-width: 768px) {
+  .user-main-list-wrap2 {
+    overflow-x: hidden;
+  }
+
+  .user-main-list-wrap2::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-button-wrap2 {
+    position: absolute;
+    top: -27px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .nav-button-wrap2.left {
+    left: 0;
+  }
+
+  .nav-button-wrap2.right {
+    right: 0;
+  }
+}
+
+/* 모바일 환경에서 버튼 숨김 */
+@media (max-width: 767px) {
+  .nav-button-wrap2 {
+    display: none !important;
+  }
+}
+
+
+
+.user-main-list-wrap3 {
+  padding: 20px;
+  position: relative;
+}
+
+
+.sub-content-top,
+.sub-content-mid,
+.sub-content-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.sub-content-option {
+  margin-right: 10px;
+}
+
+.sub-content-container {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.user-main-list-sub-part {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+}
+
+.bi-list {
+  color: #000;
+  font-size: 25px;
+}
+
+.user-main-list-sub-content {
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: 1px solid #2C348F;
+}
+
+.user-main-list-sub-content>.bi {
+  position: absolute;
+  font-size: 25px;
+  color: #fff;
+  top: 20px;
+  left: 510px;
+}
+
+.sub-content-img-box {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+}
+
+.sub-content-img-box img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+
+/* 가게명 */
+.sub-content-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+/* 가게 카테고리 */
+.sub-content-category {
+  margin-top: 5px;
+}
+
+/* 영업시간 */
+.sub-content-date {
+  margin: 5px 10px 0 0;
+  font-size: 14px;
+}
+
+.sub-content-date img {
+  width: 16px;
+}
+
+.bi-clock-fill {
+  margin-right: 5px;
+}
+
+/* 별점 */
+.sub-content-review {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.sub-content-review>span:nth-child(1) {
+  color: #FFD700;
+}
+
+.sub-content-review>span:nth-child(2) {
+  color: #999;
+}
+
+/* 위치 */
+.sub-content-location {
+  margin: 0 10px 5px 0;
+  font-size: 14px;
+}
+
+.sub-content-location img {
+  width: 16px;
+}
+
+.bi-geo-alt-fill {
+  margin-right: 5px;
+}
+
+/* 가격 */
+.sub-content-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* 해시태그(메뉴명) */
+.sub-content-option-container img {
+  width: 12px;
+}
+
+.sub-content-option {
+  font-size: 16px;
+}
+
+
+
+/* 인기 검색어 리스트 */
+.user-hit-search-list {
+  margin-bottom: 100px;
+  padding: 15px;
+  position: relative;
+}
+
+.user-hit-search-list h4 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.store-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 15px 20px;
+  list-style: none;
+  padding: 0 5px;
+}
+
+
+.store-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  color: #fe9e25;
+  text-align: left;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+}
+
+.store-list li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+/* 그리드 배치 조정 */
+.store-list li:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.store-list li:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.store-list li:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.store-list li:nth-child(4) {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.store-list li:nth-child(5) {
+  grid-column: 1;
+  grid-row: 5;
+}
+
+.store-list li:nth-child(6) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.store-list li:nth-child(7) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.store-list li:nth-child(8) {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.store-list li:nth-child(9) {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.store-list li:nth-child(10) {
+  grid-column: 2;
+  grid-row: 5;
+}
+
+
+
+/* 해시태그 리스트 */
+
+.user-hashtag-container {
+  position: relative;
+  font-family: 'Pretendard-Regular';
+}
+
+
+.user-hashtag-list-wrap {
+  overflow-x: auto;
+  margin: 20px 0 25px 0;
+}
+
+.user-hashtag-list-wrap::-webkit-scrollbar {
+  border: 0px;
+}
+
+.user-hashtag-list {
+  display: inline-flex;
+  margin-left: 15px;
+}
+
+.user-hashtag-list img {
+  width: 12px;
+}
+
+.btn-hashtag {
+  font-family: 'Pretendard-Regular';
+  height: 35px;
+  border: 1px solid #fe9e25;
+  border-radius: 40px;
+  background-color: #fff;
+  font-size: 14px;
+  margin-right: 10px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #333333;
+  white-space: nowrap;
+}
+
+.btn-hashtag a {
+  text-decoration: none;
+  color: #333333;
+  white-space: nowrap;
+}

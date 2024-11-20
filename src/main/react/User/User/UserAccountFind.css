@@ -1,0 +1,219 @@
+.user-account-find {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.user-account-find form {
+    width: 100%;
+    margin: 50px;
+}
+
+.user-account-find-toggle {
+    display: flex;
+    margin-bottom: 50px;
+    width: 90%;
+    justify-content: center;
+}
+
+.user-account-find-toggle > button {
+    width: 60%;
+    height: 60px;
+    border: none;
+    font-weight: bold;
+    flex: 1;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.user-account-msg{
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.user-account-find-toggle > button:nth-child(2) {
+    width: 60%;
+    height: 60px;
+    border: none;
+    font-weight: bold;
+}
+
+#find-id-btn {
+    font-size: 15px;
+    background-color: #FE8517;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#find-pw-btn {
+    font-size: 15px;
+    background-color: #E5E5EA;
+    color: #000;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* .form-group {
+    margin-bottom: 30px;
+} */
+
+/* .form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+} */
+
+/* .form-group input {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 0px;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    outline: none;
+} */
+
+/* 기존 스타일 유지하면서 애니메이션 효과 추가 */
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.form-group input {
+    width: 80%;
+    padding: 10px 10px 10px 5px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    box-sizing: border-box;
+    outline: none;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* 자동 완성으로 input 필드 채우면 색상이 제멋대로 변경되는 걸 방지시킴 */
+.form-group input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: #000;
+}
+
+.form-group label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 10%;
+    top: 10px;
+    transition: all 0.2s ease;
+}
+
+/* 애니메이션 효과 */
+input:focus ~ label, input.used ~ label {
+    top: -20px;
+    transform: scale(0.75);
+    left: 10%;
+    color: #FE8517;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 하이라이트와 밑줄 애니메이션 */
+.bar {
+    position: relative;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #FE8517;
+    transition: all 0.2s ease;
+    margin-bottom: 10px;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 50%;
+}
+
+/* Highlight 애니메이션 */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 20%;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+    from { background: #FE8517; }
+    to   { width: 0; background: transparent; }
+}
+
+
+.btn-findaccount {
+    margin-top: 50px;
+    width: 60%;
+    height: 50px;
+    padding: 10px;
+    background: #FE8517;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.password-group {
+    position: relative;
+}
+
+.password-group .invisible-icon1 {
+    position: absolute;
+    top: 50%;
+    left:75%;
+}
+
+.password-group .invisible-icon2 {
+    position: absolute;
+    top: 50%;
+    left:75%;
+}
+
+#reset-password-form {
+    margin: -100px;
+}
+
+.result-message {
+    font-size: 14px;
+    color: #333;
+}

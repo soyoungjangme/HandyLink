@@ -1,0 +1,483 @@
+.main-content {
+  margin: 50px;
+}
+
+.main-content-title {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.main-btns {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+
+.main-contents {
+  border-radius: 10px;
+}
+
+
+.btn-st {
+  border: 1px solid #1d2830;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 3px;
+  background-color: #2e3133;
+
+}
+.management-table tbody tr:hover {
+  background-color: #c8d6e570;
+  cursor: pointer;
+}
+.management-table thead th {
+
+}
+
+.search-bar-box {
+  display: flex;
+    margin-bottom: 30px;
+    justify-content: flex-end;
+    gap: 1%;
+
+}
+.search-bar-box > input {
+  padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+.search-bar-box > button {
+  border : 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 10px;
+    padding: 0px 10px;
+}
+
+
+/* ------------------------------------------ */
+
+.management-container {
+  /* margin: 40px; */
+  /* border: 1px solid #ddd; */
+  /* border-radius: 8px; */
+  /* background-color: #f9f9f9;*/
+}
+
+.management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.top-controls input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.top-controls select {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.add-btn,
+.report-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/*
+.add-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.report-btn {
+  background-color: #28a745;
+  color: white;
+} */
+
+.header-title {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.management-table {
+  width: 100%;
+  /* border: 1px solid #ddd; */
+  border-collapse: collapse;
+  font-size: 17px;
+
+
+}
+
+.management-table tr th {
+  /* background: linear-gradient(360deg, rgb(230 230 230) 0%, #f4f4f5 100%); */
+  background: #e7eaef69;
+  box-shadow: unset;
+  color: #38414a;
+  border-right: 2px solid #38414a;
+  border-bottom: 2px solid #ddd;
+
+}
+
+
+
+.management-table th,
+.management-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+.management-table th:last-child,
+.management-table td:last-child{
+  border-right: none;
+  /* color : red; */
+}
+
+
+.management-table th {
+  font-weight: bold;
+}
+
+/* .management-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+} */
+
+.flight-btn {
+  background-color: #4f4f4f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 10%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.management-table tbody tr td img {
+  border-radius: 100%;
+  width: 38px;
+}
+
+
+/* .management-table tbody tr td:nth-child(2)  {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+
+} */
+
+.material-symbols-outlined {
+  font-size: 20px;
+}
+
+.management-table thead tr th>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+
+
+
+
+.icon-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.icon-button:hover {
+  color: #007BFF;
+}
+
+
+.main-content-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.icon-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.icon-button:hover {
+  color: #007BFF;
+}
+
+
+
+
+.calendar-and-reservation-info {
+  display: flex;
+  /* 가로로 배치 */
+  margin-top: 20px;
+  /* 위쪽 간격 */
+}
+
+.custom-calendar {
+  flex: 3;
+  /* 가변 너비 */
+  margin-right: 20px;
+  /* 캘린더와 예약 정보 사이 간격 */
+}
+
+.reservation-info-container {
+  flex: 1;
+  /* 가변 너비 */
+  border: 1px solid #ccc;
+  /* 테두리 */
+  padding: 10px;
+  /* 안쪽 여백 */
+  background-color: #f9f9f9;
+  /* 배경 색상 */
+}
+
+
+
+/* 캘린더 부분 */
+.custom-calendar {
+  max-width: 1080px;
+  /* 캘린더 너비 */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  /* 캘린더 전체 폰트 크기 */
+  height: auto;
+  /* 고정 높이 제거 */
+}
+
+.month {
+  margin-bottom: 20px;
+  /* 각 달 사이의 간격 */
+}
+
+/* 캘린더 전체 크기 조정 */
+.react-calendar {
+  width: 100%;
+  /* 캘린더의 너비 설정 */
+}
+
+/* 날짜 타일 스타일 조정 */
+.react-calendar__tile {
+  width: 150px;
+  /* 날짜 타일의 가로 크기 */
+  height: 150px;
+  /* 날짜 타일의 세로 크기 */
+  padding: 10px;
+  /* 날짜 타일 내부 여백 */
+  display: flex;
+  /* flexbox 사용 */
+  justify-content: flex-start;
+  /* 좌측 정렬 */
+  align-items: flex-start;
+  /* 상단 정렬 */
+}
+
+.react-calendar__tile--active {
+  background: white;
+  color: black;
+}
+
+.react-calendar__tile--active:enabled:hover {
+  background: #e6e6e6;
+}
+
+.react-calendar__tile:enabled:hover {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__tile--active:enabled:focus {
+  background: white;
+}
+
+.react-calendar__tile:enabled:focus {
+  background-color: white;
+}
+
+/* 선택된 날짜의 스타일 */
+.react-calendar__tile.selected-date {
+  background-color: #add8e6 !important;
+  color: black;
+  /* 선택된 날짜의 글자 색상 */
+}
+
+/* 날짜 내용 스타일 조정 */
+.react-calendar__tile div {
+  margin: 0;
+  /* 기본 여백 제거 */
+}
+
+/* 현재 날짜 강조 */
+.react-calendar__tile--now {
+  background-color: #e6f7ff;
+}
+
+/* 날짜 타일 호버 시 스타일 */
+.react-calendar__tile:hover {
+  background-color: #cce5ff;
+}
+
+/* 요일 */
+.react-calendar__month-view__weekdays__weekday {
+  padding: 20px 0 20px 7px;
+  text-align: left;
+}
+
+.react-calendar__month-view__weekdays__weekday:nth-child(1) {
+  padding: 20px 0 20px 7px;
+  text-align: left;
+  color: red;
+}
+
+/* 달력 숫자일 색상 */
+.sunday {
+  color: red;
+}
+
+.saturday {
+  color: black;
+}
+
+
+
+
+/* 예약 리스트 스타일 */
+.reservation-list {
+  margin-top: 20px;
+  font-size: 12px;
+  list-style: none;
+  padding-left: 0;
+  background-color: #f9f9f9;
+  /* 배경색 추가 */
+  border-radius: 5px;
+  /* 둥근 모서리 */
+  border: 1px solid #e0e0e0;
+  /* 테두리 추가 */
+  max-height: 150px;
+  /* 최대 높이 설정 */
+}
+
+.reservation-list li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 8px 10px;
+  /* 내부 여백 추가 */
+  transition: background-color 0.3s;
+  /* 배경색 전환 효과 추가 */
+}
+
+.reservation-list li:hover {
+  background-color: #e6f7ff;
+  /* 호버 시 배경색 변경 */
+  cursor: pointer;
+  /* 커서 포인터로 변경 */
+  border-left: 4px solid #007bff;
+  /* 왼쪽 테두리 강조 */
+}
+
+
+
+/* 캘린더 옆 예약정보 리스트 */
+.reservation-info-container {
+  background-color: #f7f9fc;
+  border-radius: 10px; 
+  padding: 20px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* 예약정보 */
+.reservation-info-container h3 {
+  font-size: 24px;
+  color: #333; 
+}
+
+/* 날짜 */
+.reservation-info-container h4 {
+  font-size: 18px; 
+  color: #007bff; 
+  border-bottom: 2px solid #007bff; 
+  padding-bottom: 5px; 
+}
+
+/* 리스트 */
+.reservation-info-container ul {
+  list-style-type: none; 
+  padding-left: 0; 
+  margin-bottom: 35px;
+}
+
+.reservation-info-container li {
+  background-color: #fff; /* 항목 배경색 */
+  margin: 5px 0; /* 항목 사이 여백 */
+  padding: 10px; /* 항목 내부 여백 */
+  border-radius: 5px; /* 항목 둥근 모서리 */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* 항목 그림자 */
+  transition: transform 0.2s; /* 애니메이션 효과 */
+}
+
+.reservation-info-container li:hover {
+  transform: translateY(-2px); /* 호버 시 약간의 상승 효과 */
+  background-color: #e9f5ff; /* 호버 시 배경색 변화 */
+  cursor: pointer; /* 커서 포인터로 변경 */
+}
+
+.expanded-content {
+  border : 1px solid #ddd;
+}
+
+.bi-chevron-down {
+ cursor: pointer;
+ float: right;
+}
+
+
+/* .management-table td:nth-child(2){
+  display: flex;
+  justify-content: space-between;
+} */
+
+.management-table textarea {
+  width: 100%;
+  height: 6.25em;
+  border: 1px solid #ddd;
+  resize: none;
+
+}

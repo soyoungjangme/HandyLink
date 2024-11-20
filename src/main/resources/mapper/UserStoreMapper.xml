@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.HiMade.user.mapper.UserStoreMapper">
+
+
+
+
+    <select id="getStoreMainCategory" resultType="com.example.HiMade.user.dto.UserCateDTO">
+        select *
+        from category c
+        left join category_image ci
+        on c.category_id = ci.category_id
+        where category_level = 1
+        AND store_no = #{id}
+        order by c.category_id desc
+    </select>
+
+    <select id="getStoreMainCategory2" resultType="com.example.HiMade.user.dto.UserCateDTO">
+    select *
+    from category c
+    left join category_image ci
+    on c.category_id = ci.category_id
+    left join reservation_form rf
+    on rf.main_category_id = c.category_id
+    where category_level = 1
+    AND rf.reservation_no = #{id}
+        LIMIT 1
+    </select>
+
+
+    <select id="getStoreInfo" resultMap="storeRegistResultMap">
+        SELECT *
+        FROM store sa
+        LEFT JOIN store_sns_link sns ON sa.store_no = sns.store_no
+        LEFT JOIN store_img si ON si.store_no = sa.store_no
+        LEFT JOIN day_off_day d ON sa.store_no = d.store_no AND d.day_off_fix_status = 'Y'
+        LEFT JOIN day_off_set s ON sa.store_no = s.store_no
+            AND (s.day_off_start &lt;= CURRENT_DATE + INTERVAL '7 days' OR s.day_off_start IS NULL)
+            AND (s.day_off_end &gt;= CURRENT_DATE OR s.day_off_end IS NULL)
+        WHERE sa.store_no = #{id}
+    </select>
+
+
+    <resultMap id="storeRegistResultMap" type="com.example.HiMade.admin.dto.StoreRegistDTO">
+        <result property="storeId" column="store_id"/>
+        <result property="storeNo" column="store_no"/>
+        <result property="storePw" column="store_pw"/>
+        <result property="storeCate" column="store_cate"/>
+        <result property="storeName" column="store_name"/>
+        <result property="storeMaster" column="store_master"/>
+        <result property="managerName" column="manager_name"/>
+        <result property="managerPhone" column="manager_phone"/>
+        <result property="zipcode" column="zipcode"/>
+        <result property="addr" column="addr"/>
+        <result property="addrdetail" column="addrdetail"/>
+        <result property="storeBusinessNo" column="store_business_no"/>
+        <result property="storeIntro" column="store_intro"/>
+        <result property="storeParkingYn" column="store_parking_yn"/>
+        <result property="storeNotice" column="store_notice"/>
+        <result property="storeOpenTime" column="store_open_time"/>
+        <result property="storeCloseTime" column="store_close_time"/>
+        <result property="accountBank" column="account_bank"/>
+        <result property="accountNumber" column="account_number"/>
+        <result property="storeSignup" column="store_signup"/>
+        <result property="storeStatus" column="store_status"/>
+        <result property="deliveryType" column="delivery_type"/>
+
+        <!-- SNS 매핑 -->
+        <collection property="storeSns" ofType="com.example.HiMade.admin.dto.StoreSnsDTO">
+            <result property="storeSnsNo" column="store_sns_no"/>
+            <result property="snsLink" column="sns_link"/>
+            <result property="snsName" column="sns_name"/>
+<!--            <result property="storeId" column="store_id"/>-->
+            <result property="storeNo" column="store_no"/>
+        </collection>
+
+        <collection property="storeImg" ofType="com.example.HiMade.admin.dto.StoreImgDTO" javaType="java.util.List">
+            <result property="storeImgNo" column="store_img_no"/>
+            <result property="storeImgLocation" column="store_img_location"/>
+<!--            <result property="storeId" column="store_id"/>-->
+            <result property="storeNo" column="store_no"/>
+        </collection>
+
+        <collection property="dayOffDayList" ofType="com.example.HiMade.admin.dto.DayOffDay" javaType="java.util.List">
+            <result property="dayNo" column="day_no"/>
+            <result property="storeNo" column="store_no"/>
+            <result property="dayOffFixStatus" column="day_off_fix_status"/>
+            <result property="dayOffDay" column="day_off_day"/>
+        </collection>
+
+        <collection property="dayOffSetList" ofType="com.example.HiMade.admin.dto.DayOffSet" javaType="java.util.List">
+            <result property="setNo" column="day_no"/>
+            <result property="storeNo" column="store_no"/>
+            <result property="dayOffStart" column="day_off_start"/>
+            <result property="dayOffEnd" column="day_off_end"/>
+        </collection>
+    </resultMap>
+
+<!--  가게 찜  -->
+    <select id="existingLike" resultType="int">
+        select count(*)
+        from user_likes
+        where user_id = #{userId} and store_no = #{storeNo}
+    </select>
+
+    <insert id="clickLike" parameterType="com.example.HiMade.user.dto.UserLikesDTO">
+        insert into user_likes(user_like_date, user_id, store_no)
+        values (now(), #{userId}, #{storeNo})
+    </insert>
+
+    <delete id="deleteLike" parameterType="com.example.HiMade.user.dto.UserLikesDTO">
+        delete from user_likes
+        where user_id = #{userId} and store_no = #{storeNo}
+    </delete>
+
+<!--  나의 찜  -->
+    <select id="getLike" resultType="com.example.HiMade.user.dto.UserLikesDTO">
+        select * from user_likes
+        where user_id = #{userId}
+    </select>
+
+    <select id="getLikeInfo" parameterType="string" resultType="java.util.Map">
+        WITH first_image AS (
+            SELECT
+                store_no,
+                store_img_location,
+            ROW_NUMBER() OVER(PARTITION BY store_no ORDER BY store_img.store_img_no) AS rn
+            FROM store_img
+        )
+        SELECT ul.store_no,
+            s.store_status,
+            s.store_cate,
+            s.store_name,
+            s.addr,
+            s.addrdetail,
+            fi.store_img_location,
+            COUNT(DISTINCT review.review_no) AS review_count,
+            ROUND(AVG(review.review_rating), 1) AS avg_rating
+        FROM user_likes ul
+        LEFT JOIN store s ON ul.store_no = s.store_no
+        LEFT JOIN first_image fi ON s.store_no = fi.store_no AND fi.rn = 1
+        LEFT JOIN reservation reserve ON reserve.store_no = s.store_no
+        LEFT JOIN review ON review.reservation_no = reserve.reservation_no
+        WHERE ul.user_id =#{userId}
+        GROUP BY ul.store_no, s.store_status, s.store_cate, s.store_name, s.addr, s.addrdetail, fi.store_img_location;
+    </select>
+
+</mapper>

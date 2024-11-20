@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.HiMade.admin.mapper.AdminChatMapper">
+
+    <select id="getChatListForStore" resultMap="adminChatListResultMap">
+        WITH latest_messages AS (
+            SELECT DISTINCT ON (user_id)
+            user_id,
+            store_no,
+            send_time AS lastMessageTime,
+            chat_message
+        FROM chat
+        WHERE store_no = #{storeNo}
+        ORDER BY user_id, send_time DESC
+            )
+        SELECT
+            c.user_id AS userId,
+            u.user_name AS userName,
+            lm.lastMessageTime AS lastMessageTime,
+            lm.chat_message AS lastMessage,
+            u.user_img_url AS userImgUrl,
+            CASE
+                WHEN lm.lastMessageTime > COALESCE(cs.store_last_checked_time, '1970-01-01')
+                    AND c.sender_type = 'USER'
+                    THEN true
+                ELSE false
+                END AS isNewMessage
+        FROM users u
+                 JOIN latest_messages lm ON u.user_id = lm.user_id
+                 JOIN chat c ON c.user_id = lm.user_id
+            AND c.send_time = lm.lastMessageTime
+                 LEFT JOIN chat_status cs ON lm.user_id = cs.user_id
+            AND lm.store_no = cs.store_no
+        WHERE lm.store_no = #{storeNo}
+        ORDER BY lm.lastMessageTime DESC
+    </select>
+
+    <resultMap id="adminChatListResultMap" type="map">
+        <result property="userId" column="userId"/>
+        <result property="userName" column="userName"/>
+        <result property="lastMessage" column="lastMessage"/>
+        <result property="lastMessageTime" column="lastMessageTime"/>
+        <result property="userImgUrl" column="userImgUrl"/>
+        <result property="isNewMessage" column="isNewMessage"/>
+    </resultMap>
+
+    <select id="fetchChatHistory" resultType="com.example.HiMade.admin.dto.AdminChatDTO">
+        SELECT
+        chat_no AS chatNo,
+        chat_message AS chatMessage,
+        send_time AS sendTime,
+        store_no AS storeNo,
+        user_id AS userId,
+        sender_type AS senderType
+        FROM chat
+        WHERE user_id = #{userId} AND store_no = #{storeNo}
+        ORDER BY send_time DESC
+        LIMIT #{limit}
+    </select>
+
+    <insert id="insertChatMessage" parameterType="com.example.HiMade.admin.dto.AdminChatDTO">
+        INSERT INTO chat (
+        chat_message,
+        send_time,
+        user_id,
+        sender_type,
+        store_no
+        ) VALUES (
+        #{chatMessage},
+        #{sendTime},
+        #{userId},
+        #{senderType},
+        #{storeNo}
+        )
+    </insert>
+
+    <update id="updateLastCheckedTime">
+        INSERT INTO chat_status (user_id, store_no, store_last_checked_time)
+        VALUES (#{userId}, #{storeNo}, NOW())
+        ON CONFLICT (user_id, store_no)
+        DO UPDATE SET store_last_checked_time = NOW()
+    </update>
+
+    <!-- 채팅방 상태 확인 -->
+    <select id="getChatRoomStatus" resultType="map">
+        SELECT user_id, store_no, actived
+        FROM chat_status
+        WHERE user_id = #{userId} AND store_no = #{storeNo}
+    </select>
+
+    <!-- 채팅방 재활성화 -->
+    <update id="reactivateChat">
+        UPDATE chat_status
+        SET actived = 'Y'
+        WHERE user_id = #{userId} AND store_no = #{storeNo}
+    </update>
+
+
+</mapper>

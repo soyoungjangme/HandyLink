@@ -1,0 +1,110 @@
+.admin-store-info-container .input-group {
+    margin-bottom: 30px;
+}
+
+.admin-store-info-container .input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 0px 7px;
+}
+
+.delivery-group {
+    display: flex;
+    gap: 20px;
+}
+
+
+.admin-store-info-container
+.input-group input {
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-store-info-container
+.input-group select{
+    width: 78%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-store-info-container
+.input-group .small-text {
+    font-size: 13px;
+    margin: 0;
+}
+
+.admin-store-info-container
+.btn-group {
+    display: flex;
+    gap: 2%;
+    width: 79%;
+}
+
+.admin-store-info-container
+.btn-check {
+    padding: 5px 20px;
+    background-color: #2c2c2c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 120px; height: 37px;
+
+}
+
+.admin-store-info-container
+.btn-postcode {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #2c2c2c;
+    color: whitesmoke;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100px; height: 37px;
+}
+
+/* .submit-btn {
+    display: block;
+    width: 20%; height: 40px;
+    margin: 20px auto;
+    padding: 0;
+    background-color: white;
+    color: #727272;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1.5px solid #727272;
+} */
+
+
+
+.admin-store-info-container
+.account-store-box {
+    border :  1px solid #ddd;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.admin-store-info-container
+.account-login-box {
+    border :  1px solid #ddd;
+    border-radius: 5px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.admin-store-info-container
+.input-group > p {
+    font-size: 13px;
+    padding: 0 10px;
+    margin: 0;
+}

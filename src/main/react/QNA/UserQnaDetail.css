@@ -1,0 +1,97 @@
+.chat-container {
+  width: 375px;
+  height: 100vh;
+  border: 1px solid #ccc;
+  margin: auto;
+  background-color: white;
+  position: relative;
+  padding: 10px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  
+}
+
+.message.incoming {
+  justify-content: flex-start;
+}
+
+.message.outgoing {
+  justify-content: flex-end;
+  
+}
+
+.message p {
+  background-color: #d1d4ff;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 60%;
+  position: relative;
+}
+
+.message.outgoing p {
+  background-color: #d1f5d3;
+}
+
+/* Upward Tail for the first message */
+.message.incoming p.first::before {
+  content: '';
+  position: absolute;
+  top: 15px; /* Adjust this value to position the tail vertically */
+  left: -9px; /* Adjust this value to position the tail horizontally */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent; 
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #d1d4ff;
+
+}
+
+.message.outgoing p.first::before {
+  content: '';
+  position: absolute;
+  top: 15px; /* Adjust this value to position the tail vertically */
+  right: -9px; /* Adjust this value to position the tail horizontally */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #d1f5d3; /* Same color as the outgoing message bubble */
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  
+}
+
+.message.outgoing .profile-img {
+  margin-left: 10px;
+  margin-right: 0;
+  
+}
+
+.footer {
+  position: absolute;
+  margin: auto;
+  margin-left: -10px;
+  padding: 0;
+  width: 95%;
+  background-color: #d1d4ff;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer input {
+  width: 80%;
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+}

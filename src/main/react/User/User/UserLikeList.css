@@ -1,0 +1,142 @@
+.favorite-list {
+    max-width: 360px;
+    padding: 10px 10px 0 10px;
+    background-color: #edededa1;
+    min-height: 900px;
+}
+
+.title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.category-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 59px);
+    grid-template-rows: auto auto;
+    gap: 5px 10px;
+    padding: 0 5px;
+    margin-top: 10px;
+}
+
+/* 마지막 4개 버튼(두 번째 줄)을 위한 컨테이너 */
+.category-buttons > button:nth-last-child(-n+4) {
+    width: 60px;
+}
+
+.second-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 0 0 15px;
+    text-align: center;
+}
+
+.second-row .category-button {
+    width: auto; /* 버튼 너비를 그리드 셀에 맞춤 */
+}
+
+.category-button {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 0 5px;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+}
+
+.category-button.active {
+    background-color: #FE8517;
+    color: #ffffff;
+}
+
+.category-button.inactive {
+    background-color: #e0e0e0; /* 비활성 버튼 색상 */
+    color: #888; /* 비활성 버튼 글자 색상 */
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.likecard {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative; /* 위치 속성 추가 */
+    z-index: 0;
+    margin-top: 5px;
+}
+
+.card-image {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.category {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #FE8517;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.card-main {
+    display: flex; /* 수정된 부분 */
+}
+
+.card-content {
+    flex: 1;
+    text-align: right;
+}
+
+.store {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: -10px;
+    text-align: right;
+}
+
+.rating-section {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    float: right;
+}
+
+.rating {
+    font-size: 1em;
+    color: #FE8517;
+    margin-right: 10px;
+}
+
+.card-content > p,
+.reviews {
+    font-size: 0.9em;
+    color: #888888;
+}
+
+.no-activate .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* 투명도 조절 */
+    z-index: 1;
+    border-radius: 8px; /* 카드 모서리와 일치하도록 설정 */
+}
+
+.card {
+    position: relative;
+    z-index: 2; /* 오버레이 아래에 위치 */
+}

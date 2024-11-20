@@ -1,0 +1,76 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@font-face {
+font-family: 'ghanachoco';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'Pretendard-Regular';
+src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+font-weight: 400;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'TTLaundryGothicB';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+font-weight: 700;
+font-style: normal;
+}
+
+.text-container{
+    text-align: center;
+}
+
+.signup-complete-title{
+/* border : 1px solid red; */
+    font-size: 40px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+    font-family: 'TTLaundryGothicB';
+}
+
+.signup-complete-title .bi {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.signup-complete-content{
+/* border : 1px solid red; */
+    margin-bottom: 70px;
+    font-size: 20px;
+
+}
+
+.signup-complete-content > div:nth-child(1) {
+    color : rgb(199, 4, 4);
+    margin-bottom: 20px;
+}
+.signup-complete-content > div:nth-child(2) {
+    color : #999;
+    margin-bottom: 10px;
+    font-size: 13px;
+
+}
+
+.signup-complete-content > div:nth-child(1) span{
+    color : blue;
+    margin-bottom: 10px;
+}
+
+.login-go-btn {
+    display: block;
+    /* width: 100%; */
+    /* text-align: center; */
+    padding: 10px 15px;
+    background-color: #727272;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+}

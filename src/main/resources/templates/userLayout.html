@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title> NEEZ </title>
+    <link rel="stylesheet" th:href="@{/css/userLayout.css}"/>
+    
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f2ab75dd984a8c54de2057619973c70a&libraries=services"></script>
+
+
+</head>
+
+<body>
+
+<div class="user-main-container">
+        <div id="root"></div>
+        <div class="user-bottom-nav">
+
+            <a href="../userMain.user" class="nav-link" id="userMainLink">
+                <span class="icon" >
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="29px" height="29px" viewBox="0 0 512.000000 512.000000"
+                        style="shape-rendering: geometricPrecision; text-rendering: geometricPrecision; image-rendering: optimizeQuality; clip-rule: evenodd;"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g>
+                            <path class="icon-fill" d="M 245.5,68.5 C 262.119,66.1517 276.785,70.3183 289.5,81C 337.969,126.468 386.136,172.302 434,218.5C 437.754,224.008 440.42,230.008 442,236.5C 442.667,293.833 442.667,351.167 442,408.5C 437.5,426.333 426.333,437.5 408.5,442C 376.167,442.667 343.833,442.667 311.5,442C 310.584,441.626 309.75,441.126 309,440.5C 307.678,398.584 307.011,356.584 307,314.5C 304.5,306.667 299.333,301.5 291.5,299C 267.5,298.333 243.5,298.333 219.5,299C 211.667,301.5 206.5,306.667 204,314.5C 203.667,355.833 203.333,397.167 203,438.5C 202.626,439.416 202.126,440.25 201.5,441C 168.585,442.652 135.585,442.985 102.5,442C 85.1085,437.609 73.9419,426.776 69,409.5C 68.3333,351.833 68.3333,294.167 69,236.5C 70.1635,231.172 72.1635,226.172 75,221.5C 82.1355,213.364 89.6355,205.53 97.5,198C 139.135,159.366 180.469,120.366 221.5,81C 228.597,74.9529 236.597,70.7862 245.5,68.5 Z M 247.5,83.5 C 258.068,81.9224 267.735,84.0891 276.5,90C 325.689,136.19 374.522,182.69 423,229.5C 424.893,232.618 426.226,235.951 427,239.5C 427.667,295.167 427.667,350.833 427,406.5C 422.534,419.628 413.367,426.795 399.5,428C 373.835,428.5 348.169,428.667 322.5,428.5C 322.667,389.832 322.5,351.165 322,312.5C 319.191,299.053 311.357,289.886 298.5,285C 284.219,283.868 269.885,283.368 255.5,283.5C 241.115,283.368 226.781,283.868 212.5,285C 199.643,289.886 191.809,299.053 189,312.5C 188.5,351.165 188.333,389.832 188.5,428.5C 162.831,428.667 137.165,428.5 111.5,428C 97.6057,426.762 88.4391,419.595 84,406.5C 83.3333,350.833 83.3333,295.167 84,239.5C 86.1223,231.707 90.289,225.207 96.5,220C 142.5,176.667 188.5,133.333 234.5,90C 238.647,87.2599 242.98,85.0933 247.5,83.5 Z" />
+                        </g>
+                    </svg>
+                </span>
+            </a>
+            
+
+
+            <a href="../userSearch.user"  class="nav-link2" id="userMainLink2" >
+                <span> <svg class="icon-fill2"  version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="24px" height="24px" viewBox="0 0 512.000000 512.000000"
+                    preserveAspectRatio="xMidYMid meet" >
+                
+                  <g class="icon-fill2" transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                  > <!-- stroke와 stroke-width 추가 -->
+                    <path d="M2005 4894 c-16 -2 -73 -9 -125 -15 -336 -38 -691 -166 -925 -334
+                    -186 -133 -354 -315 -466 -507 -200 -340 -301 -839 -270 -1332 46 -707 292
+                    -1201 750 -1508 445 -297 1123 -408 1796 -293 324 55 599 167 818 332 l82 62
+                    125 -122 c69 -67 314 -310 545 -539 416 -414 421 -418 461 -418 74 0 128 71
+                    104 136 -6 17 -240 259 -545 564 l-534 535 64 84 c165 218 284 513 340 846 58
+                    345 59 638 4 955 -160 925 -742 1453 -1708 1550 -94 9 -445 12 -516 4z m472
+                    -215 c794 -67 1293 -442 1488 -1119 151 -526 111 -1184 -101 -1639 -159 -341
+                    -450 -600 -815 -724 -465 -159 -1116 -163 -1584 -10 -345 112 -626 338 -795
+                    638 -262 467 -316 1241 -126 1818 165 503 483 808 997 956 266 77 617 107 936
+                    80z"/>
+                  </g>
+                </svg>
+                
+</span>
+            </a>
+
+
+            <a href="../userMyReservationList.user"  class="nav-link3" id="userMainLink3">
+                <span><svg xmlns="http://www.w3.org/2000/svg" class="icon-fill3"  id="Layer_1" data-name="Layer 1" viewBox="0 0 25 25" width="24" height="24"><path  class="icon-fill3" d="M17.5,11.039c-3.584,0-6.5,2.916-6.5,6.5,0,3.563,2.916,6.461,6.5,6.461s6.5-2.916,6.5-6.5c0-3.563-2.916-6.461-6.5-6.461Zm0,11.961c-3.032,0-5.5-2.45-5.5-5.461,0-3.033,2.468-5.5,5.5-5.5s5.5,2.45,5.5,5.461c0,3.033-2.468,5.5-5.5,5.5Zm1.354-4.854c.195,.195,.195,.512,0,.707-.098,.098-.226,.146-.354,.146s-.256-.049-.354-.146l-1-1c-.094-.094-.146-.221-.146-.354v-2c0-.276,.224-.5,.5-.5s.5,.224,.5,.5v1.793l.854,.854Zm.646-16.146h-1.5V.5c0-.276-.224-.5-.5-.5s-.5,.224-.5,.5v1.5H7V.5c0-.276-.224-.5-.5-.5s-.5,.224-.5,.5v1.5h-1.5C2.019,2,0,4.019,0,6.5v13c0,2.481,2.019,4.5,4.5,4.5h6c.276,0,.5-.224,.5-.5s-.224-.5-.5-.5H4.5c-1.93,0-3.5-1.57-3.5-3.5V9H23v1.5c0,.276,.224,.5,.5,.5s.5-.224,.5-.5V6.5c0-2.481-2.019-4.5-4.5-4.5ZM1,8v-1.5c0-1.93,1.57-3.5,3.5-3.5h15c1.93,0,3.5,1.57,3.5,3.5v1.5H1Z"/></svg>
+
+</span>
+            </a>
+            <a href="../userChatList.user"  class="nav-link4" id="userMainLink4">
+                <span>    <svg  class="icon-fill4" xmlns="http://www.w3.org/2000/svg" version="1.1" width="28px" height="28px" viewBox="0 0 510 510"  style="  fill-rule: evenodd;shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality;  clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g transform="scale(2.1)">
+        <path class="icon-fill4"  d="M 32.5,20.5 C 76.8805,20.0209 121.214,20.5209 165.5,22C 173.493,25.3262 178.659,31.1595 181,39.5C 181.5,50.8284 181.667,62.1618 181.5,73.5C 194.837,73.3334 208.171,73.5001 221.5,74C 233,76.1667 239.833,83 242,94.5C 242.667,137.5 242.667,180.5 242,223.5C 237.508,234 230.008,236.834 219.5,232C 211.833,223.667 204.167,215.333 196.5,207C 160.44,206.981 124.44,206.314 88.5,205C 82,202.5 77.5,198 75,191.5C 73.58,178.894 73.08,166.228 73.5,153.5C 68.4889,153.334 63.4889,153.501 58.5,154C 50.8333,162.333 43.1667,170.667 35.5,179C 24.9916,183.834 17.4916,181 13,170.5C 12.3333,127.5 12.3333,84.5 13,41.5C 15.2332,30.4367 21.7332,23.4367 32.5,20.5 Z M 34.5,29.5 C 76.5013,29.3333 118.501,29.5 160.5,30C 166.333,31.8333 170.167,35.6667 172,41.5C 172.667,71.8333 172.667,102.167 172,132.5C 170.57,138.261 167.07,142.095 161.5,144C 126.167,144.333 90.8333,144.667 55.5,145C 46.8577,153.31 38.5244,161.977 30.5,171C 26.7929,173.209 23.9596,172.376 22,168.5C 21.3333,126.5 21.3333,84.5 22,42.5C 23.6823,35.6529 27.849,31.3196 34.5,29.5 Z M 181.5,82.5 C 194.504,82.3334 207.504,82.5001 220.5,83C 226.159,83.9956 229.993,87.1622 232,92.5C 233.151,114.439 233.651,136.439 233.5,158.5C 233.333,179.5 233.167,200.5 233,221.5C 231.04,225.376 228.207,226.209 224.5,224C 216.476,214.977 208.142,206.31 199.5,198C 163.107,197.981 126.773,197.314 90.5,196C 87.2379,193.408 84.7379,190.241 83,186.5C 82.5002,175.505 82.3335,164.505 82.5,153.5C 109.502,153.667 136.502,153.5 163.5,153C 173.112,150.389 178.945,144.222 181,134.5C 181.5,117.17 181.667,99.8365 181.5,82.5 Z"/>
+        <path class="icon-fill4"  d="M 62.5,70.5 C 85.5024,70.3334 108.502,70.5 131.5,71C 135.486,72.9431 136.153,75.6098 133.5,79C 109.167,79.6667 84.8333,79.6667 60.5,79C 58.7763,75.4643 59.443,72.631 62.5,70.5 Z"/>
+        <path class="icon-fill4"  d="M 60.5,104.5 C 77.5033,104.333 94.5033,104.5 111.5,105C 114.462,108.488 113.795,111.155 109.5,113C 93.8333,113.667 78.1667,113.667 62.5,113C 59.3353,110.886 58.6687,108.053 60.5,104.5 Z"/>
+    </g>
+</svg>
+
+
+
+
+</span>
+            </a>
+            <a href="../userAccountPage.user" class="nav-link5" id="userMainLink5">
+                <span>  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22px" height="22px" viewBox="0 0 512.000000 512.000000" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality;  clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g><path class="icon-fill" style="opacity:0.956"  d="M 228.5,-0.5 C 246.5,-0.5 264.5,-0.5 282.5,-0.5C 336.541,14.7128 368.374,50.0461 378,105.5C 382.122,156.415 363.288,196.248 321.5,225C 277.5,249.667 233.5,249.667 189.5,225C 143.667,192.877 125.5,149.043 135,93.5C 145.022,52.1471 169.522,22.9804 208.5,6C 215.254,3.6921 221.921,1.52544 228.5,-0.5 Z M 245.5,22.5 C 288.956,21.1362 321.456,39.1362 343,76.5C 362.112,122.277 353.612,162.11 317.5,196C 276.171,225.927 234.838,225.927 193.5,196C 156.585,161.349 148.418,120.849 169,74.5C 186.125,44.8535 211.625,27.5202 245.5,22.5 Z"/></g>
+<g><path class="icon-fill" style="opacity:0.966"  d="M 511.5,462.5 C 511.5,477.833 511.5,493.167 511.5,508.5C 510.599,509.29 509.932,510.29 509.5,511.5C 340.167,511.5 170.833,511.5 1.5,511.5C 1.16667,510.5 0.5,509.833 -0.5,509.5C -0.5,493.833 -0.5,478.167 -0.5,462.5C 15.3702,382.14 60.0369,323.974 133.5,288C 172.596,271.067 213.429,264.234 256,267.5C 343.104,261.948 413.771,292.948 468,360.5C 490.469,391.104 504.969,425.104 511.5,462.5 Z M 223.5,292.5 C 250.186,292.154 276.853,292.654 303.5,294C 382.212,305.247 438.379,346.747 472,418.5C 481.275,440.935 486.775,464.269 488.5,488.5C 333.167,488.5 177.833,488.5 22.5,488.5C 28.2025,419.735 59.2025,365.902 115.5,327C 148.511,305.918 184.511,294.418 223.5,292.5 Z"/></g>
+</svg>
+
+
+
+
+
+</span>
+            </a>
+        </div>
+</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 현재 페이지 URL 가져오기
+    const currentPath = window.location.pathname;
+    const userMainLink = document.getElementById('userMainLink');
+    const userMainLink2 = document.getElementById('userMainLink2');
+    const userMainLink3 = document.getElementById('userMainLink3');
+    const userMainLink4 = document.getElementById('userMainLink4');
+    const userMainLink5 = document.getElementById('userMainLink5');
+    
+    
+    // 현재 페이지가 userMain.user이면 active 클래스 추가
+    if (currentPath.includes('userMain.user')) {
+        userMainLink.classList.add('active');
+    }else if (currentPath.includes('userSearch.user')) {
+        userMainLink2.classList.add('active');
+    }else if (currentPath.includes('userAccountPage.user')) {
+        userMainLink5.classList.add('active');
+    }else if (currentPath.includes('userChatList.user')) {
+        userMainLink4.classList.add('active');
+    }else if (currentPath.includes('userMyReservationList.user')) {
+        userMainLink3.classList.add('active');
+    }
+});
+
+
+    function checkNewMessages() {
+        fetch('/chat/hasNewMessage')
+            .then(response => response.json())
+            .then(hasNew => {
+                const chatNavIcon = document.querySelector('.user-bottom-nav a[href="../userChatList.user"]');
+                const existingDot = chatNavIcon.querySelector('.nav-new-message-dot');
+
+                if (hasNew && !existingDot) {
+                    const dot = document.createElement('span');
+                    dot.className = 'nav-new-message-dot';
+                    chatNavIcon.appendChild(dot);
+                } else if (existingDot && window.location.pathname.includes('userChatList')) {
+                    // 채팅 목록 페이지면 빨간 점 제거
+                    existingDot.remove();
+                }
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        checkNewMessages();
+        setInterval(checkNewMessages, 30000);
+    });
+</script>
+
+<script th:src="@{'/bundle/' + ${pageName} + '.bundle.js'}"></script>
+
+
+</body>
+
+</html>

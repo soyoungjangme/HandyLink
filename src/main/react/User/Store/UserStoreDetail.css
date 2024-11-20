@@ -1,0 +1,890 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
+
+
+
+.modal {
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* 반투명 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+.user-content-container {
+  font-size: 16px;
+  cursor: pointer;
+  /* 기본적으로 포인터 커서 설정 */
+}
+
+.user-content-container>ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.user-content-container>ul:nth-child(1) {
+  margin: 0;
+}
+
+.disabled {
+  opacity: 0.5;
+  /* 반투명으로 표시 */
+  pointer-events: none;
+  /* 클릭 이벤트 무시 */
+}
+
+
+.photo-review3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3열로 배치 */
+  gap: 16px;
+  /* 이미지 사이의 간격 */
+}
+
+.photo-item>img {
+  width: 100%;
+  height: 100%;
+ 
+  object-fit: cover;
+}
+
+.review-section {
+  /* width: 100%; */
+  padding: 15px;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.photo-review {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.photo-item {
+  width: 100%;
+  height: 110px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.photo-item:nth-last-child(1) {
+  position: relative;
+}
+
+.photo-item.more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #0000003d;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  top: 0px;
+
+}
+
+
+
+.photo-review2 {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  overflow: auto;
+}
+
+.photo-item2 {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-item {
+  background-color: white;
+  border-radius: 10px;
+  /* margin: 20px; */
+  padding: 20px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
+  /* margin-bottom: 20px; */
+  border: 1px solid #e8e8e8;
+}
+
+.photo-rating-box {
+  /* border: 1px solid #ddd;
+  border-radius: 10px; */
+  padding: 10px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewer-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.review-rating {
+  font-size: 14px;
+  color: #fd8517;
+  /* Rating star color */
+}
+
+.star {
+  cursor: pointer;
+  font-size: 24px;
+  /* 별 크기 조정 */
+  color: lightgray;
+  /* 기본 색상 */
+}
+
+.star.filled {
+  color: #fd8517;
+  /* 선택된 별 색상 */
+}
+
+
+.review-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.review-title {
+  font-size: 14px;
+  color: #666;
+}
+
+.review-date {
+  font-size: 12px;
+  color: #999;
+}
+
+.review-text {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.review-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* Show only 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.2em;
+  /* Adjust based on line height and number of lines */
+  line-height: 1.6em;
+}
+
+.review-text.expanded {
+  -webkit-line-clamp: unset;
+  max-height: none;
+}
+
+.more-link {
+  color: #999;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sort-reviews {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-reviews label {
+  font-size: 16px;
+}
+
+.sort-reviews select {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+}
+
+
+
+body {
+  font-family: 'Pretendard-Regular';
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.user-content-first-img {
+  position: relative;
+}
+
+/* .slides {
+  position: relative;
+  overflow: hidden;
+} */
+
+.slide {
+  display: none;
+  /* 기본적으로 모든 슬라이드를 숨김 */
+}
+
+.slide.active {
+  display: block;
+  /* 현재 슬라이드만 보이도록 설정 */
+}
+
+.slide-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  /* 버튼이 이미지 위에 위치하도록 설정 */
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+
+.user-content-first-img {
+  position: relative;
+  overflow: hidden;
+  /* 내용이 넘치지 않도록 숨김 */
+  width: 100%;
+  /* 부모 요소에 맞게 설정 */
+  height: 300px;
+  /* 고정된 높이 설정 */
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  /* 슬라이드가 처음에 보이지 않도록 설정 */
+  transition: opacity 0.5s ease;
+  /* 부드러운 전환 효과 */
+}
+
+.slide.active {
+  opacity: 1;
+  /* 활성화된 슬라이드만 보이도록 설정 */
+}
+
+
+
+.user-top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  /* text-align: center; */
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  /* position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100; */
+}
+
+.open-date {
+  color: #FF9800;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-main-content {
+  /* padding : 15px; */
+  margin-bottom: 100px;
+  /* border : 1px solid blue; */
+}
+
+
+
+/* --------------------------------------------------- */
+
+
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Pretendard-Regular';
+  margin: 0px;
+  padding: 0px;
+
+}
+
+
+
+
+.logo {
+  color: #000000;
+  -webkit-background-clip: text;
+  /* background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77); */
+  /* background-image: linear-gradient(207deg, rgba(146, 169, 255, 1) 0%, rgba(53, 58, 148, 1) 100%); */
+  /* font-family: 'ghanachoco'; */
+  font-size: 20px;
+
+}
+
+
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-main-content {
+  /* padding : 15px; */
+  margin-bottom: 100px;
+  /* border : 1px solid blue; */
+}
+
+
+/* ----------------------------------- */
+
+.user-content-container11 {
+  font-size: 16px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
+  margin-bottom: 20px;
+  border: 1px solid #e8e8e8;
+  /* height: 120px; */
+}
+
+.type-title {
+  text-align: center;
+  width: 65px;
+  padding: 1px 5px;
+  border-radius: 5px;
+  border: 1px solid #cbcbcb;
+  margin-bottom: 10px;
+  /* background-color: #ffdfdf; */
+}
+
+.notice-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.notice-content1 {
+  /* border : 1px solid red; */
+}
+
+/* --------------------------------------------------- */
+
+
+.user-content-container {
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
+  margin-bottom: 20px;
+  border: 1px solid #e8e8e8;
+}
+
+
+
+
+.user-content-first {
+  /* border: 1px solid red; */
+  margin-bottom: 15px;
+}
+
+.user-content-first-img>img {
+  position: relative;
+}
+
+.bi {
+  color: #fd8517;
+  margin: 0 10px 0 0;
+}
+
+.store-basic-info {
+  margin-top: 10px;
+  display: flex;
+}
+
+.store-basic-info:nth-child(1) {
+  margin: 0;
+}
+
+.store-basic-info:nth-child(1) {
+  display: flex;
+}
+
+.store-basic-info img {
+  width: 16px;
+  height: 16px;
+  margin: 1px 10px 0 0;
+}
+
+.chat-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.announcement-list img {
+  width: 16px;
+  height: 16px;
+  margin: 5px 5px 0 0;
+}
+
+.store-intro-box img {
+  width: 16px;
+  height: 16px;
+  margin: 0 5px -1px 0;
+}
+
+.sns-list-box {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.sns-image {
+  margin-right: 10px;
+}
+
+.sns-name {
+  text-decoration: none;
+  color: black;
+}
+
+.sns-name:hover {
+  color: #2a2ad6;
+}
+
+.user-content-first-img-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.user-content-first-content {
+  padding: 15px;
+  font-size: 16px;
+}
+
+.store-name-box {
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.store-name-box button {
+  height: 50px;
+  font-size: 20px;
+  background-color: #fff;
+  border: none;
+  padding-left: 0;
+  line-height: 55px;
+}
+
+.store-name-box button:active {
+  height: 50px;
+  font-size: 25px;
+  color: red;
+  background-color: #fff;
+  border: none;
+}
+
+.store-name {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  font-size: 25px;
+}
+
+.store-detail-menu {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+
+}
+
+.store-detail-menu>button {
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  border-bottom: 3px solid #ddd;
+}
+
+.store-detail-menu>button.active {
+  border-bottom: 3px solid #fd8517;
+  color: #fd8517;
+}
+
+.store-detail-menu {
+  position: sticky;
+  /* 요소를 고정 */
+  top: 0;
+  /* 고정될 위치 */
+  background-color: white;
+  /* 배경색을 흰색으로 설정하여 다른 내용과 겹치지 않도록 함 */
+  z-index: 100;
+  /* 다른 요소 위에 표시되도록 z-index를 설정 */
+}
+
+/* ----------------------------------------- */
+.user-reserve-menu {
+  display: flex;
+  gap: 3%;
+  width: 100%;
+}
+
+.user-reserve-menu img {
+  width: 110px;
+  height: 110px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.user-reserve-menu-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  /* font-size: 16px; */
+}
+
+.user-reserve-menu-content div {}
+
+.user-reserve-menu-content div:nth-child(2) {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.user-reserve-menu-content div:nth-child(3) {
+  height: 100%;
+  font-size: 16px;
+}
+
+.user-reserve-menu-content div:nth-child(4) {
+
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bi-heart-fill {
+  color: #ccc;
+  margin: 0;
+}
+
+.like {
+  margin: 0;
+  color: #ff4d4d;
+}
+
+.total-rating {
+  margin: 20px 0px;
+}
+
+.user-store-map-box {
+  background-color: white;
+  margin: 20px;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+}
+
+
+/* 배너 */
+.advertisement-banner {
+  width: 100%;
+  height: 100px;
+  /* margin: 25px 0; */
+}
+
+.advertisement-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+
+.modal-overlay2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 반투명 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal2 {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+  width: 80%;
+  /* 화면 너비의 80% */
+  max-width: 400px;
+  /* 최대 너비 제한 */
+  height: 360px;
+  /* 높이 고정 */
+  position: fixed;
+  /* 화면에 고정 */
+  top: 50%;
+  /* 화면 세로 중앙 */
+  left: 50%;
+  /* 화면 가로 중앙 */
+  transform: translate(-50%, -50%);
+  /* 모달을 정확히 중앙에 위치시킴 */
+  margin: 0;
+  /* margin 제거 */
+  z-index: 1000;
+  /* 모달이 다른 요소들 위에 오도록 설정 */
+}
+
+.modal-box {
+  /* border: 1px solid red; */
+  margin: 20px 0;
+}
+
+.modal-btns {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 35px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: #fff;
+  font-size: 16px;
+}
+
+.modal-choice-img-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-choice-img {
+  width: 100px;
+  height: 100px;
+}
+
+.modal-choice-img img {
+  width: 100%;
+  ;
+  height: 100%;
+}
+
+.modal-choice-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.modal-deliveryr-img {
+  width: 100px;
+  height: 100px;
+}
+
+.modal-deliveryr-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-pickup-img {
+  width: 100px;
+  height: 100px;
+}
+
+.modal-pickup-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-next-btn {
+  float: right;
+  background-color: #fd8517;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.modal-pickup-img, .modal-deliveryr-img {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  padding: 10px 5px 0 5px;
+}
+
+.modal-pickup-img.selected, .modal-deliveryr-img.selected {
+  background-color: #fd8517; 
+  border-radius: 5px;
+}
+
+.modal-pickup-img.selected label, .modal-deliveryr-img.selected label {
+  color: white;
+}
+
+.modal-pickup-img img, .modal-deliveryr-img img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 5px;
+}
+
+.modal-pickup-img label, .modal-deliveryr-img label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.pickup-img {
+  position: absolute;
+  right: 15px;
+  font-size: 24px;
+}

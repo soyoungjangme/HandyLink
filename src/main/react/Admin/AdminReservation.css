@@ -1,0 +1,445 @@
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.user-top-nav {
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.user-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 60px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); */
+}
+
+.user-bottom-nav a {
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  flex: 1;
+}
+
+.user-bottom-nav a span {
+  display: block;
+  margin-top: 5px;
+}
+
+.logo {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77);
+  font-family: 'ghanachoco';
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+
+.user-main-container {
+  padding: 0px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  max-width: 600px;
+  min-height: calc(100vh - 63px);
+}
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+
+}
+
+.user-main-content {
+  padding: 15px;
+  margin-bottom: 40px;
+  /* border : 1px solid blue; */
+}
+
+
+
+/* --------------------------------------------------- */
+
+
+.user-content-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: 2px solid #2C348F;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.payment-info-top {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.payment-left {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left;
+  flex: 1;
+}
+
+.payment-right {
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-align: right;
+  flex: 1;
+}
+
+.payment-right a {
+  color: #000;
+}
+
+
+.reservation-date {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.info-row .left {
+  text-align: left;
+  flex: 1;
+}
+
+.info-row .right {
+  text-align: right;
+  flex: 1;
+}
+
+
+
+.payment-amount {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.reservation-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.reservation-info img {
+  width: 140px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.reservation-details {
+  flex-grow: 1;
+  margin-left: 25px;
+}
+
+.reservation-details .store-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.reservation-details .menu {
+  font-size: 16px;
+  margin: 5px 0 5px 5px;
+}
+
+.reservation-details .option {
+  margin: 5px 0 5px 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 10px;
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-left {
+  color: #000;
+  background-color: rgba(44, 52, 143, 0.16);
+}
+
+.btn-right {
+  color: white;
+  background-color: #738BE3;
+}
+
+
+.payment-info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* ---------------- */
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-main-content {
+  /* padding : 15px; */
+  margin-bottom: 100px;
+  /* border : 1px solid blue; */
+}
+
+
+.reservation-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  border: 1px solid #e0e0e0;
+}
+
+.reservation-status {
+  color: #5a46db;
+  font-weight: bold;
+  border: 1px solid #5a46db;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.reservation-time {
+  text-align: right;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.store-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-details {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.reservation-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.reservation-info .date-time {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.reservation-info .date-time span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.reservation-info .date {
+  display: flex;
+  align-items: center;
+  color: #5a46db;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #5a46db;
+  border-radius: 5px;
+  padding: 5px 8px;
+}
+
+.reservation-info .time {
+  display: flex;
+  align-items: center;
+  color: #555;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.reservation-info i {
+  margin-right: 5px;
+}
+
+
+/* ------------------------------------------ */
+
+.management-container {
+  margin: 40px;
+  /* border: 1px solid #ddd; */
+  /* border-radius: 8px; */
+ /* background-color: #f9f9f9;*/
+}
+
+.management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.top-controls input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.top-controls select {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.add-btn, .report-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+/*
+.add-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.report-btn {
+  background-color: #28a745;
+  color: white;
+} */
+
+.management-table {
+  width: 100%;
+  /* border: 1px solid #ddd; */
+  border-collapse: collapse;
+
+}
+
+.management-table thead {
+  background-color: #f5f5f5;
+}
+
+.management-table th, .management-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.management-table th {
+  font-weight: bold;
+}
+
+.management-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.flight-btn {
+  background-color: #4f4f4f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 10%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.management-table tbody tr td img {
+  border-radius: 100%;
+  width: 38px;
+}
+
+
+.management-table tbody tr td:nth-child(2)  {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+
+}
+
+.material-symbols-outlined {
+font-size: 20px;
+}
+
+.management-table thead tr th > div{
+  display: flex;
+  justify-content: space-between
+}

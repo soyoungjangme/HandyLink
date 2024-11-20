@@ -1,0 +1,248 @@
+
+
+-- 시퀀스 시작 값을 1로 설정
+ALTER SEQUENCE store_seq RESTART WITH 1;
+ALTER SEQUENCE user_seq RESTART WITH 1;
+ALTER SEQUENCE reservation_seq RESTART WITH 1;
+ALTER SEQUENCE payment_seq RESTART WITH 1;
+ALTER SEQUENCE review_seq RESTART WITH 1;
+ALTER SEQUENCE inquiry_seq RESTART WITH 1;
+ALTER SEQUENCE store_info_seq RESTART WITH 1;
+ALTER SEQUENCE chat_seq RESTART WITH 1;
+ALTER SEQUENCE alert_seq RESTART WITH 1;
+ALTER SEQUENCE category_seq RESTART WITH 1;
+ALTER SEQUENCE reservation_form_seq RESTART WITH 1;
+ALTER SEQUENCE sub_category_status_seq RESTART WITH 1;
+ALTER SEQUENCE reservation_slot_seq RESTART WITH 1;
+ALTER SEQUENCE refund_seq RESTART WITH 1;
+ALTER SEQUENCE inquiry_answer_seq RESTART WITH 1;
+
+
+-- inquiry_answer_seq 시퀀스 초기화
+ALTER SEQUENCE inquiry_answer_seq RESTART WITH 1;
+
+-- inquiry_seq 시퀀스 초기화
+ALTER SEQUENCE inquiry_seq RESTART WITH 1;
+
+-- payment_seq 시퀀스 초기화
+ALTER SEQUENCE payment_seq RESTART WITH 1;
+
+-- refund_seq 시퀀스 초기화
+ALTER SEQUENCE refund_seq RESTART WITH 1;
+
+-- reservation_form_seq 시퀀스 초기화
+ALTER SEQUENCE reservation_form_seq RESTART WITH 1;
+
+-- reservation_seq 시퀀스 초기화
+ALTER SEQUENCE reservation_seq RESTART WITH 1;
+
+-- reservation_slot_seq 시퀀스 초기화
+ALTER SEQUENCE reservation_slot_seq RESTART WITH 1;
+
+-- review_seq 시퀀스 초기화
+ALTER SEQUENCE review_seq RESTART WITH 1;
+
+-- store_info_seq 시퀀스 초기화
+ALTER SEQUENCE store_info_seq RESTART WITH 1;
+
+-- store_seq 시퀀스 초기화
+ALTER SEQUENCE store_seq RESTART WITH 1;
+
+-- sub_category_status_seq 시퀀스 초기화
+ALTER SEQUENCE sub_category_status_seq RESTART WITH 1;
+
+-- user_seq 시퀀스 초기화
+ALTER SEQUENCE user_seq RESTART WITH 1;
+
+-- alert_seq 시퀀스 초기화
+ALTER SEQUENCE alert_seq RESTART WITH 1;
+
+-- category_seq 시퀀스 초기화
+ALTER SEQUENCE category_seq RESTART WITH 1;
+
+-- chat_seq 시퀀스 초기화
+ALTER SEQUENCE chat_seq RESTART WITH 1;
+
+
+
+-- STORE 테이블 데이터 삭제
+DELETE FROM STORE;
+
+-- USERS 테이블 데이터 삭제
+DELETE FROM USERS;
+
+-- RESERVATION 테이블 데이터 삭제
+DELETE FROM RESERVATION;
+
+-- PAYMENT 테이블 데이터 삭제
+DELETE FROM PAYMENT;
+
+-- REVIEW 테이블 데이터 삭제
+DELETE FROM REVIEW;
+
+-- INQUIRY 테이블 데이터 삭제
+DELETE FROM INQUIRY;
+
+-- STORE_INFO 테이블 데이터 삭제
+DELETE FROM STORE_INFO;
+
+-- CHAT 테이블 데이터 삭제
+DELETE FROM CHAT;
+
+-- ALERT 테이블 데이터 삭제
+DELETE FROM ALERT;
+
+-- CATEGORY 테이블 데이터 삭제
+DELETE FROM CATEGORY;
+
+-- RESERVATION_FORM 테이블 데이터 삭제
+DELETE FROM RESERVATION_FORM;
+
+-- SUB_CATEGORY_STATUS 테이블 데이터 삭제
+DELETE FROM SUB_CATEGORY_STATUS;
+
+-- RESERVATION_SLOT 테이블 데이터 삭제
+DELETE FROM RESERVATION_SLOT;
+
+-- REFUND 테이블 데이터 삭제
+DELETE FROM REFUND;
+
+-- INQUIRY_ANSWER 테이블 데이터 삭제
+DELETE FROM INQUIRY_ANSWER;
+
+
+
+
+
+-- STORE 테이블
+SELECT * FROM STORE;
+
+-- USERS 테이블
+SELECT * FROM USERS;
+
+-- RESERVATION 테이블
+SELECT * FROM RESERVATION;
+
+-- PAYMENT 테이블
+SELECT * FROM PAYMENT;
+
+-- REVIEW 테이블
+SELECT * FROM REVIEW;
+
+-- INQUIRY 테이블
+SELECT * FROM INQUIRY;
+
+-- STORE_INFO 테이블
+SELECT * FROM STORE_INFO;
+
+-- CHAT 테이블
+SELECT * FROM CHAT;
+
+-- ALERT 테이블
+SELECT * FROM ALERT;
+
+-- CATEGORY 테이블
+SELECT * FROM CATEGORY;
+
+-- RESERVATION_FORM 테이블
+SELECT * FROM RESERVATION_FORM;
+
+-- SUB_CATEGORY_STATUS 테이블
+SELECT * FROM SUB_CATEGORY_STATUS;
+
+-- RESERVATION_SLOT 테이블
+SELECT * FROM RESERVATION_SLOT;
+
+-- REFUND 테이블
+SELECT * FROM REFUND;
+
+-- INQUIRY_ANSWER 테이블
+SELECT * FROM INQUIRY_ANSWER;
+
+
+-- STORE_INFO 테이블에 데이터 삽입
+INSERT INTO STORE_INFO (store_id, store_intro, store_parking_yn, store_sns, image_url, notice, store_start_time, store_end_time, store_break_date, account_number)
+VALUES (1, '맛있는 식당입니다.', 'Y', '@mat_in', 'http://example.com/store.jpg', '주말에는 예약 필수입니다.', '09:00', '22:00', NULL, 1234567890);
+
+-- INQUIRY_ANSWER 테이블에 데이터 삽입
+INSERT INTO INQUIRY_ANSWER (inquiry_no, answer_text, answer_time)
+VALUES (1, '메뉴는 매월 업데이트됩니다.', CURRENT_TIMESTAMP);
+
+
+
+--------------------------------------
+
+
+
+-- STORE 테이블에 데이터 삽입
+INSERT INTO STORE (store_pw, store_cate, store_name, store_master, manager_name, manager_phone, store_addr, store_business_no, store_signup, store_status)
+VALUES ('password123', '음식점', '맛있는 식당', '홍길동', '김매니저', '010-1234-5678', '서울시 강남구 역삼동', '1234567890', CURRENT_TIMESTAMP, '활성화');
+
+-- USERS 테이블에 데이터 삽입
+INSERT INTO USERS (user_pw, user_name, user_birth, user_gender, user_phonenum, user_signup, user_img_url, refund_account_number)
+VALUES ('userpassword', '이순신', '19800101', 'M', '010-9876-5432', CURRENT_DATE, 'http://example.com/user.jpg', 1234567890);
+
+-- RESERVATION 테이블에 데이터 삽입
+INSERT INTO RESERVATION (reservation_status, confirm_time, reg_time, customer_request, store_id, user_id)
+VALUES ('대기', NULL, CURRENT_TIMESTAMP, '창가 자리 부탁드립니다.', '1', '1');
+
+-- PAYMENT 테이블에 데이터 삽입
+INSERT INTO PAYMENT (payment_method, payment_amount, payment_date, payment_status, reservation_no)
+VALUES ('신용카드', 30000, CURRENT_TIMESTAMP, 'Y', 1);
+
+-- REVIEW 테이블에 데이터 삽입
+INSERT INTO REVIEW (review_rating, review_content, review_date, reservation_no, review_img_url)
+VALUES (4.5, '맛있고 서비스도 좋았습니다.', CURRENT_TIMESTAMP, 1, 'http://example.com/review.jpg');
+
+
+
+
+
+-- INQUIRY 테이블에 데이터 삽입
+INSERT INTO INQUIRY (inquiry_date, inquiry_content, visibility, inquiry_status, store_id, user_id)
+VALUES (CURRENT_TIMESTAMP, '메뉴는 언제 업데이트 되나요?', 'Y', 'N', '1', '1');
+
+
+
+
+
+
+
+
+
+
+
+-- CHAT 테이블에 데이터 삽입
+INSERT INTO CHAT (chat_content, chat_time, store_id, user_id)
+VALUES ('안녕하세요! 예약 확인 부탁드립니다.', CURRENT_TIMESTAMP, '1', '1');
+
+-- ALERT 테이블에 데이터 삽입
+INSERT INTO ALERT (store_id, user_id, alert_type, alert_content, alert_send_date)
+VALUES ('1', '1', '예약', '예약이 확인되었습니다.', CURRENT_TIMESTAMP);
+
+
+
+
+
+-- CATEGORY 테이블에 데이터 삽입
+INSERT INTO CATEGORY (category_level, parent_category_level, service_name, service_price, service_content, store_id)
+VALUES (1, NULL, '저녁 코스', 50000, '5코스 저녁 식사', '1');
+
+-- RESERVATION_FORM 테이블에 데이터 삽입
+INSERT INTO RESERVATION_FORM (main_category_id, middle_category_id, sub_category_id, middle_category_value, service_price)
+VALUES (1, NULL, NULL, '야외', 50000);
+
+-- SUB_CATEGORY_STATUS 테이블에 데이터 삽입
+INSERT INTO SUB_CATEGORY_STATUS (category_id, sub_category_type, is_required, is_paid)
+VALUES (1, 'SELECT1', 'Y', 'N');
+
+-- RESERVATION_SLOT 테이블에 데이터 삽입
+INSERT INTO RESERVATION_SLOT (reservation_slot_date, reservation_slot_time, slot_count, slot_status_count, reservation_active, store_id, category_id)
+VALUES (CURRENT_DATE, CURRENT_TIMESTAMP, 10, 5, 'Y', '1', 1);
+
+-- REFUND 테이블에 데이터 삽입
+INSERT INTO REFUND (refund_method, refund_amount, refund_date, refund_status, payment_id)
+VALUES ('신용카드', 30000, CURRENT_TIMESTAMP, '완료', 1);
+
+
+

@@ -1,4 +1,9 @@
 package com.example.HiMade.admin.service;
 
-public class AdminMainService {
+import com.example.HiMade.admin.dto.alertDTO;
+import org.springframework.stereotype.Service;
+
+
+public interface AdminMainService {
+  public alertDTO test();
 }

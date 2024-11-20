@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.HiMade.admin.mapper.AdminReservationMapper">
+
+
+<!--    매출 일별 통계 -->
+
+    <select id="priceDay" resultType="com.example.HiMade.admin.dto.priceMonthDTO">
+        SELECT
+            EXTRACT(YEAR FROM p.payment_date) AS year,
+            EXTRACT(MONTH FROM p.payment_date) AS month,
+            EXTRACT(DAY FROM p.payment_date) AS day,
+            SUM(r.reservation_price) AS total_sales
+        FROM reservation r
+        JOIN payment p ON p.reservation_no = r.reservation_no
+        WHERE
+            r.store_no = #{id}
+            AND EXTRACT(YEAR FROM p.payment_date) = #{year}
+            AND EXTRACT(MONTH FROM p.payment_date) = #{month}
+            AND p.payment_status = '결제완료'
+        GROUP BY
+            EXTRACT(YEAR FROM p.payment_date),
+            EXTRACT(MONTH FROM p.payment_date),
+            EXTRACT(DAY FROM p.payment_date)
+        ORDER BY year, month, day
+    </select>
+<!--    매출 통계 -->
+    <select id="priceMonth" resultType="com.example.HiMade.admin.dto.priceMonthDTO">
+        SELECT
+            EXTRACT(YEAR FROM p.payment_date) AS year,
+            EXTRACT(MONTH FROM p.payment_date) AS month,
+            SUM(r.reservation_price) AS total_sales
+        FROM reservation r
+        JOIN payment p ON p.reservation_no = r.reservation_no
+        WHERE r.store_no = #{id}
+            AND EXTRACT(YEAR FROM p.payment_date) = #{year}
+            AND p.payment_status = '결제완료'
+        GROUP BY
+            EXTRACT(YEAR FROM p.payment_date),
+            EXTRACT(MONTH FROM p.payment_date)
+        ORDER BY
+        year, month;
+
+    </select>
+
+
+
+    <!-- 서비스 별 이미지 등록 -->
+    <insert id="setMainCategoryImg" parameterType="com.example.HiMade.admin.dto.AdminCategoryImgDTO">
+        insert into category_image (category_id, image_url) values (#{categoryId},#{imageUrl});
+    </insert>
+
+<!-- 수정)   상태 업데이트 -->
+    <update id="setActivated" >
+        update category
+        set activated = 'N'
+        where category_id = #{id}
+    </update>
+
+<!--   수정 ) 슬롯 변경 -->
+    <update id="setSlotModi" >
+        update reservation_slot
+        set category_id = #{realId}
+        where category_id = #{id};
+    </update>
+
+
+    <!--  서비스 (대분류) 가져오기   -->
+    <select id="getList" resultType="com.example.HiMade.admin.dto.adminReservationDTO">
+        select c.category_id, c.category_level, c.parent_category_id, c.service_name , c.service_price, c.service_content, c.store_no, ci.image_url, c.service_start
+        from category c
+        left join category_image ci
+        on c.category_id = ci.category_id
+        where category_level = 1 and activated = 'Y' and store_no = #{storeNo}
+        ORDER BY c.category_id DESC
+    </select>
+
+    <!--    -->
+    <select id="getManageList" resultType="com.example.HiMade.admin.dto.adminReserveMangeDTO">
+        SELECT
+        r.reservation_no,
+        r.*,
+        main_c.*,
+        pm.*,
+        rs.*,
+        u.user_name
+        FROM
+        reservation r
+         JOIN reservation_form rf
+        ON rf.reservation_no = r.reservation_no
+         JOIN category main_c
+        ON rf.main_category_id = main_c.category_id
+         JOIN reservation_slot rs
+        ON rs.reservation_slot_key = r.reservation_slot_key
+         JOIN payment pm
+        ON pm.reservation_no = r.reservation_no
+         JOIN users u
+        ON r.user_id = u.user_id  -- Fix the join condition here
+        WHERE
+        r.store_no = #{storeNo}
+        GROUP BY
+        r.reservation_no,
+        main_c.category_id,
+        pm.payment_id,
+        rs.reservation_slot_key,
+        u.user_id
+        ORDER BY
+        r.reservation_no DESC
+
+
+
+    </select>
+
+
+    <update id="updateOrder" parameterType="map">
+        UPDATE reservation
+        SET order_index = #{orderIndex}
+        WHERE store_no = #{storeNo};
+    </update>
+
+
+
+    <select id="getManageCalender" resultType="com.example.HiMade.admin.dto.adminManagerCalDTO">
+        select reservation_slot_date, r.* , main_c.service_name
+        from reservation r
+        join reservation_slot rs
+        on r.reservation_slot_key = rs.reservation_slot_key
+
+        LEFT JOIN
+        reservation_form rf ON rf.reservation_no = r.reservation_no
+        LEFT JOIN
+        category main_c ON rf.main_category_id = main_c.category_id
+        where r.store_no = #{storeNo}
+        group by reservation_slot_date,  r.reservation_no, main_c.service_name
+        order by reservation_slot_date
+    </select>
+
+    <select id="getManageFilterList" resultType="com.example.HiMade.admin.dto.adminReserveMangeDTO">
+        select main_c.*
+        FROM
+        reservation r
+        JOIN   reservation_form rf
+        ON rf.reservation_no = r.reservation_no
+        JOIN
+        category main_c ON rf.main_category_id = main_c.category_id
+        where r.store_no = #{storeNo}
+        group by main_c.category_id
+        order by main_c.service_start desc
+    </select>
+
+
+
+    <!--  서비스 대분류 (상세 가져오기)  -->
+    <select id="getListDetail" resultType="com.example.HiMade.admin.dto.adminReservationDTO">
+        select c.category_id, c.category_level, c.parent_category_id, c.service_name , c.service_price, c.service_content, c.store_no, ci.image_url,  c.service_start
+        from category c
+        left join category_image ci
+        on c.category_id = ci.category_id
+        where c.category_level = 1 AND  c.category_id = #{id}
+    </select>
+
+
+
+    <!--   서비스 중분류 가져오기  -->
+    <select id="getMiddleItem" resultType="com.example.HiMade.admin.dto.adminRSDTO">
+        select c.category_id, c.category_level, c.parent_category_id, c.service_name , c.service_price, c.service_content, c.store_no, sc.category_status, sc.category_id, sc.sub_category_type, sc.is_required, sc.is_paid
+        from category c
+        LEFT join sub_category_status sc
+        on c.category_id = sc.category_id
+        WHERE c.parent_category_id = #{id}  AND c.category_level = 2
+    </select>
+    <!--  서비스 소분류 가져오기   -->
+    <select id="getSubItem" resultType="com.example.HiMade.admin.dto.adminReservationDTO">
+        select * from category c
+        where parent_category_id = #{id} AND category_level = 3;
+    </select>
+
+    <!--  테스트   -->
+    <insert id="setCategory">
+        INSERT INTO CATEGORY (category_level, parent_category_id, service_name, service_price, service_content, store_id, store_no)
+        VALUES (#{categoryLevel}, #{parentCategoryId}, #{serviceName}, #{servicePrice}, #{serviceContent}, 'bbb123' , '7')
+    </insert>
+
+
+    <!--  서비스 (대분류) 등록하기    -->
+    <insert id="setMainCategory" parameterType="com.example.HiMade.admin.dto.adminReservationDTO" useGeneratedKeys="true" keyProperty="categoryId">
+        INSERT INTO category (category_level, service_name, service_price, service_content,store_no, service_start)
+        VALUES (1, #{serviceName}, #{servicePrice}, #{serviceContent},  #{storeNo}, #{serviceStart})
+        RETURNING category_id
+    </insert>
+
+    <!--  서비스 (중분류) 등록하기    -->
+    <insert id="setMainCategory2" parameterType="com.example.HiMade.admin.dto.adminRSDTO" useGeneratedKeys="true" keyProperty="middleId">
+        INSERT INTO category (category_level, parent_category_id, service_name, service_price, store_no)
+        VALUES (2, #{parentCategoryId}, #{serviceName}, #{servicePrice},#{storeNo})
+        RETURNING category_id
+    </insert>
+
+    <!--  서비스 (중분류 상태값 ) 등록하기    -->
+    <insert id="setMainCategory3" parameterType="com.example.HiMade.admin.dto.adminRSDTO">
+        INSERT INTO sub_category_status (category_id, sub_category_type, is_required, is_paid)
+        VALUES (#{middleId}, #{subCategoryType}, #{isRequired}, #{isPaid});
+    </insert>
+
+    <!--  서비스 (소분류) 등록하기    -->
+    <insert id="setMainCategory4" parameterType="com.example.HiMade.admin.dto.adminReservationDTO">
+        INSERT INTO category (category_level, parent_category_id, service_name, service_price, store_no)
+        VALUES (3, #{parentCategoryId}, #{serviceName}, #{servicePrice}, #{storeNo})
+    </insert>
+
+
+    <!--  예약 상태 변경  -->
+    <update id="updateStatus" parameterType="com.example.HiMade.admin.dto.UpdateReservationStatusDTO">
+        UPDATE reservation
+        SET reservation_status = #{newStatus}
+        WHERE reservation_no = #{reservationId}
+    </update>
+
+
+    <update id="setSlotActivated">
+        update reservation_slot
+        set reservation_active = 'N'
+        where store_no = #{StoreNo} AND category_id = #{categoryId} AND reservation_slot_date = #{reservationSlotDate}
+    </update>
+
+    <insert id="setSlotAll" parameterType="com.example.HiMade.admin.dto.adminReserveAdd">
+        INSERT INTO reservation_slot(
+        reservation_slot_date,
+        slot_count,
+        slot_status_count,
+        reservation_active,
+        category_id,
+        store_no,
+        limit_time
+        ) VALUES (
+        #{reservationSlotDate},
+        #{DateNumCase, jdbcType=INTEGER},
+        0,
+        'Y',
+        #{categoryId, jdbcType=INTEGER},
+        #{StoreNo, jdbcType=INTEGER},
+        #{TimeNumCase, jdbcType=INTEGER}
+        );
+    </insert>
+
+    <update id="setCategoryDel">
+        update category
+        set activated = 'N'
+        where category_id = #{id}
+    </update>
+
+    <update id="setSlotDel">
+        update reservation_slot
+        set reservation_active = 'N'
+        where category_id = #{userId};
+    </update>
+
+
+</mapper>

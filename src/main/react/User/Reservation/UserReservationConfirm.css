@@ -1,0 +1,723 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Pretendard-Regular';
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.search-top {
+  overflow: hidden;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-top .left {
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.search-top .right {
+  float: right;
+  font-size: 20px;
+}
+
+.user-reserve-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.user-reserve-data {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 50px;
+  margin-bottom: 20px;
+}
+
+.user-reserve-data .bi {
+  margin-right: 10px;
+}
+
+.user-top-nav {
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+
+.logo {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77);
+  font-family: 'ghanachoco';
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-main-content {
+  /* padding : 15px; */
+  margin-bottom: 100px;
+  /* border : 1px solid blue; */
+}
+
+
+
+/* --------------------------------------------------- */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Pretendard-Regular';
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.user-top-nav {
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+
+.logo {
+  color: transparent;
+  -webkit-background-clip: text;
+  /* background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77); */
+  background-image: linear-gradient(207deg, rgba(146, 169, 255, 1) 0%, rgba(53, 58, 148, 1) 100%);
+  font-family: 'ghanachoco';
+  font-size: 25px;
+  /* margin-bottom: 20px; */
+}
+
+
+
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-main-content {
+  /* padding : 15px; */
+  margin-bottom: 100px;
+  /* border : 1px solid blue; */
+}
+
+
+
+/* --------------------------------------------------- */
+.sub-container5 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 4열 */
+  gap: 10px;
+  /* 버튼 간의 간격 */
+}
+
+
+.user-content-last {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-content-last>button {
+  text-align: center;
+  background-color: #fd8517;
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.user-content-last>button .bi {
+  color: #fff;
+}
+
+.option-btn {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 13px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.option-btn:hover {
+  background-color: #E0F0FF;
+}
+
+.option-btn:active {
+  background-color: #E0F0FF;
+}
+
+.option-btn.selected {
+  background-color: #E0F0FF;
+}
+
+
+.sub-container5 {
+  display: grid;
+}
+
+
+.ertical-bar {
+  background-attachment: red;
+  width: 100%;
+  height: 10px;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.sub-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between
+}
+
+.option-title {
+  font-size: 15px;
+  color: #959595;
+}
+
+.input-text {
+  width: 100%;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.sub-container3>div {
+  font-size: 16px;
+}
+
+.sub-container5>div {
+  font-size: 20px;
+}
+
+.sub-container4>div {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.option-title2 {
+  text-align: right;
+  width: 100%;
+  font-size: 15px;
+  color: #959595;
+  margin-bottom: 20px;
+}
+
+.input-text2 {
+  width: 50%;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.user-content-container3 {
+  font-size: 15px;
+  background-color: white;
+  border-radius: 10px;
+  /* margin: 10px 10px; */
+  padding: 20px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #e8e8e8;
+
+}
+
+.user-content-container6 {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  margin-bottom: 20px;
+  /*border: 1px solid #ddd;*/
+}
+
+.user-reserve-title2 {
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.user-content-container3>.sub-container4 {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.user-content-container3>.sub-container5 {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+
+.user-content-container3>.sub-container3 {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.user-content-container3>.sub-container3:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.user-content-container2 {
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  /* padding: 20px; */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  margin-bottom: 20px;
+  /* border: 1px solid #2C348F; */
+}
+
+.user-content-container11 {
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+hr {
+  padding: 7px;
+  background-color: #f2f6f9;
+  border: none;
+}
+
+
+.user-content-first {
+  /* border: 1px solid red; */
+  margin-bottom: 30px;
+}
+
+.user-content-first-img>img {
+  position: relative;
+}
+
+.bi {}
+
+.user-content-first-img-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.user-content-first-content {
+  padding: 15px;
+}
+
+.store-name {
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+}
+
+.store-name button {
+  height: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+}
+
+.store-name button:active {
+  height: 50px;
+  font-size: 25px;
+  color: red;
+  background-color: #fff;
+  border: none;
+}
+
+.store-detail-menu {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+
+}
+
+.store-detail-menu>button {
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+  background-color: #fff;
+  border: none;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  border-bottom: 3px solid #ddd;
+}
+
+.store-detail-menu>button:active {
+  border-bottom: 3px solid #2C348F;
+  color: #2C348F;
+}
+
+/* ----------------------------------------- */
+.user-reserve-menu {
+  display: flex;
+  gap: 3%;
+
+}
+
+.user-reserve-menu img {
+  width: 120px;
+  border-radius: 5px;
+}
+
+.user-reserve-menu-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.user-reserve-menu-content div {}
+
+.user-reserve-menu-content div:nth-child(1) {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.user-reserve-menu-content div:nth-child(2) {
+  height: 100%;
+}
+
+.user-reserve-menu-content div:nth-child(3) {
+
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+/* ----------------------- 결제 수단 부분 ----------------------- */
+.user-payment-title {
+  margin-bottom: 10px;
+}
+
+.user-payment-title h3 {
+  font-size: 24px;
+}
+
+.user-content-payment {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.user-payment-method {
+  gap: 10px;
+  margin: 0px 0;
+  padding: 16px 0px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-payment-method input[type="radio"] {
+  margin-right: 10px;
+}
+
+.user-payment-method label {
+  font-size: 20px;
+  ;
+}
+
+.user-payment-method label>.bi {
+  margin-right: 9px;
+}
+
+.payment-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #fd8517;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.user-reserve-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.user-reserve-data {
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 9px 27px;
+  margin-bottom: 20px;
+}
+
+.user-reserve-data .bi {
+  margin-right: 10px;
+}
+
+
+.user-reserve-menu img {
+  width: 110px;
+  height: 110px;
+  border-radius: 5px;
+}
+
+.user-reserve-menu-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.user-reserve-menu-content div {}
+
+.user-reserve-menu-content div:nth-child(1) {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.user-reserve-menu-content div:nth-child(2) {
+  height: 100%;
+  font-size: 13px;
+}
+
+.user-reserve-menu-content div:nth-child(3) {
+
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bi {
+  color: #000;
+}
+
+
+/* 로딩창 */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* 스피너 */
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.loading-spinner img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 카운트다운 타이머 */
+.countdown-timer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #999;
+  font-size: 16px;
+  border: 0.5px solid #999;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 27px;
+  font-weight: bold;
+}
+
+/* 예약 완료 텍스트 */
+.loading-text {
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 로딩 이미지 박스 */
+.loading-img-box {
+  position: relative;
+  margin-top: 30px;
+  width: 95%;
+  text-align: center;
+}
+
+.loading-text2 {
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.loading-text3 {
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.loading-img-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+.user-content-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-shadow: none;
+  margin: 0;
+  border: none;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.info-row .left {
+  text-align: left;
+  flex: 1;
+}
+
+.info-row .right {
+  text-align: right;
+  flex: 1;
+}
+
+.info-row .bi {
+  /* color: #fd8517; */
+  margin-right: 10px;
+}
+
+
+.info-content {
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+
+.bi-chevron-up,
+.bi-chevron-down {
+  transition: transform 0.3s ease;
+  margin: 0;
+  font-size: 14px;
+}
+
+.info-row:hover .bi-chevron-up,
+.info-row:hover .bi-chevron-down {
+  transform: scale(1.2);
+}

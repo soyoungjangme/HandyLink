@@ -1,0 +1,313 @@
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  border: 1px solid gray;
+
+}
+
+.button-container>button {
+  width: 150px;
+  height: 150px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  color: white;
+  background-color: #4A52B7;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.button-container>button:hover {
+  width: 150px;
+  height: 150px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  color: white;
+  background-color: #2C348F;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.button-container>button:active {
+  width: 150px;
+  height: 150px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  color: white;
+  background-color: #6c76e6;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.button-container>button:nth-child(1) {
+  /* background-color: #ddd; */
+
+}
+
+.qna-btn {
+  border: 1px solid #ddd;
+  background-color: #bbbbbb;
+  border-radius: 3px;
+  padding: 10px 20px;
+  float: right;
+  color: white;
+  background-color: #4A52B7;
+  cursor: pointer;
+}
+
+.qna-btn:hover {
+  color: white;
+  background-color: #2C348F;
+  cursor: pointer;
+}
+
+.qna-btn:active {
+  color: white;
+  background-color: #6c76e6;
+  cursor: pointer;
+}
+
+.button-mid-container {
+  margin-bottom: 30px;
+}
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+.qna-table-container {
+  /* border : 1px solid red; */
+  /* padding: 20px; */
+
+}
+#reservationTable #thead {
+  color: white;
+  background-color: #4A52B7;
+}
+
+.faq-section {
+  margin-bottom: 20px;
+}
+
+.faq-section>h2 {
+  text-align: left;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+}
+
+.footer {
+  margin: auto;
+  bottom: 0;
+  max-width: 480px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer img {
+  width: 24px;
+  height: 24px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+th {
+  color: white;
+  background-color: #4A52B7;}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+/* ------ */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Pretendard-Regular';
+  margin: 0px;
+  padding: 0px;
+}
+
+.user-top-nav {
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.user-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 60px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); */
+}
+
+.user-bottom-nav a {
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  flex: 1;
+}
+
+.user-bottom-nav a span {
+  display: block;
+  margin-top: 5px;
+}
+
+.logo {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77);
+  font-family: 'ghanachoco';
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+
+.user-main-container {
+  padding: 0px;
+  margin: 0 auto;
+  border: 1px solid gray;
+  max-width: 600px;
+  min-height: calc(100vh - 63px);
+}
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-main-content {
+  /* padding : 15px; */
+  margin-bottom: 100px;
+  /* border : 1px solid blue; */
+}
+
+
+
+/* --------------------------------------------------- */
+
+
+
+/* --------------------------------------- */
+.user-qna-container {
+  margin: 0px auto;
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.social-login img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 50px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.divider::before {
+  margin-right: 10px;
+}
+
+.divider::after {
+  margin-left: 10px;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 15px;
+  color: #999;
+  margin-top: 50px;
+}
+
+.footer-text span {
+  text-decoration: underline;
+}

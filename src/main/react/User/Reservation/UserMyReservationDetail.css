@@ -1,0 +1,314 @@
+.user-content-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-shadow: none;
+  margin: 0;
+  border: none;
+}
+
+.user-content-container:first-child {
+  padding-top: 75px;
+}
+
+.user-content-container:last-child {
+  padding-bottom: 40px;
+}
+
+/* .user-content-container:first-child {
+  margin-top: 40px;
+} */
+
+.payment-info-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+/* ------------------ 입금 정보 ------------------ */
+/* 입금기한 */
+.deposit-date {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.account-left {
+  font-size: 16px;
+  text-align: left;
+}
+
+.account-right {
+  font-size: 16px;
+  text-align: right;
+}
+
+/* 계좌 복사 버튼 */
+.account-number-copy-btn {
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  padding: 0 0 0 5px;
+}
+
+.account-number-copy-btn .bi-copy {
+  font-size: 15px;
+  color: #999;
+}
+
+.account-number-copy-btn:active {
+  background-color: #ccc;
+}
+
+/* ------------------ 결제 정보 ------------------ */
+.payment-left {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left;
+  flex: 1;
+}
+
+.payment-right {
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-align: right;
+  flex: 1;
+}
+
+.payment-right a {
+  color: #000;
+}
+
+
+.reservation-date {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.info-row .left {
+  text-align: left;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.info-row .right {
+  text-align: right;
+  flex: 1;
+}
+
+.info-row .left2 {
+  text-align: left;
+  flex: 1;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info-row .right2 {
+  text-align: right;
+  flex: 1;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info-row .left3 {
+  text-align: left;
+  flex: 1;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.info-row .bi {
+  /* color: #fd8517; */
+  margin-right: 10px;
+}
+
+
+.info-content {
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+
+.bi-chevron-up,
+.bi-chevron-down {
+  transition: transform 0.3s ease;
+  margin: 0;
+  font-size: 14px;
+}
+
+.info-row:hover .bi-chevron-up,
+.info-row:hover .bi-chevron-down {
+  transform: scale(1.2);
+}
+
+
+/* 결제 정보 */
+.payment-info {
+  font-size: 16px;
+  color: #000;
+}
+
+
+
+.info-row2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-left: 18px;
+  font-size: 14px;
+}
+
+.user-content-container .info-row:last-child {
+  margin: 0;
+}
+
+
+hr {
+  border: none;
+  height: 12px;
+  background-color: #F5F5F5;
+  width: 100%;
+}
+
+.reservation-cancel-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #C2C2C2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.user-top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  /* text-align: center; */
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  /* position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100; */
+  position: fixed;
+  width: 100%;
+}
+
+
+.back-btn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0;
+}
+
+.back-btn-container span {
+  font-size: 18px;
+}
+
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-reserve-menu {
+  display: flex;
+  gap: 3%;
+  width: 100%;
+}
+
+.user-reserve-menu img {
+  width: 120px;
+  height: 120px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.user-reserve-menu-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+}
+
+.review-container {
+  /* width: 300px; */
+  /* margin: 0 auto; */
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.service-box {
+  /* border: 1px solid #eee; */
+  /* border-radius: 10px; */
+}
+
+.store-name2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.store-name2 img {
+  width: 16px;
+  height: 16px;
+}
+
+.service-name2 {
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+
+.service-content2 {
+  font-size: 14px;
+}
+
+.payment-date {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px
+}
+
+.payment-num {
+  font-size: 16px;
+  color: #000;
+}
+
+.header {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}

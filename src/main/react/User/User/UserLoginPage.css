@@ -1,0 +1,137 @@
+.user-login-container {
+    margin: 10px auto;
+    background-color: white;
+    overflow-y: hidden;
+}
+
+.user-login-container  form {
+    /* margin: 50px; */
+    /* margin-top: 100px; */
+    margin-bottom: 40px;
+}
+h2 {
+    text-align: center;
+    font-size: 25px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.form-group label {
+    position: absolute;
+    top: 15px;
+    left: 12.5%;
+    font-size: 18px;
+    color: #999;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+.form-group input {
+    width: 75%;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* 포커스 시 하단 테두리 애니메이션 */
+.form-group input:focus {
+    border-bottom-color: #FE8517; /* 포커스 시 테두리 색상 */
+}
+
+/* 입력 필드 포커스 시 또는 값이 입력된 경우 레이블 이동 */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 15px;
+    color: #FE8517; /* 활성화된 상태의 레이블 색상 */
+}
+
+/* 자동 완성으로 input 필드 채우면 색상이 제멋대로 변경되는 걸 방지 */
+.form-group input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: #000;
+}
+
+.form-group .invisible-icon {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+}
+
+.btn-dologin {
+    width: 75%;
+    height: 60px;
+    margin-top: 20px;
+    padding: 10px;
+    background: #FE8517;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.findaccount {
+    text-align: center;
+    cursor: pointer;
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px 0;
+}
+.social-login img {
+    width: 75%;
+    height: 50px;
+    cursor: pointer;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0;
+}
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+.divider::before {
+    margin-right: 10px;
+}
+.divider::after {
+    margin-left: 10px;
+}
+
+.divider2 {
+    color: #ccc;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 15px;
+    color: #333;
+    margin-top: 50px;
+}
+
+.footer-text span{
+    text-decoration: underline;
+    cursor: pointer;
+}

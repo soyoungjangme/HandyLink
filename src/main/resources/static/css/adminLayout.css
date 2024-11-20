@@ -8,156 +8,310 @@
   font-style: normal;
 }
 @font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
   font-family: 'Pretendard-Regular';
   src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'MYArirang_gothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/MYArirang_gothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeoLight';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeoBold';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeoExtraBold';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeoHeavy';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquareNeoVariable';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
+}
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+/* .noto-sans-kr-<uniquifier> {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+
+.app-title {
+  border : 1px solid red;
+  color : red;
+}
+
 body {
-  font-family: 'Pretendard-Regular';
+  font-family: "Noto Sans KR", sans-serif;
     margin: 0;
     padding: 0;
       height: 100%;
       width: 100%;
+      position: relative;
 }
 
 .logo {
-  font-family: 'ghanachoco';
-  font-size: 28px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  margin-left: 20px;
+  /* font-family: "Black Han Sans", serif;
+  font-family: "Black Han Sans", sans-serif; */
+  font-family: 'FlightSans-Title';
+font-size: 38px;
+font-weight: bold;
+cursor: pointer;
+color : #fff;
+      margin-left: 10px;
 }
 
-.mainBox {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  height: 100%;
-
+.logo > span {
+  font-size: 18px;
 }
 
-.menu-btn {
-  transition: opacity 0.3s ease;
+.logo > img {
+  width: 113px;
+    display: flex;
 }
+
+
+  .mainBox {
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
+    height: 100%;
+  }
 
 .sidebar {
+font-weight: 600;
 
-  width: 220px;
-  background-color: #1d2830;
+  width: 180px;
+  background-color: #fff;
   color: #ecf0f1;
   font-size: 20px;
   display: flex;
   flex-direction: column;
   padding: 15px;
-  /* padding-left: 35px; */
-  position: relative;
-  min-height: 100vh;
+/*  padding-left: 35px;*/
+ box-shadow: 0 5px 4px rgb(191 191 191 / 25%), 0px 0px 1px 0px rgba(0, 0, 0, 0.22);
+  /* position: absolute; */
+  min-height: 91.5vh;
+  /* height: 100%; */
   box-sizing: border-box;
+  z-index: 100;
+      padding-top: 32px;
+    gap: 5px;
 }
 
-.dropdown {
+
+.dropdown, 
+.dropdown2 {
+margin-bottom: 5px;
   text-decoration: none;
-  color: #ecf0f1;
+  color: #000;
   display: none;
   transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
 }
 
-.sidebar div:nth-child(2){
-  margin-top: 15px;
+
+.dropdown > a:nth-child(1), 
+.dropdown2 > a:nth-child(1){
+    border-top: 1px solid #ddd;
 }
-.sidebar div {
-  margin-bottom: 5px;
-}
+
 
 .sidebar a {
+letter-spacing : 3px;
   text-decoration: none;
-  color: #ecf0f1;
-  padding: 15px 10px;
-  padding-left: 20px;
+  color: #000;
+ padding: 17px;
   display: block;
 
 }
 
-.dropdown-btn > .bi-caret-down-fill {
-  font-size: 15px;
-  position: absolute;
-  top: 20px;
-  left: 160px;
+.dropdown-btn > .bi-caret-down-fill,
+.dropdown-btn2 > .bi-caret-down-fill {
+    font-size: 15px;
+    position: absolute;
+    top: 3px;
+    left: 102px;
 }
 
-.dropdown-btn > .bi-caret-left-fill {
+.dropdown-btn > .bi2 ,
+.dropdown-btn2 > .bi4{
   display: none;
   font-size: 15px;
-  position: absolute;
-  top: 20px;
-  left: 160px;
+      position: absolute;
+      top: 3px;
+      left: 102px;
 }
 
-.dropdown a {
+.dropdown a, .dropdown2 a {
   text-decoration: none;
-  color: #ecf0f1;
-  padding: 15px 10px;
-  padding-left: 30px;
+  color:#000;
   display: block;
+  margin-bottom: 5px;
+border-bottom: 1px solid #ddd;
+  font-size: 17px;
+  font-weight: 500;
+  color: #464646;
+  text-align: center;
 }
+/* 
+#storeMenu , #masterMenu {
+  display: none;
+} */
+
+.dropdown a  > .bi, .dropdown2 a  > .bi {
+margin-left : 5px;
+display : block;
+}
+
+
+.menu-btn {
+    border: 1px solid #ddd;
+    text-align : center;
+    }
+
 
  .menu-btn .bi {
-  /* display: inline; */
-  margin-right: 5px;
+ display: block;
+
 }
 
+
 .dropdown a:hover {
-  background-color: #64768194;
+  background-color: #c7ddea94;
 }
 
 
 .sidebar .menu-btn:hover {
-  background-color: #64768194;
+  background-color: #c7ddea94;
 }
 
 
-.dropdown-btn {
+.dropdown-btn, .dropdown-btn2  {
   transition: opacity 0.3s ease; /* 부드러운 전환 효과 */
   cursor: pointer;
   text-decoration: none;
-  color: #ecf0f1;
-  padding: 15px 10px;
-  padding-left: 20px;
+  color: #000;
+  padding: 17px;
   display: block;
   position: relative;
+  letter-spacing : 3px;
 }
 
-.dropdown-btn.active {
-  background-color: #64768194; /* 드롭다운이 열릴 때 배경색 */
+.dropdown-btn.active, .dropdown-btn2.active {
+  background-color: #c7ddea94; /* 드롭다운이 열릴 때 배경색 */
 }
 
-/* -------------------------------------------------- */
 
+
+/* home 아이콘 때문에 아래부터 다 건드림 */
 .layout-nav {
-  border-bottom: 1px solid #ddd;
-  background-color: #1d2830;
+    background-color: #38414a;
   height: 80px;
   display: flex;
   align-items: center;
   padding: 0 20px;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+
+.layout-container {
+  display: flex;
+  height: 100%;
+  }
+
+.layout-container-content{
+  background-color:#eceff4;
+  /* border : 1px solid red; */
+  width: 100%;
+  /* height: 100%; */
+
+}
+/* 아이콘 감싼 박스 */
+.icon-box {
+  width: 32px;
+      margin-left: 30px;
+}
+
+/* 홈 아이콘 크기 */
+.icon-box > .home-icon {
+  font-size: 32px;
+  cursor: pointer;
 }
 
 
 .layout-profile {
   margin-top: 10px;
   float: right;
-  width: 400px;
+  width: 500px;
 
 
 }
-
 .layout-profile-buttons {
-  display: flex;
-  width: 100%;
-  gap: 3%;
+    display: flex;
+    gap: 3%;
+}
+
+.layout-profile-buttons > button {
+width : 110px;
+}
+.layout-content {
+  margin: 32px 37px;
+  padding: 22px;
+  background-color: #fff;
+  /* border: 1px solid red; */
+  border-radius: 8px;
+  min-height:70vh;
 }
 
 
@@ -165,15 +319,14 @@ body {
   /*홍길동 님*/
   align-items: center;
   color : #fff;
-  margin-right: 30px;
-  width: 100%;
+  margin-right: 20px;
 }
 
 .layout-profile-button{
   /*버튼*/
   /*padding: 10px 16px;*/
-  border: 1px solid #1d2830;
-  background-color: #515766;
+  border: 1px solid #575e63;
+  background-color: #575e63;
   color: white;
   font-size: 14px;
   border-radius: 2px;
@@ -184,12 +337,11 @@ body {
   /*마이페이지 버튼*/
   width: 100%;
   height: 30px;
-  background-color: #51699f96;
+  background-color: #6E7C85;
   color: #ffffff;
 }
-
 .layout-mypage-button:hover{
-  background-color: #59595996;
+  background-color: #2424245b;
 }
 
 
@@ -199,7 +351,7 @@ body {
   height: 30px;
 }
 .layout-logout-button:hover{
-  background-color: #59595996;
+  background-color: #2424245b;
 }
 
 .layout-profile-info {
@@ -208,7 +360,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   display: flex;
-  justify-content: space-between;
+justify-content: flex-end;
   width: 100%;
 }
 
@@ -220,12 +372,10 @@ body {
 }
 
 
-.layout-container {
-  flex: 1;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-}
+
+
+
+
 
 #root {
   margin: 20px 50px;

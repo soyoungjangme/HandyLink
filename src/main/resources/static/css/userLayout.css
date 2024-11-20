@@ -1,0 +1,619 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+  font-family: 'ghanachoco';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Pretendard-Regular';
+  margin: 0px;
+  padding: 0px;
+
+}
+.nav-link {
+  fill-rule: evenodd;
+  fill: #000000; /* or any other color for active state */
+}
+
+.nav-link.active  {
+  fill-rule:nonzero;
+  fill: #fd8517; /
+}
+
+.nav-link2 {
+  /* fill-rule: evenodd; */
+  fill: #000000; /* or any other color for active state */
+}
+
+.nav-link2.active  {
+  /* fill-rule:nonzero; */
+  fill: #fd8517; /
+}
+
+
+.nav-link3 {
+  /* fill-rule: evenodd; */
+  fill: #000000; /* or any other color for active state */
+}
+
+.nav-link3.active  {
+  /* fill-rule:nonzero; */
+  fill: #fd8517; /
+}
+
+
+.nav-link4 {
+  /* fill-rule: evenodd; */
+  fill: #000000; /* or any other color for active state */
+}
+
+.nav-link4.active  {
+  /* fill-rule:nonzero; */
+  fill: #fd8517; /
+}
+
+
+.nav-link5 {
+  fill-rule: evenodd;
+  fill: #000000; /* or any other color for active state */
+}
+
+.nav-link5.active  {
+  fill-rule:nonzero;
+  fill: #fd8517; /
+}
+.nav-link5 .icon-fill.active  {
+  /* fill-rule:nonzero; */
+  fill: #fd8517; /
+}
+
+
+
+.user-bottom-nav {
+  /* z-index: 100; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 60px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); */
+}
+
+.user-bottom-nav a {
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  flex: 1;
+}
+
+.user-bottom-nav a span {
+  display: block;
+  margin-top: 5px;
+}
+/* 
+.logo {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77);
+  font-family: 'ghanachoco';
+  font-size: 25px;
+  margin-bottom: 20px;
+} */
+
+
+.user-main-container {
+  padding: 0px;
+  margin: 0 auto;
+  /* border: 1px solid #ddd; */
+  max-width: 400px;
+  min-height: calc(100vh - 63px);
+  margin-bottom: 50px;
+}
+
+
+/* 상단 버튼 디자인 */
+.user-top-btns {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-top-btns>button {
+  height: 30px;
+  width: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+
+}
+
+.user-main-content {
+  /* padding : 15px; */
+  margin-bottom: 100px;
+  /* border : 1px solid blue; */
+}
+
+
+
+/* --------------------------------------------------- */
+
+
+.user-content-container {
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: 1px solid #ddd
+}
+
+
+
+.payment-amount {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.reservation-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.reservation-info img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.reservation-details {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.reservation-details h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.reservation-details p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+.payment-info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.user-content-first {
+  /* border: 1px solid red; */
+
+  margin-bottom: 30px;
+}
+
+.user-content-first-img>img {
+  position: relative;
+}
+
+.user-content-first-img-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.user-content-first-content {
+  padding: 15px;
+}
+
+.store-name {
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+}
+
+.store-name button {
+  height: 50px;
+  font-size: 25px;
+  background-color: #fff;
+  border: none;
+}
+
+.store-name button:active {
+  height: 50px;
+  font-size: 25px;
+  color: red;
+  background-color: #fff;
+  border: none;
+}
+/* 
+.store-detail-menu {
+  
+  display: flex;
+  justify-content: center;
+}
+
+.store-detail-menu>button {
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.store-detail-menu>button:active {
+  background-color: #ddd;
+} */
+
+/* ----------------------------------------- */
+
+/* 검색바 */
+/*.store-search-bar {
+  margin: 30px;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+  background-color: #eee;
+  text-align: center;
+  display: flex;
+  padding: 10px;
+  align-items: baseline;
+  position: relative;
+}
+
+.store-search-bar>input {
+  font-size: 18px;
+  width: 100%;
+  padding: 10px;
+  background-color: #eee;
+  border: none;
+}
+
+.store-search-bar>.bi {
+  font-size: 20px;
+  margin: 10px;
+}
+
+ ------- */
+
+
+.user-main-list-wrap {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 50px;
+}
+
+.user-main-list-container {
+  background-color: white;
+  margin: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.user-category-menu-img {
+  width: 150px;
+  height: 180px;
+  gap: 3%;
+}
+
+.user-category-name {
+  position: absolute;
+  top: 148px;
+  left: 13px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* 모바일 스크롤 스타일 */
+.user-main-list-wrap::-webkit-scrollbar {
+  height: 0px;
+}
+
+.user-main-list-wrap::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* 모바일 환경 */
+@media (max-width: 767px) {
+
+  /* PC 버튼 숨김 */
+  .nav-button {
+    display: none !important;
+  }
+}
+
+/* PC 환경 */
+@media (min-width: 768px) {
+
+  /* 스크롤바 감추기 */
+  .user-main-list-wrap {
+    overflow-x: hidden;
+  }
+
+  /* PC 환경에서 좌우 버튼 추가 */
+  .nav-button {
+    position: absolute;
+    /* 부모 요소 내에서 고정 */
+    top: 325%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .nav-button.left {
+    left: -30px;
+    /* 부모 요소의 왼쪽에 고정 */
+  }
+
+  .nav-button.right {
+    right: -30px;
+    /* 부모 요소의 오른쪽에 고정 */
+  }
+}
+
+
+
+
+
+.user-main-list-menu button {
+  font-weight: bold;
+  width: 70px;
+  height: 50px;
+  border: none;
+  background-color: #fff;
+  margin-right: 20px;
+  transition: border-bottom 0.1s ease, color 0.1s ease;
+}
+
+.user-main-list-menu button.active {
+  border-bottom: 5px solid #9d4edd;
+  color: #9d4edd;
+}
+
+.user-main-list-menu {
+  height: 50px;
+  display: inline-flex;
+  margin-left: 20px;
+}
+
+/* 모바일에서는 스크롤바 표시 */
+.user-main-list-wrap2 {
+  overflow-x: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-main-list-wrap2::-webkit-scrollbar {
+  height: 0px;
+}
+
+.user-main-list-wrap2::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* PC 환경에서 버튼 추가, 스크롤바 숨김 */
+@media (min-width: 768px) {
+  .user-main-list-wrap2 {
+    overflow-x: hidden;
+  }
+
+  .user-main-list-wrap2::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-button-wrap2 {
+    position: absolute;
+    top: -27px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .nav-button-wrap2.left {
+    left: 0;
+  }
+
+  .nav-button-wrap2.right {
+    right: 0;
+  }
+}
+
+/* 모바일 환경에서 버튼 숨김 */
+@media (max-width: 767px) {
+  .nav-button-wrap2 {
+    display: none !important;
+  }
+}
+
+
+
+.user-main-list-wrap3 {
+  padding: 20px;
+  position: relative;
+}
+
+
+.sub-content-top,
+.sub-content-mid,
+.sub-content-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.sub-content-option {
+    margin-right: 10px;
+}
+
+.sub-content-container {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.user-main-list-sub-part {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+}
+
+.user-main-list-sub-content {
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: 1px solid #ddd
+}
+
+.user-main-list-sub-content>.bi {
+  position: absolute;
+  font-size: 25px;
+  color: #fff;
+  top: 20px;
+  left: 510px;
+}
+
+.sub-content-img-box {
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+}
+
+.sub-content-img-box img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+
+/* 가게명 */
+.sub-content-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+/* 가게 카테고리 */
+.sub-content-category {
+  margin-top: 5px;
+}
+
+/* 영업시간 */
+.sub-content-date {
+  margin: 5px 10px 0 0;
+  font-size: 14px;
+}
+
+.bi-clock-fill {
+  margin-right: 5px;
+}
+
+/* 별점 */
+.sub-content-review {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.sub-content-review > span:nth-child(1) {
+  color: #FFD700;
+}
+
+.sub-content-review > span:nth-child(2) {
+  color: #999;
+}
+
+/* 위치 */
+.sub-content-location {
+  margin: 0 10px 5px 0;
+  font-size: 14px;
+}
+
+.bi-geo-alt-fill {
+  margin-right: 5px;
+}
+
+/* 가격 */
+.sub-content-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* 해시태그(메뉴명) */
+.sub-content-option-container {
+
+}
+
+.sub-content-option {
+  font-size: 16px;
+}
+
+/*-----------------------점---------------------------*/
+
+.user-bottom-nav a {
+  position: relative;
+}
+
+.nav-new-message-dot {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background-color: #ff0000;
+  border-radius: 50%;
+}
+

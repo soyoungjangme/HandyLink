@@ -1,0 +1,277 @@
+
+.store-report {
+    display: flex;
+    gap: 30px;
+}
+
+.flex-left {
+    width: 50%;
+}
+
+.flex-right {
+    width: 50%;
+}
+
+.report-section{
+/* border: 1px solid red; */
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.reservation-status{
+    border: 1px solid #ddd;
+    display: flex;
+    margin: 0 50px;
+}
+
+.reservation-field {
+/*    border-left: 1px solid #ddd;*/
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+}
+
+.reservation-field:nth-child(1){
+    border: none;
+}
+
+
+.userLike {
+    color: #ff4d4d;
+}
+
+.review {
+    color: #d8b70a;
+}
+
+.complete {
+    color: #fd8517;
+}
+
+.cancled {
+    color: #F44336;
+}
+
+.doing {
+    color: #4CAF50;
+}
+
+.reservation-graph{
+/*    margin: 35px 10px;*/
+    /* padding: 50px; */
+    padding-top: 0;
+}
+
+.graph-filter {
+    font-size: 12px;
+    overflow: hidden;
+}
+
+
+.filter {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 30%;
+    height: 22px;
+    margin-left: 5px;
+    display: flex;
+    float: left;
+}
+
+
+.filter > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #ddd;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.filter > span:nth-child(1){
+    border: none;
+}
+
+.price > span{
+    width: 50%;
+    border: none;
+}
+
+.filter > span:hover {
+    background-color: rgba(189, 189, 189 , 27%);
+}
+
+.filter > span.active {
+    background-color: rgba(189, 189, 189 , 53%);
+}
+
+.graph {
+    border: 1px solid #c9c9c9;
+    border-radius: 3px;
+    padding: 15px 30px 0 0;
+    margin-top: 10px;
+}
+
+.small-text {
+    float: right;
+    color: #999;
+    font-size: 12px;
+}
+
+h3 {
+    margin: 10px;
+}
+
+
+.graph-section,
+.table-section{
+    width: 45%;
+}
+
+.detail{
+    margin: 10px;
+}
+
+.customer-section-box{
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 3px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.customer {
+    margin: 10px;
+}
+
+.customer.m {
+    width: 75%;
+}
+
+.mwtable, .agetable {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.mwtable th, .agetable th {
+    width: 50%;
+    padding: 8px;
+    text-align: center;
+    background-color: #727272;
+    color: white;
+    border: 1px solid #ddd;
+}
+
+.mwtable td, .agetable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.mwtable tbody tr:nth-child(even), .agetable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.mwtable tbody tr:hover, .agetable tbody tr:hover {
+    background-color: rgba(147, 233, 255, 0.2);
+    transition: background-color 0.3s;
+}
+
+
+.table-container {
+    /* width: 80%; */
+    /* margin: 50px auto; */
+    padding: 10px;
+    background-color: #fff;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .month-day  > button {
+    border-left: 1px solid #ddd;
+    width: 33%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #38414a;
+    color: white;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  table tr:hover {
+    background-color: #ddd;
+  }
+  
+  table td {
+    font-size: 16px;
+  }
+
+  .toggle-buttons {
+    float: right;
+}
+
+
+.toggle-buttons button {
+    padding: 2px 10px;
+    margin: 0 3px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f0f0f0;
+}
+
+.toggle-buttons button:hover{
+    background-color:#cccaca;
+}
+
+.toggle-buttons > button.active {
+    background-color: #38414a;
+    color: white;
+}
+
+.table-container {
+    /* margin-top: 20px; */
+}
+
+.monthly-year {
+    margin: 10px 13px 0 13px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.monthly-search {
+    float: left;
+    display: flex;
+    gap: 10px;
+}
+
+.monthly-search > input {
+    padding: 5px;
+    width: 30%;
+}
+
+.only-graph {
+    margin: 30px;
+}

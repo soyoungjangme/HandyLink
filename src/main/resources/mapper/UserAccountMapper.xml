@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.HiMade.user.mapper.UserAccountMapper">
+
+    <!-- 아이디 중복 확인 -->
+    <select id="checkId" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM USERS WHERE user_id = #{userId}
+    </select>
+
+    <!-- 유저 등록 -->
+    <insert id="insertUser" parameterType="UserDTO">
+        INSERT INTO USERS (user_id, user_pw, user_name, user_birth, user_gender, user_phonenum, user_signup, user_img_url, refund_account_number, login_type, user_status)
+        VALUES (#{userId}, #{userPw}, #{userName}, #{userBirth}, #{userGender}, #{userPhonenum}, CURRENT_DATE, #{userImgUrl}, #{refundAccountNumber}, #{loginType}, 'Y')
+    </insert>
+
+    <!-- 유저 정보 조회 -->
+    <select id="getUserById" parameterType="String" resultType="com.example.HiMade.user.dto.UserDTO">
+        SELECT user_id, user_pw, user_name, user_birth, user_phonenum, user_gender, user_signup, user_img_url, login_type, user_status
+        FROM USERS
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- 유저 정보 업데이트 -->
+    <update id="updateUser" parameterType="UserDTO">
+        UPDATE USERS
+        SET
+        user_name = #{userName},
+        user_phonenum = #{userPhonenum},
+        user_birth = #{userBirth},
+        user_gender = #{userGender},
+        user_img_url = #{userImgUrl}
+        <if test="userPw != null and userPw != ''">
+            , user_pw = #{userPw}
+        </if>
+        WHERE user_id = #{userId}
+    </update>
+
+    <!-- 아이디 찾기용 유저 조회 -->
+    <select id="findUserIdByNameAndPhone" parameterType="map" resultType="string">
+        SELECT user_id
+        FROM USERS
+        WHERE user_name = #{userName}
+        AND user_phonenum = #{phonenum}
+        AND login_type = 'GENERAL'
+        LIMIT 1
+    </select>
+
+    <!-- 비밀번호 찾기용 유저 조회 -->
+    <select id="verifyUserForPasswordReset" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM USERS
+        WHERE user_id = #{userId}
+        AND user_name = #{userName}
+        AND user_phonenum = #{phonenum}
+        AND login_type = 'GENERAL'
+    </select>
+
+    <!-- 비밀번호 찾기를 통한 변경 -->
+    <update id="updatePassword" parameterType="map">
+        UPDATE USERS
+        SET user_pw = #{newPassword}
+        WHERE user_id = #{userId}
+    </update>
+
+    <!--탈퇴 처리-->
+    <update id="deleteUser" parameterType="map">
+        UPDATE USERS
+        SET user_id = #{newUserId},
+            user_status = 'N'
+        WHERE user_id = #{originalUserId}
+    </update>
+
+    <!-- 카카오 탈퇴 -->
+    <update id="deleteKakaoUser" parameterType="map">
+        UPDATE USERS
+        SET user_id = #{newUserId},
+            user_status = 'N'
+        WHERE user_id = #{originalUserId}
+          AND login_type = 'KAKAO'
+    </update>
+
+
+</mapper>

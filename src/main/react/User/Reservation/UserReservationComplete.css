@@ -1,0 +1,488 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@font-face {
+    font-family: 'ghanachoco';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+body {
+  font-family: 'Pretendard-Regular';
+    margin: 0px;
+    padding : 0px;
+
+}
+
+.user-reserve-menu {
+  display: flex;
+  gap: 3%;
+
+}
+.user-reserve-menu img{
+  width: 120px;
+  border-radius: 5px;
+}
+.user-reserve-menu-content{
+  display: flex;
+  flex-direction: column;
+    width : 100%;
+
+}
+
+.user-top-nav {
+    padding: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.user-bottom-nav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); */
+}
+
+.user-bottom-nav a {
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    flex: 1;
+}
+
+.user-bottom-nav a span {
+    display: block;
+    margin-top: 5px;
+}
+
+.logo {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77);
+    font-family: 'ghanachoco';
+    font-size: 25px;
+    /* margin-bottom: 20px; */
+  }
+
+
+  .user-main-container{
+    padding: 0px;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    max-width: 600px;
+    min-height: calc(100vh - 63px);
+  }
+
+
+  /* 상단 버튼 디자인 */
+.user-top-btns  {
+    margin : 10px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-top-btns > button {
+    height: 30px;
+    width: 50px;
+    font-size: 25px;
+    background-color: #fff;
+    border: none;
+
+}
+
+  .user-main-content {
+    /* padding : 15px; */
+    margin-bottom: 100px;
+    /* border : 1px solid blue; */
+  }
+
+
+
+/* --------------------------------------------------- */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@font-face {
+    font-family: 'ghanachoco';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+body {
+  font-family: 'Pretendard-Regular';
+    margin: 0px;
+    padding : 0px;
+
+}
+
+.user-top-nav {
+    padding: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.user-bottom-nav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); */
+}
+
+.user-bottom-nav a {
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    flex: 1;
+}
+
+.user-bottom-nav a span {
+    display: block;
+    margin-top: 5px;
+}
+
+.logo {
+    color: transparent;
+    -webkit-background-clip: text;
+    /* background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77); */
+    background-image: linear-gradient(207deg, rgba(146,169,255,1) 0%, rgba(53,58,148,1) 100%);
+    font-family: 'ghanachoco';
+    font-size: 25px;
+    /* margin-bottom: 20px; */
+  }
+
+
+  .user-main-container{
+    padding: 0px;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    max-width: 600px;
+    min-height: calc(100vh - 63px);
+  }
+
+
+  /* 상단 버튼 디자인 */
+.user-top-btns  {
+    margin : 10px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-top-btns > button {
+    height: 30px;
+    width: 50px;
+    font-size: 25px;
+    background-color: #fff;
+    border: none;
+
+}
+
+  .user-main-content {
+    /* padding : 15px; */
+    margin-bottom: 100px;
+    /* border : 1px solid blue; */
+  }
+
+
+
+/* --------------------------------------------------- */
+
+
+  .user-content-container {
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid #2C348F;
+  }
+
+
+
+  .user-content-first{
+    /* border: 1px solid red; */
+    margin-bottom: 30px;
+  }
+
+  .user-content-first-img > img {
+    position: relative;
+  }
+
+  .bi {
+    color : #2C348F;
+  }
+
+  .user-content-first-img-num {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
+
+  .user-content-first-content {
+    padding: 15px;
+  }
+
+  .store-name {
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+  }
+  .store-name button {
+    height: 50px;
+    font-size: 25px;
+    background-color: #fff;
+    border: none;
+  }
+  .store-name button:active {
+    height: 50px;
+    font-size: 25px;
+    color : red;
+    background-color: #fff;
+    border: none;
+  }
+
+  .store-detail-menu {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+
+  }
+  .store-detail-menu > button {
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    background-color: #fff;
+    border: none;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-family: 'Pretendard-Regular';
+    border-bottom: 3px solid #ddd;
+  }
+
+  .store-detail-menu > button:active {
+    border-bottom: 3px solid #2C348F;
+    color : #2C348F;
+  }
+/* ----------------------------------------- */
+  /* .user-reserve-menu {
+    display: flex;
+    gap: 3%;
+
+  } */
+  .user-reserve-menu img{
+    width: 120px;
+    border-radius: 5px;
+  }
+  .user-reserve-menu-content{
+    display: flex;
+    flex-direction: column;
+
+
+  }
+
+  .user-reserve-menu-content  div {
+
+  }
+
+  .user-reserve-menu-content div:nth-child(1) {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .user-reserve-menu-content div:nth-child(2) {
+    height: 100%;
+    margin-bottom: 10px;
+  }
+
+  .user-reserve-menu-content div:nth-child(3) {
+
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  /* --------------------------------------- */
+
+.user-reserve-date-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.user-reserve-data{
+    border : 1px solid #ddd;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 50px;
+    margin-bottom: 20px;
+}
+
+.user-reserve-data  .bi {
+  margin-right: 10px;
+}
+
+.user-reserve-date-calender {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+}
+
+.user-reserve-date-time {
+    margin-bottom: 20px;
+    height: 100px;
+    width: 100%;
+    overflow-x: auto; /* 가로 스크롤을 활성화 */
+    scrollbar-width: thin;
+    white-space: nowrap; /* 버튼들이 가로로 나열되도록 */
+    display: flex;
+    align-items: center;
+
+    /* border-radius: 50px;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; */
+}
+
+.user-reserve-date-time button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    font-family: 'Pretendard-Regular';
+    font-weight: bold;
+}
+
+.user-content-last {
+    /* border : 1px solid red; */
+    padding : 20px;
+}
+.user-content-last > button {
+    float: right;
+    background-color: #2C348F;
+    /* background: rgb(146,169,255);
+    background: linear-gradient(207deg, rgba(146,169,255,1) 0%, rgba(53,58,148,1) 100%); */
+    width: 100px;
+    height: 35px;
+    border : none;
+    border-radius: 3px;
+    color : #fff;
+}
+.user-content-last  .bi {
+  color : #fff;
+  font-size: 15px;
+}
+
+/* custom-calendar.css */
+
+.react-calendar {
+    font-family: 'Pretendard-Regular';
+    font-size: 20px;
+  width: 100%;
+ max-width: 400px; /* 캘린더의 최대 너비 설정 */
+  background-color: #ffffff; /* 배경색 */
+  border-radius: 10px; /* 부드러운 모서리 */
+/*  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); *//* 그림자 효과 */
+  margin: 20px auto; /* 상하 여백 및 중앙 정렬 */
+  padding: 10px; /* 패딩 */
+}
+
+.react-calendar__month-view {
+  padding: 0; /* 월 보기 패딩 제거 */
+      text-align: center;
+}
+
+.react-calendar__tile {
+  max-width: 50px;
+      height: 54px;
+      background-color : #fff;
+  border-radius: 5px; /* 타일의 부드러운 모서리 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  font-size : 15px;
+  border: 1px solid #ddd;
+  cursor : pointer;
+
+
+}
+
+.react-calendar__tile:hover {
+  background-color: #bcc1ff; /* 호버 시 배경색 변화 */
+}
+
+.react-calendar__tile--active {
+  background-color: #2C348F; /* 선택된 날짜 색상 */
+  color: white; /* 선택된 날짜 텍스트 색상 */
+}
+
+.react-calendar__tile--now {
+  background-color:#ebebeb; /* 오늘 날짜 배경색 */
+  color : #000;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 10px; /* 네비게이션 바와 캘린더 사이의 여백 */
+  text-align: center;
+      font-size: 15px;
+}
+
+.react-calendar__navigation button {
+  background: none; /* 버튼 배경 제거 */
+  border: none; /* 버튼 테두리 제거 */
+  color: #2C348F; /* 버튼 텍스트 색상 */
+      font-size: 25px; /* 버튼 텍스트 크기 */
+      font-weight: bold;
+        font-family: 'Pretendard-Regular';
+        margin-bottom : 10px;
+}
+
+.react-calendar__navigation button:hover {
+  color: #2C348F; /* 호버 시 텍스트 색상 */
+}
+
+
+
+

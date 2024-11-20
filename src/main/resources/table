@@ -1,0 +1,227 @@
+
+(데이터베이스와 아래 테이블 설계도가 몇 가지 다른 부분 있어서 수정함)
+
+-- 시퀀스 생성
+
+CREATE SEQUENCE store_no_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE user_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE reservation_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE payment_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE review_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE inquiry_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE store_info_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE chat_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE alert_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE category_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE reservation_form_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE sub_category_status_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE reservation_slot_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE refund_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE inquiry_answer_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE image_seq START WITH 1 INCREMENT BY 1;
+
+
+
+-- 테이블 생성
+
+-- STORE 테이블
+CREATE TABLE STORE (
+    store_id VARCHAR(100) NOT NULL,  -- VARCHAR로 변경
+    store_pw VARCHAR(100) NULL,
+    store_cate VARCHAR(50) NULL,
+    store_name VARCHAR(40) NULL,
+    store_master VARCHAR(50) NULL,
+    manager_name VARCHAR(50) NULL,
+    manager_phone VARCHAR(20) NULL,
+    store_addr JSONB NULL,  -- 추가
+    store_business_no VARCHAR(12) NULL,
+    store_signup TIMESTAMP NULL,
+    store_status VARCHAR(20) NULL CHECK (store_status IN ('대기', '활성화', '비활성화')),
+    store_intro TEXT NULL,  -- 추가
+    store_parking_yn VARCHAR(1) NULL CHECK (store_parking_yn IN ('Y', 'N')),  -- 추가
+    store_sns JSONB NULL,  -- 추가
+    image_url TEXT[] NULL,  -- 추가
+    store_notice TEXT NULL,  -- 추가
+    store_start_time TIME NULL,  -- 추가
+    store_close_time TIME NULL,  -- 추가
+    store_day_off TEXT[] NULL,  -- 추가
+    store_account JSONB NULL,  -- 추가
+    store_no bigint NOT NULL DEFAULT nextval('store_no_seq')
+    PRIMARY KEY (store_id, store_no)
+);
+
+-- USERS 테이블
+CREATE TABLE USERS (
+    user_id VARCHAR(100) NOT NULL,  -- VARCHAR로 변경
+    user_pw VARCHAR(100) NULL,
+    user_name VARCHAR(50) NULL,
+    user_birth VARCHAR(8) NULL,
+    user_gender VARCHAR(1) NULL CHECK (user_gender IN ('F', 'M')),
+    user_phonenum VARCHAR(20) NULL,
+    user_signup DATE NULL,
+    login_type VARCHAR(10) NULL,
+    user_img_url VARCHAR(300) NULL,
+    refund_account_number BIGINT NULL,
+    user_status VARCHAR(20) DEFAULT 'ACTIVE',
+    PRIMARY KEY (user_id)
+);
+
+-- RESERVATION 테이블
+CREATE TABLE RESERVATION (
+    reservation_no BIGINT NOT NULL DEFAULT nextval('reservation_seq'),
+    reservation_status VARCHAR(100) NULL CHECK (reservation_status IN ('대기', '완료', '취소')),
+    confirm_time TIMESTAMP NULL,
+    reg_time TIMESTAMP NULL,
+    customer_request TEXT NULL,
+    reservation_price BIGINT NULL,  -- 추가
+    store_id VARCHAR(100) NOT NULL,
+    user_id VARCHAR(100) NOT NULL,
+    PRIMARY KEY (reservation_no),
+    FOREIGN KEY (store_id) REFERENCES STORE (store_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+-- PAYMENT 테이블
+CREATE TABLE PAYMENT (
+    payment_id BIGINT NOT NULL DEFAULT nextval('payment_seq'),
+    payment_method VARCHAR(20) NULL CHECK (payment_method IN IN ('간편결제', '일반결제', '계좌이체'));
+    payment_amount BIGINT NULL,
+    payment_date TIMESTAMP NULL,
+    payment_status VARCHAR(10) NULL CHECK (payment_status IN ('결제완료', '입금대기', '결제취소')),
+    reservation_no BIGINT NULL,
+    PRIMARY KEY (payment_id)
+);
+
+-- REVIEW 테이블
+CREATE TABLE REVIEW (
+    review_no BIGINT NOT NULL DEFAULT nextval('review_seq'),
+    review_rating NUMERIC(2, 1) NULL CHECK (review_rating >= 1 AND review_rating <= 5),
+    review_content VARCHAR(255) NULL,
+    review_date TIMESTAMP NULL,
+    reservation_no BIGINT NULL,
+    review_img_url VARCHAR(255) NULL,
+    PRIMARY KEY (review_no)
+);
+
+-- INQUIRY 테이블
+CREATE TABLE INQUIRY (
+    inquiry_no BIGINT NOT NULL DEFAULT nextval('inquiry_seq'),
+    inquiry_date TIMESTAMP NULL,
+    inquiry_content TEXT NULL,
+    visibility CHAR(1) NULL,
+    inquiry_status CHAR(1) NULL,
+    store_id VARCHAR(100) NOT NULL,
+    user_id VARCHAR(100) NOT NULL,
+    PRIMARY KEY (inquiry_no),
+    FOREIGN KEY (store_id) REFERENCES STORE (store_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+-- INQUIRY_ANSWER 테이블
+CREATE TABLE INQUIRY_ANSWER (
+    inquiry_no BIGINT NOT NULL,
+    answer_text TEXT NULL,
+    answer_time TIMESTAMP NULL,
+    PRIMARY KEY (inquiry_no),
+    FOREIGN KEY (inquiry_no) REFERENCES INQUIRY (inquiry_no)
+);
+
+-- ALERT 테이블
+CREATE TABLE ALERT (
+    alert_no BIGINT NOT NULL DEFAULT nextval('alert_seq'),
+    store_id VARCHAR(100) NOT NULL,
+    user_id VARCHAR(100) NOT NULL,
+    alert_type VARCHAR(50) NULL,
+    alert_content TEXT NULL,
+    alert_send_date TIMESTAMP NULL,
+    PRIMARY KEY (alert_no),
+    FOREIGN KEY (store_id) REFERENCES STORE (store_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+-- CATEGORY 테이블
+CREATE TABLE CATEGORY (
+    category_id BIGINT NOT NULL DEFAULT nextval('category_seq'),
+    category_level BIGINT NULL,
+    parent_category_id BIGINT NULL,  -- parent_category_level -> parent_category_id로 변경
+    service_name VARCHAR(50) NULL,
+    service_price BIGINT NULL,
+    service_content TEXT NULL,
+    store_id VARCHAR(100) NOT NULL,
+    PRIMARY KEY (category_id),
+    FOREIGN KEY (store_id) REFERENCES STORE (store_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+-- CATEGORY_IMAGE 테이블 (새로 추가됨)
+CREATE TABLE CATEGORY_IMAGE (
+    image_id BIGINT NOT NULL DEFAULT nextval('image_seq'),
+    category_id BIGINT NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
+    image_description TEXT NULL,
+    PRIMARY KEY (image_id),
+    FOREIGN KEY (category_id) REFERENCES CATEGORY (category_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+-- CHAT 테이블
+CREATE TABLE CHAT (
+    chat_no BIGINT NOT NULL DEFAULT nextval('chat_seq'),
+    chat_message TEXT NULL,
+    send_time TIMESTAMP NULL,
+    store_id VARCHAR(100) NOT NULL,
+    user_id VARCHAR(100) NOT NULL,
+    sender_type VARCHAR(10),
+    PRIMARY KEY (chat_no),
+    FOREIGN KEY (store_id) REFERENCES STORE (store_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+-- RESERVATION_FORM 테이블
+CREATE TABLE RESERVATION_FORM (
+    reservation_form_key BIGINT NOT NULL DEFAULT nextval('reservation_form_seq'),
+    main_category_id BIGINT NULL,
+    middle_category_id BIGINT NULL,
+    sub_category_id BIGINT NULL,
+    middle_category_value TEXT NULL,
+    reservation_no BIGINT NULL,
+    PRIMARY KEY (reservation_form_key)
+);
+
+-- RESERVATION_SLOT 테이블 (새로 추가됨)
+CREATE TABLE RESERVATION_SLOT (
+    reservation_slot_key BIGINT NOT NULL DEFAULT nextval('reservation_slot_seq'),
+    reservation_slot_date DATE NULL,
+    reservation_slot_time TIMESTAMP NULL,
+    slot_count BIGINT NULL,
+    slot_status_count BIGINT NULL,
+    reservation_active VARCHAR(1) NULL CHECK (reservation_active IN ('Y', 'N')),
+    store_id VARCHAR(100) NOT NULL,
+    category_id BIGINT NULL,
+    PRIMARY KEY (reservation_slot_key),
+    FOREIGN KEY (store_id) REFERENCES STORE (store_id) ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+-- REFUND 테이블
+CREATE TABLE REFUND (
+    refund_id BIGINT NOT NULL DEFAULT nextval('refund_seq'),
+    refund_method VARCHAR(20) NULL CHECK (refund_method IN ('간편결제', '일반결제', '계좌이체'));
+    refund_amount BIGINT NULL,
+    refund_date TIMESTAMP NULL,
+    payment_id BIGINT NOT NULL,
+    PRIMARY KEY (refund_id)
+);
+
+-- SUB_CATEGORY_STATUS 테이블
+CREATE TABLE SUB_CATEGORY_STATUS (
+    category_status BIGINT NOT NULL DEFAULT nextval('sub_category_status_seq'),
+    category_id BIGINT NULL,
+    sub_category_type VARCHAR(10) NULL CHECK (sub_category_type IN ('SELECT1', 'SELECTN', 'TEXT', 'NUMBER')),
+    is_required VARCHAR(1) NULL CHECK (is_required IN ('Y', 'N')),
+    is_paid VARCHAR(1) NULL CHECK (is_paid IN ('Y', 'N')),
+    PRIMARY KEY (category_status)
+);
+
+--store_like테이블
+CREATE TABLE store_like (
+    store_like_no BIGSERIAL PRIMARY KEY,
+    store_like_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    store_like_count BIGINT,
+    user_id VARCHAR(100),
+    store_no BIGINT,
+    store_id VARCHAR(100)
+);

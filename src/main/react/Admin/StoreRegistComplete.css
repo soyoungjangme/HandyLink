@@ -1,0 +1,94 @@
+
+.admin-singup-complete-container{
+/* border : 1px solid red; */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 100px;
+
+}
+.admin-singup-complete-container
+.singup-complete-title{
+/* border : 1px solid red; */
+    font-size: 40px;
+    margin-bottom: 30px;
+    margin-top: 100px;
+
+}
+
+.admin-singup-complete-container
+.singup-complete-title .logo {
+    display: block;
+    margin-bottom: 30px;
+
+}
+
+.admin-singup-complete-container
+.singup-complete-title .bi {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.admin-singup-complete-container
+.logo {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, #94b6e9, #56c9ef, #33d8d7, #73e0a7, #bfdf77);
+    font-family: 'ghanachoco';
+    font-size: 45px;
+
+}
+
+.admin-singup-complete-container
+.singup-complete-content{
+/* border : 1px solid red; */
+    margin-bottom: 70px;
+    font-size: 20px;
+}
+
+.admin-singup-complete-container
+.singup-complete-content > div:nth-child(1) {
+    color : rgb(199, 4, 4);
+    margin-bottom: 20px;
+
+}
+
+.admin-singup-complete-container
+.singup-complete-content > div:nth-child(1) span{
+    color : rgb(9, 9, 206);
+    margin-bottom: 10px;
+}
+
+.admin-singup-complete-container
+.singup-complete-content > div:nth-child(2) {
+    color : #999;
+    margin-bottom: 10px;
+    font-size: 15px;
+
+}
+
+.admin-singup-complete-container
+.singup-complete-content span {
+    color: black;
+}
+
+.admin-singup-complete-container
+.singup-complete-content a:hover {
+    color: rgb(79, 109, 218);
+}
+
+.admin-singup-complete-container
+.login-go-btn {
+    display: block;
+    /* width: 100%; */
+    /* text-align: center; */
+    padding: 10px 15px;
+    background-color: #38414a;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    border-radius: 3px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+}

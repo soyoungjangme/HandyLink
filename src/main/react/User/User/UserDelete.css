@@ -1,0 +1,91 @@
+.delete-account-container {
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    background-color: #fdecec;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.warning-text {
+    color: #ff4b4b;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.warning-text span {
+    font-weight: normal;
+}
+
+.description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+.input-group label {
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group {
+    text-align: center; /* Centers content horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers input elements */
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    width: 80%; /* Ensures inputs are consistent in width */
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: center; /* Centers placeholder text */
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.go-back-btn,
+.delete-btn {
+    flex: 1;
+    padding: 15px 0;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.go-back-btn {
+    background-color: #E5E5EA;
+    color: #333;
+}
+
+.delete-btn {
+    background-color: #FE8517;
+    color: #ffffff;
+}
